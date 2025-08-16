@@ -38,7 +38,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * TODO
+ * {@link SQLQueryRepositorySupport} 集成测试用例
  *
  * @author yangyunjiao
  */

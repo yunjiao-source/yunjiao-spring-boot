@@ -39,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * TODO
+ * {@link JPAQueryRepositorySupport} 集成测试用例
  *
  * @author yangyunjiao
  */
