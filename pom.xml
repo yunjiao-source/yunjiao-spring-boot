@@ -26,7 +26,6 @@
     <modules>
         <module>spring-querydsl</module>
         <module>spring-boot-dependencies</module>
-        <module>spring-boot-bom</module>
         <module>spring-boot-autoconfigure</module>
         <module>spring-boot-starter-querydsl-sql</module>
         <module>spring-boot-starter-querydsl-jpa</module>
