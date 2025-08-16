@@ -1,0 +1,10 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="io.yunjiao" level="DEBUG"/>
+    <logger name="org.springframework.boot.autoconfigure" level="DEBUG"/>
+    <logger name="com.querydsl.sql" level="DEBUG"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yunjiao?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    open-in-view: false
+
+logging:
+  level:
+    root: info
+    org.springframework.boot.autoconfigure: info
+    io.yunjiao: debug
+    com.querydsl.jpa: debug # 打印SQL语句
+
