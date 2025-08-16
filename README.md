@@ -23,6 +23,32 @@
 | spring-boot-starter-querydsl-jpa | QueryDSL JPA Spring Boot 启动器 | 1    |
 | spring-boot-starter-querydsl-sql | QueryDSL SQL Spring Boot 启动器 | 1    |
 
+## maven
+
+有两个方式引入本项目依赖，在你的父项目pom.xml文件中：
+
+```text
+    <!-- 第一种方式(推荐)：使用本父项目-->
+    <parent>
+        <groupId>io.gitee.yunjiao-source</groupId>
+        <artifactId>spring-boot-examples</artifactId>
+        <version>${你需要的版本}</version>
+    </parent>
+    
+    <!-- 第二种方式：导入项目依赖清单-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.gitee.yunjiao-source</groupId>
+                <artifactId>spring-boot-bom</artifactId>
+                <version>${yunjiao-spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>    
+```
+
 ## 使用指南
 
 * [spring-boot-starter-querydsl-jpa](./spring-boot-starter-querydsl-jpa/README.md)
