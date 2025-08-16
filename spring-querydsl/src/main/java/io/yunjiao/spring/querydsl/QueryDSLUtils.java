@@ -17,6 +17,12 @@ import java.util.Objects;
  * @author yangyunjiao
  */
 public final class QueryDSLUtils {
+    /**
+     * 创建{@link OrderSpecifier}实例
+     * @param asc 升序=true，降序=false
+     * @param path 必须值
+     * @return 实例
+     */
     public static OrderSpecifier<?> orderBy(boolean asc, Path<?> path) {
         return new OrderSpecifier(asc ? Order.ASC : Order.DESC, path);
     }
@@ -25,6 +31,7 @@ public final class QueryDSLUtils {
      * 转换
      *
      * @param sort 必须值
+     * @param pathBuilder 必须值
      * @return {@link OrderSpecifier}数组
      */
     public static OrderSpecifier<?>[] toOrderSpecifiers(Sort sort, PathBuilder<?> pathBuilder) {

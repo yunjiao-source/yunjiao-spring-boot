@@ -16,24 +16,132 @@
     <packaging>pom</packaging>
     <name>Spring Boot :: Starter Parent</name>
     <description>启动器项目，方便用户开发</description>
+    <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
 
     <properties>
         <yunjiao-spring-boot.version>${project.version}</yunjiao-spring-boot.version>
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <querydsl-maven-plugin.version>5.1.0</querydsl-maven-plugin.version>
+
+        <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
     </properties>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
+        <connection>scm:git:git@gitee.com:yunjiao-source/yunjiao-spring-boot.git</connection>
+        <developerConnection>scm:git:ssh://git@//gitee.com/yunjiao-source/yunjiao-spring-boot.git
+        </developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>Gitee</system>
+        <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <name>yangyunjiao</name>
+            <email>44010039@qq.com</email>
+        </developer>
+    </developers>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
+                <artifactId>spring-boot-bom</artifactId>
                 <version>${yunjiao-spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>${central-publishing-maven-plugin.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>${flatten-maven-plugin.version}</version>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>flatten.clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
     <build>
         <pluginManagement>
@@ -48,6 +156,7 @@
                     <artifactId>querydsl-maven-plugin</artifactId>
                     <version>${querydsl-maven-plugin.version}</version>
                 </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

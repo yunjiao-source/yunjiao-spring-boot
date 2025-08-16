@@ -15,10 +15,11 @@
 |----------------------------------|------------------------------|------|
 | spring-boot-autoconfigure        | 自动配置                         | 1    |
 | spring-boot-dependencies         | 项目依赖                         | 1    |
+| spring-boot-bom                  | 框架清单                         | 1    |
 | spring-boot-examples             | 示例项目                         | 1    |
 | spring-querydsl                  | QueryDSL 集成                  | 1    |
 | config/checkstyle                | 代码检查配置                       | 1    |
-| config/examples-db               | 示例所需的数据库脚本                  | 1    |
+| config/examples-db               | 示例所需的数据库脚本                   | 1    |
 | spring-boot-starter-querydsl-jpa | QueryDSL JPA Spring Boot 启动器 | 1    |
 | spring-boot-starter-querydsl-sql | QueryDSL SQL Spring Boot 启动器 | 1    |
 

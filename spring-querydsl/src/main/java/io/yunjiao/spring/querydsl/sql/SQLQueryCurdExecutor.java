@@ -267,6 +267,7 @@ public class SQLQueryCurdExecutor {
      * 查询必须的一条，参考{@link #findMustOne(SQLQuery, QSpecification, QSort)}
      *
      * @param query 查询对象
+     * @param spec 条件信息
      * @return 实例
      * @param <T> 类型
      */

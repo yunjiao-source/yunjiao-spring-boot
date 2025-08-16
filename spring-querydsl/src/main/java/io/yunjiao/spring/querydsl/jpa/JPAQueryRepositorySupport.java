@@ -45,29 +45,52 @@ public abstract class JPAQueryRepositorySupport {
         this.pathBuilder = new PathBuilder<>(qbean.getType(), qbean.getMetadata());
     }
 
+    /**
+     * 设置 {@link JPAQueryFactory}
+     *
+     * @param queryFactory 必须值
+     */
     @Autowired
     public void setQueryfactory(JPAQueryFactory queryFactory) {
         Assert.notNull(queryFactory, "JPAQueryFactory must not be null");
         this.queryfactory = queryFactory;
     }
 
+    /**
+     * 设置 {@link JPAQueryCurdExecutor}
+     *
+     * @param curdExecutor 必须值
+     */
     @Autowired
     public void setCurdExecutor(JPAQueryCurdExecutor curdExecutor) {
         Assert.notNull(curdExecutor, "JPAQueryCurdExecutor must not be null");
         this.curdExecutor = curdExecutor;
     }
 
+    /**
+     * 校验必须属性
+     */
     @PostConstruct
     public void validate() {
         Assert.notNull(queryfactory, "JPAQueryFactory must not be null");
         Assert.notNull(curdExecutor, "JPAQueryCurdExecutor must not be null");
     }
 
+    /**
+     * 获取 {@link JPAQueryFactory}
+     *
+     * @return 实例
+     */
     @Nullable
     protected JPAQueryFactory getQueryFactory() {
         return queryfactory;
     }
 
+    /**
+     * 获取 {@link JPAQueryCurdExecutor}
+     *
+     * @return 实例
+     */
     @Nullable
     protected JPAQueryCurdExecutor getCurdExecutor() {
         return curdExecutor;
@@ -81,17 +104,30 @@ public abstract class JPAQueryRepositorySupport {
         return getRequiredQueryFactory().query();
     }
 
+    /**
+     * 参考 {@link JPAQueryFactory#select(Expression)}
+     *
+     * @param expr 必须值
+     * @return 实例
+     * @param <T> 类型
+     */
     protected <T> JPAQuery<T> select(Expression<T> expr) {
         return getRequiredQueryFactory().select(expr);
     }
 
+    /**
+     * 参考 {@link JPAQueryFactory#select(Expression[])}
+     *
+     * @param exprs 必须值
+     * @return 实例
+     */
     protected JPAQuery<Tuple> select(Expression<?>... exprs) {
         return getRequiredQueryFactory().select(exprs);
     }
 
 
     /**
-     * 查询操作
+     * 参考 {@link JPAQueryFactory#from(EntityPath)}
      *
      * @param from 必须值
      * @return 实例
@@ -100,10 +136,23 @@ public abstract class JPAQueryRepositorySupport {
         return getRequiredQueryFactory().from(from);
     }
 
-    protected JPAQuery<?> from(EntityPath<?>... from) {
-        return getRequiredQueryFactory().from(from);
+    /**
+     * 参考 {@link JPAQueryFactory#from(EntityPath[])}
+     *
+     * @param froms 必须值
+     * @return 实例
+     */
+    protected JPAQuery<?> from(EntityPath<?>... froms) {
+        return getRequiredQueryFactory().from(froms);
     }
 
+    /**
+     * 参考 {@link JPAQueryFactory#selectFrom(EntityPath)}
+     *
+     * @param from 必须值
+     * @return 实例
+     * @param <T> 类型
+     */
     protected <T> JPAQuery<T> selectFrom(EntityPath<T> from) {
         return getRequiredQueryFactory().selectFrom(from);
     }
@@ -212,6 +261,10 @@ public abstract class JPAQueryRepositorySupport {
         return getCurdExecutor().findPage(countQuery, query, QPageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), osList), spec);
     }
 
+    /**
+     * 获取 {@link JPAQueryFactory}，如果是null，则抛出异常
+     * @return 实例
+     */
     private JPAQueryFactory getRequiredQueryFactory() {
         if (queryfactory == null) {
             throw new IllegalStateException("JPAQueryFactory is null");

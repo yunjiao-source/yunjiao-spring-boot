@@ -47,29 +47,52 @@ public abstract class SQLQueryRepositorySupport {
         this.pathBuilder = new PathBuilder<>(qbean.getType(), qbean.getMetadata());
     }
 
+    /**
+     * 设置 {@link SQLQueryFactory}
+     *
+     * @param queryFactory 必须值
+     */
     @Autowired
     public void setQueryfactory(SQLQueryFactory queryFactory) {
         Assert.notNull(queryFactory, "SQLQueryFactory must not be null");
         this.queryfactory = queryFactory;
     }
 
+    /**
+     * 设置 {@link SQLQueryCurdExecutor}
+     *
+     * @param curdExecutor 必须值
+     */
     @Autowired
     public void setCurdExecutor(SQLQueryCurdExecutor curdExecutor) {
         Assert.notNull(curdExecutor, "SQLQueryCurdExecutor must not be null");
         this.curdExecutor = curdExecutor;
     }
 
+    /**
+     * 校验必须属性
+     */
     @PostConstruct
     public void validate() {
         Assert.notNull(queryfactory, "SQLQueryFactory must not be null");
         Assert.notNull(curdExecutor, "SQLQueryCurdExecutor must not be null");
     }
 
+    /**
+     * 获取 {@link SQLQueryFactory}
+     *
+     * @return 实例
+     */
     @Nullable
     protected SQLQueryFactory getQueryFactory() {
         return queryfactory;
     }
 
+    /**
+     * 获取 {@link SQLQueryCurdExecutor}
+     *
+     * @return 实例
+     */
     @Nullable
     protected SQLQueryCurdExecutor getCurdExecutor() {
         return curdExecutor;

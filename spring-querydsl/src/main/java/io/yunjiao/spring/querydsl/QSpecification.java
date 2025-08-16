@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 public interface QSpecification extends Serializable {
 
     /**
-     * 非条件，如：!(spec)
+     * 非条件，如：{@code !(spec) }
      * @param spec 可以空
      * @return 新的实例，可能空
      */
@@ -27,7 +27,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 第一个条件。如果参数是null, 相当于: where 1=1
+     * 第一个条件。如果参数是null, 相当于: {@code where 1=1}
      *
      * @param spec 可以空
      * @return 新的实例，可能空
@@ -37,7 +37,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 并集。如: this && arg
+     * 并集。如: {@code this && arg}
      *
      * @param other 可以空
      * @return 新的实例，可能空
@@ -47,7 +47,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 多个并集，如：this && arg1 && arg2 && ...
+     * 多个并集，如：{@code this && arg1 && arg2 && ...}
      *
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
@@ -68,7 +68,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 并集 + 非集。如： this && !arg
+     * 并集 + 非集。如： {@code this && !arg}
      *
      * @param other 可以空
      * @return 新的实例，可能空
@@ -78,7 +78,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 并集 + 非集(多个)， 如： this && !arg1 && !arg2 ...
+     * 并集 + 非集(多个)， 如： {@code this && !arg1 && !arg2 ...}
      *
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
@@ -100,7 +100,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 并集 + 或集(多个), 实现如：this && (arg1 || arg2 || arg3 ...)
+     * 并集 + 或集(多个), 实现如：{@code this && (arg1 || arg2 || arg3 ...)}
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
      */
@@ -121,7 +121,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 或集 + 并集(多个)，如：this || (arg1 && arg2 && ...
+     * 或集 + 并集(多个)，如：{@code this || (arg1 && arg2 && ...}
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
      */
@@ -141,7 +141,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 或集，如: this || arg1
+     * 或集，如: {@code this || other}
      *
      * @param other 可以空
      * @return 新的实例，可能空
@@ -151,7 +151,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 或集（多个），如： this || arg1 || arg2 ....
+     * 或集（多个），如： {@code this || arg1 || arg2 ....}
      *
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
@@ -172,7 +172,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 或集 + 非集，如： this || !arg
+     * 或集 + 非集，如： {@code this || !other}
      * @param other 可以空
      * @return 新的实例，可能空
      */
@@ -181,7 +181,7 @@ public interface QSpecification extends Serializable {
     }
 
     /**
-     * 或集 + 非集(多个)，如： this || !arg1 || !arg2 ...
+     * 或集 + 非集(多个)，如： {@code this || !arg1 || !arg2 ...}
      *
      * @param QSpecifications 列表， 可以空
      * @return 新的实例，可能空
