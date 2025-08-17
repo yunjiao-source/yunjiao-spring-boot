@@ -20,3 +20,26 @@ limit ? [42103-232]
 ```
 
 尽量不要在配置类上使用 `@ConditionalOnSingleCandidate` 或 `@ConditionalOnMissingBean`, spring会自动判断Bean初始化的顺序
+
+```text
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for io.gitee.yunjiao-source:spring-boot-examples:${revision}: The following artifacts could not be resolved: io.gitee.yunjiao-source:spring-boot-starter-parent:pom:${revision} (absent): io.gitee.yunjiao-source:spring-boot-starter-parent:pom:${revision} was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced and 'parent.relativePath' points at no local POM @ line 5, column 13
+ @ 
+```
+
+这是因为spring-boot-examples项目并不是一个子项目，他是一个独立的项目。解决问题的方法是使用flatten-maven-plugin插件
+
+```shell
+mvn clean
+```
+clean命令可能失败，不用管他
+
+```shell
+mvn flatten:flatten
+```
+flatten命令必须成功
+
+```shell
+mvn install
+```
+
