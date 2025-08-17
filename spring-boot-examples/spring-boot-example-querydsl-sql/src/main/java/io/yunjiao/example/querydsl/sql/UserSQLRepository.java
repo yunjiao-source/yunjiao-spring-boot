@@ -29,8 +29,8 @@ import static io.yunjiao.example.querydsl.sql.UserSpec.*;
 @Repository
 @Transactional
 public class UserSQLRepository extends SQLQueryRepositorySupport {
-    private static final QUser qUser = QUser.user;
-    private static final QOrder qOrder = QOrder.order;
+    private static final QUsers qUser = QUsers.users;
+    private static final QOrders qOrder = QOrders.orders;
 
 
     public UserSQLRepository() {

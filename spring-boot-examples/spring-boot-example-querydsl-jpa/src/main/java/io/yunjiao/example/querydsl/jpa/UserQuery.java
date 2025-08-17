@@ -29,7 +29,7 @@ public class UserQuery {
 
 
     public QSpecification buildQSpecification() {
-        QSpecification spec = QSpecification.where(null);
+        QSpecification spec = QSpecification.where();
         if (StringUtils.hasText(name)) {
             spec = spec.and(nameLike(name));
         }

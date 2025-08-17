@@ -23,7 +23,7 @@ import static io.yunjiao.spring.querydsl.QueryDSLUtils.orderBy;
 @Setter
 @Accessors(fluent = true, chain = true)
 public class UserQuery {
-    private final QUser qUser = QUser.user;
+    private final QUsers qUser = QUsers.users;
     private String name;
     private Integer minAge;
     private Boolean orderByCreateAt;

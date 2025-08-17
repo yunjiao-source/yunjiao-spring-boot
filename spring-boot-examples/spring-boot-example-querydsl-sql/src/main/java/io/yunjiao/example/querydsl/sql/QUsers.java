@@ -17,14 +17,14 @@ import static com.querydsl.core.types.PathMetadataFactory.forVariable;
 
 
 /**
- * QUser is a Querydsl query type for QUser
+ * QUsers is a Querydsl query type for QUsers
  */
 @Generated("com.querydsl.sql.codegen.MetaDataSerializer")
-public class QUser extends com.querydsl.sql.RelationalPathBase<QUser> {
+public class QUsers extends com.querydsl.sql.RelationalPathBase<QUsers> {
 
-    private static final long serialVersionUID = 2115731614;
+    private static final long serialVersionUID = 1163170709;
 
-    public static final QUser user = new QUser("user");
+    public static final QUsers users = new QUsers("users");
 
     public final NumberPath<Integer> age = createNumber("age", Integer.class);
 
@@ -38,32 +38,32 @@ public class QUser extends com.querydsl.sql.RelationalPathBase<QUser> {
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QUser> primary = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUsers> primary = createPrimaryKey(id);
 
-    public final com.querydsl.sql.ForeignKey<QOrder> order = createInvForeignKey(id, "user_id");
+    public final com.querydsl.sql.ForeignKey<QOrders> order = createInvForeignKey(id, "user_id");
 
-    public QUser(String variable) {
-        super(QUser.class, forVariable(variable), "null", "user");
+    public QUsers(String variable) {
+        super(QUsers.class, forVariable(variable), "null", "users");
         addMetadata();
     }
 
-    public QUser(String variable, String schema, String table) {
-        super(QUser.class, forVariable(variable), schema, table);
+    public QUsers(String variable, String schema, String table) {
+        super(QUsers.class, forVariable(variable), schema, table);
         addMetadata();
     }
 
-    public QUser(String variable, String schema) {
-        super(QUser.class, forVariable(variable), schema, "user");
+    public QUsers(String variable, String schema) {
+        super(QUsers.class, forVariable(variable), schema, "users");
         addMetadata();
     }
 
-    public QUser(Path<? extends QUser> path) {
-        super(path.getType(), path.getMetadata(), "null", "user");
+    public QUsers(Path<? extends QUsers> path) {
+        super(path.getType(), path.getMetadata(), "null", "users");
         addMetadata();
     }
 
-    public QUser(PathMetadata metadata) {
-        super(QUser.class, metadata, "null", "user");
+    public QUsers(PathMetadata metadata) {
+        super(QUsers.class, metadata, "null", "users");
         addMetadata();
     }
 

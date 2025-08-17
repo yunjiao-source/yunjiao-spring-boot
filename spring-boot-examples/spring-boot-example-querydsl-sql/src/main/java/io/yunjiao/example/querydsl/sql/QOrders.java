@@ -16,14 +16,14 @@ import static com.querydsl.core.types.PathMetadataFactory.forVariable;
 
 
 /**
- * QOrder is a Querydsl query type for QOrder
+ * QOrders is a Querydsl query type for QOrders
  */
 @Generated("com.querydsl.sql.codegen.MetaDataSerializer")
-public class QOrder extends com.querydsl.sql.RelationalPathBase<QOrder> {
+public class QOrders extends com.querydsl.sql.RelationalPathBase<QOrders> {
 
-    private static final long serialVersionUID = 1157598427;
+    private static final long serialVersionUID = 1525812984;
 
-    public static final QOrder order = new QOrder("order");
+    public static final QOrders orders = new QOrders("orders");
 
     public final NumberPath<java.math.BigDecimal> amount = createNumber("amount", java.math.BigDecimal.class);
 
@@ -35,32 +35,32 @@ public class QOrder extends com.querydsl.sql.RelationalPathBase<QOrder> {
 
     public final NumberPath<Long> userId = createNumber("userId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QOrder> primary = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOrders> primary = createPrimaryKey(id);
 
-    public final com.querydsl.sql.ForeignKey<QUser> user = createForeignKey(userId, "id");
+    public final com.querydsl.sql.ForeignKey<QUsers> user = createForeignKey(userId, "id");
 
-    public QOrder(String variable) {
-        super(QOrder.class, forVariable(variable), "null", "order");
+    public QOrders(String variable) {
+        super(QOrders.class, forVariable(variable), "null", "orders");
         addMetadata();
     }
 
-    public QOrder(String variable, String schema, String table) {
-        super(QOrder.class, forVariable(variable), schema, table);
+    public QOrders(String variable, String schema, String table) {
+        super(QOrders.class, forVariable(variable), schema, table);
         addMetadata();
     }
 
-    public QOrder(String variable, String schema) {
-        super(QOrder.class, forVariable(variable), schema, "order");
+    public QOrders(String variable, String schema) {
+        super(QOrders.class, forVariable(variable), schema, "orders");
         addMetadata();
     }
 
-    public QOrder(Path<? extends QOrder> path) {
-        super(path.getType(), path.getMetadata(), "null", "order");
+    public QOrders(Path<? extends QOrders> path) {
+        super(path.getType(), path.getMetadata(), "null", "orders");
         addMetadata();
     }
 
-    public QOrder(PathMetadata metadata) {
-        super(QOrder.class, metadata, "null", "order");
+    public QOrders(PathMetadata metadata) {
+        super(QOrders.class, metadata, "null", "orders");
         addMetadata();
     }
 

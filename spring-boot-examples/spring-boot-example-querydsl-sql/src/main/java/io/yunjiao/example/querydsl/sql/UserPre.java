@@ -11,7 +11,7 @@ import java.sql.Date;
  * @author yangyunjiao
  */
 public final class UserPre {
-    private static final QUser qUser = QUser.user;
+    private static final QUsers qUser = QUsers.users;
 
     public static Predicate nameLike(String name) {
         return qUser.name.like(name);

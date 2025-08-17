@@ -10,7 +10,7 @@ import java.sql.Date;
  * @author yangyunjiao
  */
 public final class UserSpec {
-    private static final QUser qUser = QUser.user;
+    private static final QUsers qUser = QUsers.users;
 
     public static QSpecification idEq(Long id) {
         return builder -> qUser.id.eq(id);
