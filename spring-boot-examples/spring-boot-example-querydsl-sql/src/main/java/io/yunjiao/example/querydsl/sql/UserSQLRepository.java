@@ -57,7 +57,7 @@ public class UserSQLRepository extends SQLQueryRepositorySupport {
     public List<User> findList(String name, Integer age, Date birthDate) {
         SQLQuery<User> query = select(Projections.bean(User.class, qUser.all()))
                 .from(qUser);
-        QSpecification spec = nameLike(name).and(ageGoe(age), birthDate(birthDate));
+        QSpecification spec = nameLike(name).and(ageGoe(age), birthDateEq(birthDate));
         QSort sort = QSort.by(qUser.age.asc(), qUser.birthDate.desc());
         return getCurdExecutor().findList(query, spec, sort);
     }
@@ -147,5 +147,9 @@ public class UserSQLRepository extends SQLQueryRepositorySupport {
                 query.buildQsort());
     }
 
-
+    public List<User> findByQuery0(UserQuery query) {
+        return getCurdExecutor().findList(select(Projections.bean(User.class, qUser.all())).from(qUser),
+                QSpecification.where(query.buildPredicate()),
+                query.buildQsort());
+    }
 }

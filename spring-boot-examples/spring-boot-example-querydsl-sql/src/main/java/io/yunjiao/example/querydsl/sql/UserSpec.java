@@ -27,7 +27,7 @@ public final class UserSpec {
     public static QSpecification ageGoe(Integer age) {
         return builder -> qUser.age.goe(age);
     }
-    public static QSpecification birthDate(Date birthDate) {
+    public static QSpecification birthDateEq(Date birthDate) {
         return builder -> qUser.birthDate.goe(birthDate);
     }
 

@@ -1,5 +1,7 @@
 package io.yunjiao.example.querydsl.sql;
 
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Predicate;
 import io.yunjiao.spring.querydsl.QSpecification;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +29,17 @@ public class UserQuery {
     private Boolean orderByCreateAt;
     private Boolean orderByAge;
 
+
+    public Predicate buildPredicate() {
+        BooleanBuilder bb = new BooleanBuilder();
+        if (StringUtils.hasText(name)) {
+            bb.and(UserPre.nameLike(name));
+        }
+        if (Objects.nonNull(minAge)) {
+            bb.and(UserPre.ageGoe(minAge));
+        }
+        return bb;
+    }
 
     public QSpecification buildQSpecification() {
         QSpecification spec = QSpecification.where(null);
