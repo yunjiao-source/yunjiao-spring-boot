@@ -1,4 +1,4 @@
-package io.yunjiao.example.simple;
+package io.yunjiao.example.hutool;
 
 import cn.hutool.core.lang.Snowflake;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class SimpleCommandLineRunner implements CommandLineRunner {
+public class HutoolCommandLineRunner implements CommandLineRunner {
     @Autowired
     private Snowflake snowflake;
 

@@ -1,6 +1,6 @@
 spring:
   hutool:
-    snowflake: true
+#    snowflake: true # 默认true
 
 logging:
   level:

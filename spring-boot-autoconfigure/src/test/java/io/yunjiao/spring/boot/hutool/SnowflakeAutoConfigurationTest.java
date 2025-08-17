@@ -26,15 +26,16 @@ public class SnowflakeAutoConfigurationTest {
 
     @Test
     public void testDisable() {
-        applicationContextRunner.run(context -> {
-            assertThat(context).doesNotHaveBean(Snowflake.class);
-        });
+        applicationContextRunner
+                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_HUTOOL + ".snowflake=false")
+                .run(context -> {
+                    assertThat(context).doesNotHaveBean(Snowflake.class);
+                });
     }
 
     @Test
     public void testEnable() {
         applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_HUTOOL + ".snowflake=true")
                 .run(context -> {
                     assertThat(context).hasSingleBean(Snowflake.class);
                 });

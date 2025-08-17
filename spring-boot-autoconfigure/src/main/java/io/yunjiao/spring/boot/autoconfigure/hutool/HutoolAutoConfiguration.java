@@ -9,21 +9,21 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Import;
 
 /**
- * 基于HuTool框架的自动配置
+ * 基于Hutool框架的自动配置
  *
  * @author yangyunjiao
  */
 @Slf4j
 @AutoConfiguration
 @ConditionalOnClass({Snowflake.class})
-@EnableConfigurationProperties({HuToolProperties.class})
+@EnableConfigurationProperties({HutoolProperties.class})
 @Import({
         SnowflakeAutoConfiguration.class
 })
-public class HuToolAutoConfiguration {
+public class HutoolAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
-        log.info("HuTool Auto Configuration");
+        log.info("Hutool Auto Configuration");
     }
 
 }

@@ -5,12 +5,12 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * HuTool 配置属性
+ * Hutool 配置属性
  *
  * @author yangyunjiao
  */
 @Data
 @ConfigurationProperties(prefix = PropertyNameConsts.PROPERTY_PREFIX_HUTOOL)
-public class HuToolProperties {
+public class HutoolProperties {
     private Boolean snowflake;
 }

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 /**
- * 基于HuTool框架的自动配置
+ * 基于Hutool框架的自动配置
  *
  * @author yangyunjiao
  */
@@ -22,7 +22,7 @@ import org.springframework.core.env.Environment;
 public class SnowflakeAutoConfiguration {
     @PostConstruct
     public void postConstruct() {
-        log.info("HuTool Snowflake Auto Configuration");
+        log.info("Hutool Snowflake Auto Configuration");
     }
 
     /**
@@ -35,7 +35,8 @@ public class SnowflakeAutoConfiguration {
     @ConditionalOnProperty(
             prefix = PropertyNameConsts.PROPERTY_PREFIX_HUTOOL,
             name = "snowflake",
-            havingValue = "true"
+            havingValue = "true",
+            matchIfMissing = true
     )
     public Snowflake snowflake(Environment env) {
         final String SNOWFLAKE_WORKER_ID = "SNOWFLAKE_WORKER_ID";

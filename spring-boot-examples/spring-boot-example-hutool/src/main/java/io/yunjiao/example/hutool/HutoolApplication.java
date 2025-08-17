@@ -1,4 +1,4 @@
-package io.yunjiao.example.simple;
+package io.yunjiao.example.hutool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yangyunjiao
  */
 @SpringBootApplication
-public class SimpleApplication {
+public class HutoolApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SimpleApplication.class, args);
+        SpringApplication.run(HutoolApplication.class, args);
     }
 }

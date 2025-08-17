@@ -72,7 +72,7 @@
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-hutool-identification</artifactId>
+                <artifactId>spring-boot-starter-hutool</artifactId>
                 <version>${revision}</version>
             </dependency>
 
