@@ -85,6 +85,22 @@
 
 其他的依赖包请按需添加
 
+### 自定义SQLQueryFactory
+
+创建一个配置Bean
+```java
+    @Bean
+    SQLQueryFactoryConfigurer sqlQueryFactoryConfigurer() {
+        return sqlQueryFactory -> {
+            com.querydsl.sql.Configuration config = sqlQueryFactory.getConfiguration();
+            log.info("配置：Configuration={}", config);
+            
+            SQLTemplates template = config.getTemplates();
+            log.info("配置：SQLTemplates={}", template);
+        };
+    }
+```
+
 ### 实体类
 
 创建用户及订单的实体类，是一对多的关系
