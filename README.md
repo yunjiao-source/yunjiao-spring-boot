@@ -26,7 +26,7 @@
 | spring-boot-starter-apijson-fastjson2 | APIJSON Fastjson2 Spring Boot 启动器 | 2    |
 | spring-boot-starter-apijson-gson      | APIJSON Gson Spring Boot 启动器      | 2    |
 
-## maven
+## 使用 maven
 
 有两个方式引入本项目依赖
 
@@ -57,6 +57,7 @@
 * [spring-boot-starter-querydsl-jpa](./spring-boot-starter-querydsl-jpa/README.md)
 * [spring-boot-starter-querydsl-sql](./spring-boot-starter-querydsl-sql/README.md)
 * [spring-boot-starter-querydsl-hutool](./spring-boot-starter-hutool/README.md)
+* [spring-boot-starter-apijson-fastjson2, spring-boot-starter-apijson-gson](doc/apijson/HELP.md)
 
 ## 参考
 

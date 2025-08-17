@@ -1,0 +1,42 @@
+spring:
+  apijson:
+    rest-api:
+      enable: true                                  # 是否初始化Rest接口，默认true。框架已提供APIJSON统一接口实现
+      prefix: api-json                              # Rest接口前缀，默认api-json。访问接口如：http://localhost:8080/api-json/common/get
+    application: fastjson2                          # 集成apijson-fastjson2包
+    new-id-strategy: timestamp                      # 主键生成策略，默认timestamp。支持：database(数据库自增)，uuid(uuid字符串)， timestamp(当前时间毫秒数)，snowflake(雪花算法)，custom(用户自定义)
+    need-verify-login: true                         # 每次访问Rest接口时是否需要校验登录
+    need-verify-role: true                          # 每次访问Rest接口时是否需要校验角色权限
+    need-verify-content: true                       # 每次访问Rest接口时开启校验请求传参内容
+    enable-on-startup: false                        # 在启动时初始化，如：APIJSONVerifier(校验器)初始化
+    shutdown-when-server-error: true                # 启动遇到异常时停止
+    log-debug: false                                # 日志
+    sql:
+      config:
+        enable-column-config: false                 # 支持 !key 反选字段 和 字段名映射， 默认false
+        default-database: MYSQL                     # 默认的数据库类型, 默认MYSQL。支持多种数据库，请参考SQLConfig类定义，注意名称全大写
+        default-schema: sys                         # 默认数据库名/模式，默认sys。 设置含有APIJSON系统表的数据库
+        default-catalog:
+        default-namespace:
+        version: 5.7.22                             # 数据库版本, 默认'5.7.22'
+      executor:
+        enable-output-null-column: false            # 是否返回 值为null的字段, 默认false
+        key-raw-list: '@RAW@LIST'
+        key-vice-item: '@VICE@ITEM'
+    parser:
+      function:
+        parse-arg-value: false                      # 是否解析参数 key 的对应的值
+        enable-remote-function: true                # 开启支持远程函数
+        enable-script-function: true                # 开启支持远程函数中的 JavaScript 脚本形式
+      request:
+        print-request-string-log: false             # 是否打印关键的接口请求内容
+        print-big-log: false                        # 打印大数据量日志的标识
+        print-request-endtime-log: false            # 是否打印关键的接口请求结束时间
+        return-stack-trace: true                    # 控制返回 trace:stack 字段
+        start-from1: false                          # 分页页码是否从 1 开始，默认为从 0 开始
+    verifier:
+      enable-verify-column: true
+      enable-apijson-router: false
+      update-must-have-id-condition: true           # 为 PUT, DELETE 强制要求必须有 id/id{}/id{}@ 条件
+      enable-verify-role: true                      # 开启校验请求角色权限
+      enable-verify-content: true                   # 开启校验请求传参内容
