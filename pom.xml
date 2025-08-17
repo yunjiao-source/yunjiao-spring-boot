@@ -31,7 +31,7 @@
         <module>spring-boot-autoconfigure</module>
         <module>spring-boot-starter-querydsl-sql</module>
         <module>spring-boot-starter-querydsl-jpa</module>
-        <module>spring-boot-starter-hutool-identification</module>
+        <module>spring-boot-starter-hutool</module>
     </modules>
 
     <licenses>
