@@ -1,8 +1,6 @@
-package io.yunjiao.spring.boot.hutool;
+package io.yunjiao.spring.boot.autoconfigure.apijson;
 
 import cn.hutool.core.lang.Snowflake;
-import io.yunjiao.spring.boot.autoconfigure.hutool.SnowflakeAutoConfiguration;
-import io.yunjiao.spring.boot.autoconfigure.util.PropertyNameConsts;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
@@ -25,19 +23,9 @@ public class SnowflakeAutoConfigurationTest {
     }
 
     @Test
-    public void testDisable() {
-        applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_HUTOOL + ".snowflake=false")
-                .run(context -> {
-                    assertThat(context).doesNotHaveBean(Snowflake.class);
-                });
-    }
-
-    @Test
-    public void testEnable() {
-        applicationContextRunner
-                .run(context -> {
-                    assertThat(context).hasSingleBean(Snowflake.class);
-                });
+    public void testSnowflake() {
+        applicationContextRunner.run(context -> {
+            assertThat(context).hasSingleBean(Snowflake.class);
+        });
     }
 }

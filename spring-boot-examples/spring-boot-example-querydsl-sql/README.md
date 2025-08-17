@@ -1,6 +1,6 @@
 # spring-boot-example-querydsl-sql
 
-querydsl-sql示例项目，
+querydsl-sql示例项目,所需的数据库脚本在主项目`config/examples-db/querydsl`下可以找到
 
 ## 生成`Q`文件
 

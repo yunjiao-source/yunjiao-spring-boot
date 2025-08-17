@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Slf4j
 @Configuration
 @EnableTransactionManagement
-public class QueryDSLSQLAutoConfiguration {
+public class QueryDSLSQLConfiguration {
     @Bean
     SQLQueryFactoryConfigurer sqlQueryFactoryConfigurer() {
         return sqlQueryFactory -> {

@@ -1,6 +1,6 @@
 package io.yunjiao.spring.boot.autoconfigure.condition;
 
-import io.yunjiao.spring.boot.test.TestUtils;
+import io.yunjiao.spring.boot.autoconfigure.test.TestUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

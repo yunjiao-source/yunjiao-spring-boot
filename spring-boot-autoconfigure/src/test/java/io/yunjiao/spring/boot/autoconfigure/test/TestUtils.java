@@ -1,4 +1,4 @@
-package io.yunjiao.spring.boot.test;
+package io.yunjiao.spring.boot.autoconfigure.test;
 
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;

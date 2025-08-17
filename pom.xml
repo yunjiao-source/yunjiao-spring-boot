@@ -32,6 +32,8 @@
         <module>spring-boot-starter-querydsl-sql</module>
         <module>spring-boot-starter-querydsl-jpa</module>
         <module>spring-boot-starter-hutool</module>
+        <module>spring-boot-starter-apijson-fastjson2</module>
+        <module>spring-boot-starter-apijson-gson</module>
     </modules>
 
     <licenses>

@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
-public class QueryDSLJPAAutoConfiguration {
+public class QueryDSLJPAConfiguration {
     @Bean
     JPAQueryFactoryConfigurer jpaQueryFactoryConfigurer() {
         return jpaQueryFactory -> {

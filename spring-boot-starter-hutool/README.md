@@ -21,9 +21,10 @@
 
 ## 使用指南
 
-### Snowflake
+### Snowflake(Twitter的Snowflake 算法)
 
-Twitter的Snowflake 算法。
+支持`Long`类型及字符类型。默认workerId=1，datacenterId=2, 如需支持分布式，
+请设置系统环境变量：SNOWFLAKE_WORKER_ID 与 SNOWFLAKE_DATACENTER_ID
 
 自动注入
 ```java
@@ -36,14 +37,13 @@ Twitter的Snowflake 算法。
     }
 ```
 
-支持`Long`类型及字符类型
 
 关闭配置
 
 ```yaml
 spring:
   hutool:
-    snowflake: true # 默认true
+    snowflake: false # 默认true
 ```
 
 

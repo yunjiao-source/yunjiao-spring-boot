@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>io.gitee.yunjiao-source</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${revision}</version>
+        <relativePath>../spring-boot-dependencies/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-boot-starter-apijson-gson</artifactId>
+    <packaging>jar</packaging>
+    <name>Spring Boot :: Starter APIJSON Gson</name>
+    <description>APIJSON Gson 启动器</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>spring-apijson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.APIJSON</groupId>
+            <artifactId>apijson-gson</artifactId>
+        </dependency>
+    </dependencies>
+</project>

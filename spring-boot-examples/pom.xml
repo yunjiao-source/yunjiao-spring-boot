@@ -19,6 +19,8 @@
         <module>spring-boot-example-hutool</module>
         <module>spring-boot-example-querydsl-sql</module>
         <module>spring-boot-example-querydsl-jpa</module>
+        <module>spring-boot-example-apijson-fastjson2</module>
+        <module>spring-boot-example-apijson-gson</module>
     </modules>
 
     <properties>
