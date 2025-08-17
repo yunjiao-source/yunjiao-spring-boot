@@ -1,1 +1,2 @@
 io.yunjiao.spring.boot.autoconfigure.querydsl.QueryDSLAutoConfig
+io.yunjiao.spring.boot.autoconfigure.hutool.HuToolAutoConfiguration

@@ -23,6 +23,9 @@
         <querydsl.version>5.1.0</querydsl.version>
         <guava.version>33.4.8-jre</guava.version>
         <hutool.version>5.8.38</hutool.version>
+        <apijson-framework.version>7.2.2</apijson-framework.version>
+        <apijson-gson.version>1.0.0</apijson-gson.version>
+        <apijson-fastjson2.version>1.0.2</apijson-fastjson2.version>
 
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -41,9 +44,20 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 本项目包 -->
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.gitee.yunjiao-source</groupId>
+                <artifactId>spring-querydsl</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.gitee.yunjiao-source</groupId>
+                <artifactId>spring-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -58,10 +72,11 @@
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-querydsl</artifactId>
+                <artifactId>spring-boot-starter-hutool-identification</artifactId>
                 <version>${revision}</version>
             </dependency>
 
+            <!-- pom 依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -76,16 +91,22 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- 第三方starter -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot-starter.version}</version>
             </dependency>
+
+            <!-- 工具框架 -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
+
+            <!-- QueryDSL -->
             <dependency>
                 <groupId>com.querydsl</groupId>
                 <artifactId>querydsl-sql-codegen</artifactId>
@@ -105,6 +126,22 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- APIJSON -->
+            <dependency>
+                <groupId>com.github.APIJSON</groupId>
+                <artifactId>apijson-framework</artifactId>
+                <version>${apijson-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.APIJSON</groupId>
+                <artifactId>apijson-fastjson2</artifactId>
+                <version>${apijson-fastjson2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.APIJSON</groupId>
+                <artifactId>apijson-gson</artifactId>
+                <version>${apijson-gson.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -112,10 +149,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -144,6 +177,14 @@
             </releases>
             <snapshots>
                 <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>

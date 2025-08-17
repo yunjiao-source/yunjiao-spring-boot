@@ -60,7 +60,7 @@
         <dependencies>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-bom</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>${yunjiao-spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>

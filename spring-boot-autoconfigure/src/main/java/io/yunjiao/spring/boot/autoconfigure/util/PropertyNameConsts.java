@@ -10,5 +10,6 @@ public class PropertyNameConsts {
 
     public static final String PROPERTY_PREFIX_SPRING = "spring";
 
-    public static final String PROPERTY_PREFIX_QUERYDSL = PROPERTY_PREFIX_SPRING + ".querydsl";
+    public static final String PROPERTY_PREFIX_HUTOOL = PROPERTY_PREFIX_SPRING + ".hutool";
+
 }

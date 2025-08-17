@@ -16,6 +16,7 @@
     <name>Spring Boot :: Examples</name>
 
     <modules>
+        <module>spring-boot-example-simple</module>
         <module>spring-boot-example-querydsl-sql</module>
         <module>spring-boot-example-querydsl-jpa</module>
     </modules>

@@ -1,0 +1,10 @@
+spring:
+  hutool:
+    snowflake: true
+
+logging:
+  level:
+    root: info
+    org.springframework.boot.autoconfigure: info
+    io.yunjiao: debug
+
