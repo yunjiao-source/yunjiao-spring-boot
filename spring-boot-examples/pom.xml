@@ -10,6 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.gitee.yunjiao-source.examples</groupId>
     <artifactId>spring-boot-examples</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
