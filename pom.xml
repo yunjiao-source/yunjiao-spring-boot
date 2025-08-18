@@ -24,11 +24,9 @@
     </properties>
 
     <modules>
-        <module>spring-common</module>
-        <module>spring-querydsl</module>
-        <module>spring-apijson</module>
-        <module>spring-boot-dependencies</module>
-        <module>spring-boot-autoconfigure</module>
+        <module>extensions</module>
+        <module>dependencies</module>
+        <module>autoconfigure</module>
         <module>spring-boot-starter-querydsl-sql</module>
         <module>spring-boot-starter-querydsl-jpa</module>
         <module>spring-boot-starter-hutool</module>

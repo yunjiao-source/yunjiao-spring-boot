@@ -26,6 +26,38 @@
 | spring-boot-starter-apijson-fastjson2 | APIJSON Fastjson2 Spring Boot 启动器 | 2    |
 | spring-boot-starter-apijson-gson      | APIJSON Gson Spring Boot 启动器      | 2    |
 
+## 如何编译
+
+在IDE中，使用maven插件查看项目结构，有三个项目
+
+```text
+Spring Boot
+Spring Boot :: Examples
+Spring Boot :: Starter Parent
+```
+
+这三个项目需要分别编译，首先在主目录执行
+
+```shell
+cd yunjiao-spring-boot
+mvn clean
+mvn flatten:flatten
+mvn install
+
+cd spring-boot-starter-parent
+mvn clean
+mvn flatten:flatten
+mvn install
+
+cd ..
+cd spring-boot-examples
+mvn clean
+mvn flatten:flatten
+mvn install
+```
+
+务必按照此顺序编译打包！！！
+
 ## 使用 maven
 
 有两个方式引入本项目依赖
@@ -54,10 +86,11 @@
 
 ## 使用指南
 
-* [spring-boot-starter-querydsl-jpa](./spring-boot-starter-querydsl-jpa/README.md)
-* [spring-boot-starter-querydsl-sql](./spring-boot-starter-querydsl-sql/README.md)
-* [spring-boot-starter-querydsl-hutool](./spring-boot-starter-hutool/README.md)
-* [spring-boot-starter-apijson-fastjson2, spring-boot-starter-apijson-gson](doc/apijson/HELP.md)
+* spring-boot-starter-querydsl-jpa [使用指南](./spring-boot-starter-querydsl-jpa/README.md) [参考项目](./examples/example-querydsl-jpa)
+* spring-boot-starter-querydsl-sql [使用指南](./spring-boot-starter-querydsl-sql/README.md) [参考项目](./examples/example-querydsl-sql)
+* spring-boot-starter-hutool [使用指南](./spring-boot-starter-hutool/README.md) [参考项目](./examples/example-hutool)
+* spring-boot-starter-apijson-fastjson2 [使用指南](./spring-boot-starter-apijson-fastjson2/README.md) [参考项目](./examples/example-apijson-fastjson2)
+* spring-boot-starter-apijson-Gson [使用指南](./spring-boot-starter-apijson-gson/README.md) [参考项目](./examples/example-apijson-gons)
 
 ## 参考
 

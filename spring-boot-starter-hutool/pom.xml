@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>io.gitee.yunjiao-source</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
+        <artifactId>dependencies</artifactId>
         <version>${revision}</version>
-        <relativePath>../spring-boot-dependencies/pom.xml</relativePath>
+        <relativePath>../dependencies/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>io.gitee.yunjiao-source</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <artifactId>autoconfigure</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>

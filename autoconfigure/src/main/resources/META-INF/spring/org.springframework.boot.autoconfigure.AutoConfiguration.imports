@@ -1,0 +1,3 @@
+io.yunjiao.springboot.autoconfigure.querydsl.QueryDSLAutoConfig
+io.yunjiao.springboot.autoconfigure.hutool.HutoolAutoConfiguration
+io.yunjiao.springboot.autoconfigure.apijson.ApijsonAutoConfiguration
