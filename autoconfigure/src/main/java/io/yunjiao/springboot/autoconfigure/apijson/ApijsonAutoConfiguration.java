@@ -1,9 +1,11 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
 
+import apijson.framework.APIJSONApplication;
 import io.yunjiao.extension.apjson.annotation.ApijsonRest;
 import io.yunjiao.extension.apjson.orm.IdKeyApijsonStrategy;
 import io.yunjiao.extension.apjson.orm.IdKeyStrategy;
+import io.yunjiao.extension.apjson.orm.NewIdStrategy;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Slf4j
 @AutoConfiguration
-@ConditionalOnClass({IdKeyApijsonStrategy.class})
+@ConditionalOnClass({NewIdStrategy.class, APIJSONApplication.class})
 @RequiredArgsConstructor
 @EnableConfigurationProperties({ApijsonProperties.class, ApijsonSqlProperties.class,
         ApijsonParserProperties.class, ApijsonVerifierProperties.class})
