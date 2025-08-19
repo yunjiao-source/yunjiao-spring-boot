@@ -1,4 +1,4 @@
-package io.yunjiao.example.hutool;
+package io.yunjiao.example.querydsl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yangyunjiao
  */
 @SpringBootApplication
-public class HutoolApplication {
+public class QueryDSLSQLExampleApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HutoolApplication.class, args);
+        SpringApplication.run(QueryDSLSQLExampleApplication.class, args);
     }
 }

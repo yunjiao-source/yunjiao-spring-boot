@@ -1,4 +1,4 @@
-package io.yunjiao.example.querydsl;
+package io.yunjiao.example.apijson;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yangyunjiao
  */
 @SpringBootApplication
-public class QueryDSLSQLApplication {
+public class ApijsonGsonExampleApplication {
     public static void main(String[] args) {
-        SpringApplication.run(QueryDSLSQLApplication.class, args);
+        SpringApplication.run(ApijsonGsonExampleApplication.class, args);
     }
+
 }

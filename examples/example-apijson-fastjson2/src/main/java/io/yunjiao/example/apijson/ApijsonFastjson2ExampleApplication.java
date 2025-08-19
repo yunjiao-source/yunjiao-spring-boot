@@ -1,4 +1,4 @@
-package io.yunjiao.example.querydsl;
+package io.yunjiao.example.apijson;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yangyunjiao
  */
 @SpringBootApplication
-public class QueryDSLJPAApplication {
+public class ApijsonFastjson2ExampleApplication {
     public static void main(String[] args) {
-        SpringApplication.run(QueryDSLJPAApplication.class, args);
+        SpringApplication.run(ApijsonFastjson2ExampleApplication.class, args);
     }
 
 }

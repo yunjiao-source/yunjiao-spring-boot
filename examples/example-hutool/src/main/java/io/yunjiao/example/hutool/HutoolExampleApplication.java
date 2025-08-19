@@ -1,4 +1,4 @@
-package io.yunjiao.example.apijson;
+package io.yunjiao.example.hutool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yangyunjiao
  */
 @SpringBootApplication
-public class ApijsonFastjson2Application {
+public class HutoolExampleApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ApijsonFastjson2Application.class, args);
+        SpringApplication.run(HutoolExampleApplication.class, args);
     }
-
 }
