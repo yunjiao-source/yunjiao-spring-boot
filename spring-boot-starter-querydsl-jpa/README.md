@@ -6,11 +6,6 @@
 本项目集成`QueryDSL JPA`框架，实现`JPAQueryFactory`实例自动配置，也可以自由的自定义配置。提供`JPAQueryRepositorySupport`抽象类，
 让CURD，分页查询更方便。
 
-## 版本历史
-
-| 起始版本 | 依赖包及版本 | 说明 |
-|------|--------|----|
-| 1    |   querydsl-jpa-5.1.0-jakarta     ||
 
 ## 使用指南
 

@@ -12,7 +12,7 @@
     <artifactId>example-apijson-fastjson2</artifactId>
     <packaging>jar</packaging>
     <name>Example :: APIJSON Fastjson2</name>
-    <description>`APIJSON Fastjson2` 示例应用,所需的数据库脚本在主项目`config/examples-db/apijson`下可以找到</description>
+    <description>`APIJSON Fastjson2` 示例应用</description>
 
     <dependencies>
         <dependency>

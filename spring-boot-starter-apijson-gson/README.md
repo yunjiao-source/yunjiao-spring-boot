@@ -1,10 +1,5 @@
 # spring-boot-starter-apijson-gson
 
-## 版本历史
-
-| 起始版本 | 依赖包及版本                                      | 说明 |
-|------|---------------------------------------------|----|
-| 2    | apijson-framework-7.2.2, apijson-gson-1.0.0 ||
 
 ## 使用指南
 
@@ -23,7 +18,7 @@
 
 ## 所有的配置属性
 
-参考[application-all.yaml](../config/apijson/application-all.yml)
+参考[application-all.yaml](../doc/apijson/application-all.yml)
 
 ## 支持的接口
 
@@ -54,5 +49,5 @@ curl --location --request POST 'http://localhost:8080/api-json/common/get' \
 
 * 接口默认是开启的，可以关闭这些接口，配置属性 `spring.apijson.rest-api.enable=false`
 * 接口添加了统一的前缀，默认是`api-json`，配置属性`spring.apijson.rest-api.prefix=YOURE-PREFIX`
-* 在`config/api/apijson`目录下有`apifox`及`postman`工具文件，导入json文件
+* 在`doc/apijson`目录下有`apifox`及`postman`工具文件，导入json文件
 
