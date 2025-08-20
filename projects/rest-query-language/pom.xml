@@ -20,6 +20,13 @@
             <artifactId>spring-boot-starter-querydsl-jpa</artifactId>
         </dependency>
 
+        <!-- Rsql -->
+        <dependency>
+            <groupId>cz.jirutka.rsql</groupId>
+            <artifactId>rsql-parser</artifactId>
+            <version>${rsql.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -40,6 +47,12 @@
             <artifactId>querydsl-apt</artifactId>
             <classifier>jakarta</classifier>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

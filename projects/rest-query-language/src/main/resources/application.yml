@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yunjiao?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/projects?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
   jpa:
@@ -17,5 +17,6 @@ logging:
   level:
     root: info
     org.springframework.boot.autoconfigure: info
+    org.springframework.context: debug
     io.yunjiao: debug
 
