@@ -14,7 +14,7 @@
     <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
 
     <properties>
-        <revision>3.5.x.1</revision>
+        <revision>3.5.x.2</revision>
         <spring-boot.version>3.5.4</spring-boot.version>
 
         <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
@@ -24,12 +24,14 @@
     </properties>
 
     <modules>
-        <module>spring-querydsl</module>
-        <module>spring-boot-dependencies</module>
-        <module>spring-boot-bom</module>
-        <module>spring-boot-autoconfigure</module>
+        <module>extensions</module>
+        <module>dependencies</module>
+        <module>autoconfigure</module>
         <module>spring-boot-starter-querydsl-sql</module>
         <module>spring-boot-starter-querydsl-jpa</module>
+        <module>spring-boot-starter-hutool</module>
+        <module>spring-boot-starter-apijson-fastjson2</module>
+        <module>spring-boot-starter-apijson-gson</module>
     </modules>
 
     <licenses>

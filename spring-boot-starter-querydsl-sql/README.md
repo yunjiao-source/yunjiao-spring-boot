@@ -6,11 +6,6 @@
 本项目集成`QueryDSL SQL`框架，实现`SQLQueryFactory`实例自动配置，也可以自由的自定义配置。提供`SQLQueryRepositorySupport`抽象类，
 让CURD，分页查询更方便。
 
-## 版本历史
-
-| 起始版本 | 依赖包及版本 | 说明 |
-|------|--------|----|
-| 1    |   querydsl-sql-5.1.0     ||
 
 ## 使用指南
 
@@ -84,6 +79,22 @@
 ```
 
 其他的依赖包请按需添加
+
+### 自定义SQLQueryFactory
+
+创建一个配置Bean
+```java
+    @Bean
+    SQLQueryFactoryConfigurer sqlQueryFactoryConfigurer() {
+        return sqlQueryFactory -> {
+            com.querydsl.sql.Configuration config = sqlQueryFactory.getConfiguration();
+            log.info("配置：Configuration={}", config);
+            
+            SQLTemplates template = config.getTemplates();
+            log.info("配置：SQLTemplates={}", template);
+        };
+    }
+```
 
 ### 实体类
 
