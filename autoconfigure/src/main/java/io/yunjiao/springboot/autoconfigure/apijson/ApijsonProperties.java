@@ -96,7 +96,7 @@ public class ApijsonProperties {
         snowflake,
 
         /**
-         * 用户自定义。需要实现 {@link io.yunjiao.apijson.orm.NewIdStrategy} 接口并配置
+         * 用户自定义。需要实现 {@link NewIdStrategy} 接口并配置
          */
         custom
     }

@@ -86,60 +86,118 @@ public class User extends BaseModel implements Visitor<Long> {
         super();
     }
 
+    /**
+     * 构造器
+     * @param id id值
+     */
     public User(long id) {
         this();
         setId(id);
     }
 
+    /**
+     * 获取性别
+     * @return 性别
+     */
     public Integer getSex() {
         return sex;
     }
 
+    /**
+     * 设置性别
+     * @param sex 性别
+     * @return 实例
+     */
     public User setSex(Integer sex) {
         this.sex = sex;
         return this;
     }
 
+    /**
+     * 获取头像
+     * @return 头像
+     */
     public String getHead() {
         return head;
     }
 
+    /**
+     * 设置头像
+     * @param head 头像
+     * @return 实例
+     */
     public User setHead(String head) {
         this.head = head;
         return this;
     }
 
+    /**
+     * 获取名称
+     * @return 名称
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * 设置名称
+     * @param name 名称
+     * @return 实例
+     */
     public User setName(String name) {
         this.name = name;
         return this;
     }
 
+    /**
+     * 获取图片
+     * @return 图片
+     */
     public List<String> getPictureList() {
         return pictureList;
     }
 
+    /**
+     * 设置图片
+     * @param pictureList 图片
+     * @return 实例
+     */
     public User setPictureList(List<String> pictureList) {
         this.pictureList = pictureList;
         return this;
     }
 
+    /**
+     * 获取标签
+     * @return 标签
+     */
     public String getTag() {
         return tag;
     }
 
+    /**
+     * 设置标签
+     * @param tag 标签
+     * @return 实例
+     */
     public User setTag(String tag) {
         this.tag = tag;
         return this;
     }
 
+    /**
+     * 获取通讯录
+     * @return 通讯录
+     */
     public List<Long> getContactIdList() {
         return contactIdList;
     }
 
+    /**
+     * 设置通讯录
+     * @param contactIdList 通讯录
+     * @return 实例
+     */
     public User setContactIdList(List<Long> contactIdList) {
         this.contactIdList = contactIdList;
         return this;

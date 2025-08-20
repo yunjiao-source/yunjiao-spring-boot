@@ -164,6 +164,7 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**生成验证码,修改为post请求
      * @param request 请求
+     * @return 验证码
      * <pre>
             {
             "type": 0,  //类型，0,1,2,3,4，非必须
@@ -204,7 +205,8 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
     }
 
     /**获取验证码
-     * @param request
+     * @param request 必须的
+     * @return 验证码
      * <pre>
         {
         "type": 0,  //类型，0,1,2,3,4，非必须
@@ -228,7 +230,8 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
     }
 
     /**校验验证码
-     * @param request
+     * @param request 必须值
+     * @return 验证码
      * <pre>
         {
         "type": 0,  //类型，0,1,2,3,4，非必须
@@ -256,6 +259,11 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**
      * 校验验证码
+     *
+     * @param type 必须值
+     * @param phone 必须值
+     * @param code 必须值
+     * @return 结果
      */
     public Map<String, Object> headVerify(int type, String phone, String code) {
         JSONResponse response = new JSONResponse(
@@ -286,9 +294,12 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
     }
 
 
-
     /**
      * 新建一个验证码请求
+     *
+     * @param type 必须值
+     * @param phone 必须值
+     * @return 验证码
      */
     public static Map<String, Object> newVerifyRequest(int type, String phone) {
         return newVerifyRequest(type, phone, null);
@@ -296,6 +307,11 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**
      * 新建一个验证码请求
+     *
+     * @param type 必须值
+     * @param phone 必须值
+     * @param verify 必须值
+     * @return 实例
      */
     public static Map<String, Object> newVerifyRequest(int type, String phone, String verify) {
         return new JSONRequest(
@@ -305,7 +321,7 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**用户登录
      * @param request 只用String，避免encode后未decode
-     * @return
+     * @return 登录信息
      * <pre>
     {
     "type": 0,  //登录方式，非必须  0-密码 1-验证码
@@ -436,6 +452,9 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**
      * 退出登录，清空session
+     *
+     * @param session 必须值
+     * @return 登出信息
      */
     @PostMapping("logout")
     @Override
@@ -460,7 +479,7 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**注册
      * @param request 只用String，避免encode后未decode
-     * @return
+     * @return 注册信息
      * <pre>
     {
     "Privacy": {
@@ -557,7 +576,7 @@ public class GsonEXtRestController extends APIJSONController<Serializable> {
 
     /**设置密码
      * @param request 只用String，避免encode后未decode
-     * @return
+     * @return 信息
      * <pre>
     使用旧密码修改
     {

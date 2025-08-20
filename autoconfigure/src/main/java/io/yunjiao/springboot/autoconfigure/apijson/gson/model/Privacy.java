@@ -41,19 +41,41 @@ import static apijson.orm.AbstractVerifier.*;
 )
 public class Privacy extends BaseModel {
 
+    /**
+     * 登录
+     */
     public static final int PASSWORD_TYPE_LOGIN = 0;
 
+
+    /**
+     * 支付
+     */
     public static final int PASSWORD_TYPE_PAY = 1;
 
-    private String phone; //手机
 
+    /**
+     *手机
+     */
+    private String phone;
+
+    /**
+     *登录密码，隐藏字段
+     */
     @SerializedName("_password")
-    private String password; //登录密码，隐藏字段
+    private String password;
 
+
+    /**
+     *支付密码，隐藏字段
+     */
     @SerializedName("_payPassword")
-    private String payPassword; //支付密码，隐藏字段
+    private String payPassword;
 
-    private Double balance;    //余额
+
+    /**
+     *余额
+     */
+    private Double balance;
 
     public Privacy() {
         super();

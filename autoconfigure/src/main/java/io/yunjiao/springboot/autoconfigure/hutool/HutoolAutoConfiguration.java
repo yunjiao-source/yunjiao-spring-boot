@@ -21,6 +21,10 @@ import org.springframework.context.annotation.Import;
         SnowflakeAutoConfiguration.class
 })
 public class HutoolAutoConfiguration {
+
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("Hutool Auto Configuration");

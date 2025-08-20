@@ -20,6 +20,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({NewIdStrategy.class})
 public class NewIdStrategyAutoConfiguration {
+
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("New Id Strategy Auto Configuration");

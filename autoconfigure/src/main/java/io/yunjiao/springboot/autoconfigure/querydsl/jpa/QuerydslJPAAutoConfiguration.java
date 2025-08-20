@@ -23,6 +23,9 @@ import org.springframework.context.annotation.Configuration;
 public class QuerydslJPAAutoConfiguration {
     private final EntityManager entityManager;
 
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("QueryDSL JPA Auto Configuration");

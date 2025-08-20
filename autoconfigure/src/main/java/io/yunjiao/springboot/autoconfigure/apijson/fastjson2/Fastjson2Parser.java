@@ -21,10 +21,20 @@ public class Fastjson2Parser extends APIJSONParser<Serializable> {
     public Fastjson2Parser() {
     }
 
+    /**
+     * 构造器
+     *
+     * @param method 必须的
+     */
     public Fastjson2Parser(RequestMethod method) {
         super(method);
     }
 
+    /**
+     * 构造器
+     * @param method 必须的
+     * @param needVerify 必须的
+     */
     public Fastjson2Parser(RequestMethod method, boolean needVerify) {
         super(method, needVerify);
     }

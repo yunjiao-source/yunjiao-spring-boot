@@ -97,12 +97,19 @@ public class Privacy extends BaseModel {
      * 不像之前(例如 1.2.61 及以下)分别转为       _password, password，
      * 如果 @JSONField(name="_password") 未生效，请勿使用 1.2.70-1.2.73，或调整数据库字段命名为 __password
      *
+     * @return 密码
      */
+
     @JSONField(name = "_password")
     public String get__password() {
         return password;
     }
 
+    /**
+     * 设置密码
+     * @param password 密码
+     * @return 实例
+     */
     public Privacy setPassword(String password) {
         this.password = password;
         return this;
@@ -114,6 +121,7 @@ public class Privacy extends BaseModel {
      * 不像之前(例如 1.2.61 及以下)分别转为             _payPassword, payPassword，
      * 如果 @JSONField(name="_payPassword") 未生效，请勿使用 1.2.70-1.2.73，或调整数据库字段命名为 __payPassword
      *
+     * @return 付款密码
      */
 
     @JSONField(name = "_payPassword")
@@ -121,15 +129,31 @@ public class Privacy extends BaseModel {
         return payPassword;
     }
 
+    /**
+     * 设置付款密码
+     *
+     * @param payPassword 付款密码
+     * @return 实例
+     */
     public Privacy setPayPassword(String payPassword) {
         this.payPassword = payPassword;
         return this;
     }
 
+    /**
+     * 获取
+     *
+     * @return 余额
+     */
     public Double getBalance() {
         return balance;
     }
 
+    /**
+     * 设置余额
+     * @param balance 余额
+     * @return 实例
+     */
     public Privacy setBalance(Double balance) {
         this.balance = balance;
         return this;

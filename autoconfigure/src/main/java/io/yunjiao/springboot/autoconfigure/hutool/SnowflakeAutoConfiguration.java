@@ -20,6 +20,9 @@ import org.springframework.core.env.Environment;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({Snowflake.class})
 public class SnowflakeAutoConfiguration {
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("Hutool Snowflake Auto Configuration");
@@ -29,6 +32,7 @@ public class SnowflakeAutoConfiguration {
      * 雪花算法, 获取系统变量 SNOWFLAKE_WORKER_ID 和 SNOWFLAKE_DATACENTER_ID 值创建,
      * 如果不存在，值默认是1
      *
+     * @param env 必须值
      * @return 实例
      */
     @Bean

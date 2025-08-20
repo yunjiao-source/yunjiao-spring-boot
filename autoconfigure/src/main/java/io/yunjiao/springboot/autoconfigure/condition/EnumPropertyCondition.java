@@ -54,6 +54,8 @@ public abstract class EnumPropertyCondition<E extends Enum<E>> extends SpringBoo
 
     /**
      * 获取条件名称（用于日志和报告）
+     *
+     * @return 名称
      */
     protected String getConditionName() {
         return getClass().getSimpleName();

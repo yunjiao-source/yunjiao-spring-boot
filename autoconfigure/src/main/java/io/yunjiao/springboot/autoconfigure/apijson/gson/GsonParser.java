@@ -21,10 +21,21 @@ public class GsonParser extends APIJSONParser<Serializable> {
     public GsonParser() {
     }
 
+    /**
+     * 构造器
+     *
+     * @param method 必须值
+     */
     public GsonParser(RequestMethod method) {
         super(method);
     }
 
+    /**
+     * 构造器
+     *
+     * @param method 必须值
+     * @param needVerify 必须值
+     */
     public GsonParser(RequestMethod method, boolean needVerify) {
         super(method, needVerify);
     }

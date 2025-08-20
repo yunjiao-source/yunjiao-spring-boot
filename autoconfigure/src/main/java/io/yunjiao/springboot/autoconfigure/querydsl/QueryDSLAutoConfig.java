@@ -23,6 +23,10 @@ import org.springframework.context.annotation.Import;
         QuerydslSQLAutoConfiguration.class
 })
 public class QueryDSLAutoConfig {
+
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("QueryDSL Auto Configuration");

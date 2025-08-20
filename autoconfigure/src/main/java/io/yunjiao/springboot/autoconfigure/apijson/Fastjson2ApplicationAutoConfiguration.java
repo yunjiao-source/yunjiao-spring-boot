@@ -33,6 +33,9 @@ import javax.sql.DataSource;
 @ConditionalOnClass({APIJSONApplication.class})
 public class Fastjson2ApplicationAutoConfiguration {
 
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("Fastjson2 Application Auto Configuration");

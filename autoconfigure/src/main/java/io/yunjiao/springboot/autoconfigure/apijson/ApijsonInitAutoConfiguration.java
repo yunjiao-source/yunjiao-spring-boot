@@ -16,6 +16,10 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 public class ApijsonInitAutoConfiguration {
+
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("Apijson Init AutoConfiguration");

@@ -21,6 +21,18 @@ public class GsonObjectParser extends APIJSONObjectParser<Serializable> {
      */
     public static final  String TAG = GsonObjectParser.class.getSimpleName();
 
+    /**
+     * 构造器，直接调用父类
+     *
+     * @param session 必须值
+     * @param request 必须值
+     * @param parentPath 必须值
+     * @param arrayConfig 必须值
+     * @param isSubquery 必须值
+     * @param isTable 必须值
+     * @param isArrayMainTable 必须值
+     * @throws Exception 失败
+     */
     public GsonObjectParser(HttpSession session, Map<String, Object> request, String parentPath, SQLConfig<Serializable, Map<String, Object>, List<Object>> arrayConfig, boolean isSubquery, boolean isTable, boolean isArrayMainTable) throws Exception {
         super(session, request, parentPath, arrayConfig, isSubquery, isTable, isArrayMainTable);
     }

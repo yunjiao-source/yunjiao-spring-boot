@@ -33,6 +33,9 @@ import javax.sql.DataSource;
 @ConditionalOnClass({APIJSONApplication.class})
 public class GsonApplicationAutoConfiguration {
 
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("Gson Application Auto Configuration");
