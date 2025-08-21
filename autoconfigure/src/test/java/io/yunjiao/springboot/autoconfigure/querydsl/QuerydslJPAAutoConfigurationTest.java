@@ -31,10 +31,10 @@ public class QuerydslJPAAutoConfigurationTest {
     }
 
     @Test
-    public void giveEntityManager_thenExist() {
+    public void givenEntityManager_thenConfig() {
         applicationContextRunner
                 .withBean(EntityManager.class, () -> Mockito.mock(EntityManager.class))
-                .withUserConfiguration(QuerydslJPAAutoConfigurationTest.ConfigurerConfiguration.class)
+                .withUserConfiguration(TestConfiguration.class)
                 .run(context -> {
                     assertThat(context).hasSingleBean(JPAQueryFactory.class);
                     assertThat(context).hasSingleBean(JPAQueryFactoryConfigurer.class);
@@ -43,7 +43,7 @@ public class QuerydslJPAAutoConfigurationTest {
     }
 
     @Configuration
-    static class ConfigurerConfiguration {
+    static class TestConfiguration {
 
 
         @Bean

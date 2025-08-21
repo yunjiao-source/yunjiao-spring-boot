@@ -26,7 +26,7 @@ public class GaussianBlurTest {
 
     @Test
     @DisplayName("模糊真实的图片")
-    void testInputImage() throws IOException {
+    void testImage() throws IOException {
         ClassPathResource resource = new ClassPathResource("images/input.png");
         BufferedImage originalImage = ImageIO.read(resource.getInputStream());
 

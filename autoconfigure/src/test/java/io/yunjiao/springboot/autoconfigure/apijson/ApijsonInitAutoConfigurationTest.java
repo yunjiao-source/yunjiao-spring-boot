@@ -1,6 +1,7 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,7 +27,7 @@ public class ApijsonInitAutoConfigurationTest {
     }
 
     @Test
-    public void testDefault() {
+    public void givenNoConfigurer_whenConfig() {
         applicationContextRunner.run(context -> {
             assertThat(context).doesNotHaveBean(ApijsonSqlConfigConfigurer.class);
             assertThat(context).doesNotHaveBean(ApijsonVerifierConfigurer.class);
@@ -36,7 +37,7 @@ public class ApijsonInitAutoConfigurationTest {
     }
 
     @Test
-    public void testWithConfigurer() {
+    public void givenConfigurer_whenConfig() {
         applicationContextRunner
                 .withUserConfiguration(ConfigurerConfiguration.class)
                 .run(context -> {

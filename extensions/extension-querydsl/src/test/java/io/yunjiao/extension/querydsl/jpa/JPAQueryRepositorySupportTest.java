@@ -64,7 +64,7 @@ public class JPAQueryRepositorySupportTest {
     }
 
     @Test
-    void giveSingleName_whenFindSingleByName_thenOk() {
+    void givenSingleName_whenFindSingleByName_thenOk() {
         assertThat(repository.findSingleByName("zhangs"))
                 .isPresent()
                 .hasValueSatisfying(user -> {
@@ -73,7 +73,7 @@ public class JPAQueryRepositorySupportTest {
     }
 
     @Test
-    void giveWrongName_whenFindSingleByName_thenOk() {
+    void givenWrongName_whenFindSingleByName_thenOk() {
         assertThat(repository.findSingleByName("lis")).isEmpty();
     }
 

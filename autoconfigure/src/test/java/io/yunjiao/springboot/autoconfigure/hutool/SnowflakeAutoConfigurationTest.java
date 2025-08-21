@@ -25,7 +25,7 @@ public class SnowflakeAutoConfigurationTest {
     }
 
     @Test
-    public void testDisable() {
+    public void givenPropertySnowflake_whenFalse_thenNotConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_HUTOOL + ".snowflake=false")
                 .run(context -> {
@@ -34,7 +34,7 @@ public class SnowflakeAutoConfigurationTest {
     }
 
     @Test
-    public void testEnable() {
+    public void givenDefault_thenConfig() {
         applicationContextRunner
                 .run(context -> {
                     assertThat(context).hasSingleBean(Snowflake.class);

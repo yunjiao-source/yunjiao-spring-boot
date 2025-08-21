@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ApijsonSqlConfig 用户自定义配置
+ * ApijsonSqlConfig 配置器
  *
  * @author yangyunjiao
  */

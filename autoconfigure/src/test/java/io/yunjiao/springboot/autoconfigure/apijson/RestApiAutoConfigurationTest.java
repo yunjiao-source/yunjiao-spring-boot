@@ -27,7 +27,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void fastjson2RestApiEnabled() {
+    public void givenPropertyRestApiEnable_whenTrue_thenFastjson2Config() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(Fastjson2ApplicationAutoConfiguration.Fastjson2RestApiAutoConfiguration.class)
@@ -38,7 +38,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void fastjson2RestApiDisabled() {
+    public void givenPropertyRestApiEnable_whenFalse_thenFastjson2Config() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(Fastjson2ApplicationAutoConfiguration.Fastjson2RestApiAutoConfiguration.class)
@@ -49,7 +49,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void GsonRestApiEnabled() {
+    public void givenPropertyRestApiEnable_whenTrue_thenGsonConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(GsonApplicationAutoConfiguration.GsonRestApiAutoConfiguration.class)
@@ -60,7 +60,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void GsonRestApiDisabled() {
+    public void givenPropertyRestApiEnable_whenFalse_thenGsonConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(GsonApplicationAutoConfiguration.GsonRestApiAutoConfiguration.class)

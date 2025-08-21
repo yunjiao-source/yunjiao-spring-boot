@@ -1,6 +1,8 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
 import apijson.RequestMethod;
+import apijson.framework.APIJSONFunctionParser;
+import apijson.framework.APIJSONVerifier;
 import apijson.orm.AbstractVerifier;
 import apijson.orm.Entry;
 import org.junit.jupiter.api.Test;
@@ -20,9 +22,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ApijsonVerifierConfigurerTest {
 
     @Test
-    void testDefault() {
+    void givenImplement_whenBuild_thenCheckStaticOk() {
         ApijsonVerifierConfigurerDemo configurer = new ApijsonVerifierConfigurerDemo();
-        ApijsonUtils.buildAPIJSONVerifierStatic(new ApijsonVerifierProperties(), List.of(configurer));
+        ApijsonVerifierProperties properties = new ApijsonVerifierProperties();
+        properties.setEnableVerifyColumn(false);
+        properties.setEnableApijsonRouter(true);
+        properties.setUpdateMustHaveIdCondition(false);
+        properties.setEnableVerifyRole(false);
+        properties.setEnableVerifyContent(false);
+
+        ApijsonUtils.forceInit(AbstractVerifier.class, APIJSONVerifier.class);
+        ApijsonUtils.buildAPIJSONVerifierStatic(properties, List.of(configurer));
+
+        assertThat(APIJSONVerifier.ENABLE_APIJSON_ROUTER).isEqualTo(properties.isEnableApijsonRouter());
+        assertThat(APIJSONVerifier.ENABLE_VERIFY_COLUMN).isEqualTo(properties.isEnableVerifyColumn());
+        assertThat(AbstractVerifier.IS_UPDATE_MUST_HAVE_ID_CONDITION).isEqualTo(properties.isUpdateMustHaveIdCondition());
+        assertThat(AbstractVerifier.ENABLE_VERIFY_ROLE).isEqualTo(properties.isEnableVerifyRole());
+        assertThat(AbstractVerifier.ENABLE_VERIFY_CONTENT).isEqualTo(properties.isEnableVerifyContent());
 
         assertThat(AbstractVerifier.ROLE_MAP).containsKey("roleMap");
         assertThat(AbstractVerifier.OPERATION_KEY_LIST).contains("operationKeyList");

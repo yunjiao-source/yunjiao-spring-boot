@@ -1,7 +1,9 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
+import apijson.framework.APIJSONSQLConfig;
 import apijson.framework.ColumnUtil;
 import apijson.orm.AbstractSQLConfig;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,7 +21,21 @@ public class ApijsonSqlConfigConfigurerTest {
     @Test
     void testDefault() {
         ApijsonSqlConfigConfigurer configurer = new ApijsonSqlConfigConfigurerDemo();
-        ApijsonUtils.buildAPIJSONSQLConfigStatic(new ApijsonSqlProperties.Config(), List.of(configurer));
+        ApijsonSqlProperties.Config config = new ApijsonSqlProperties.Config();
+        config.setEnableColumnConfig(false);
+        config.setDefaultDatabase("database");
+        config.setDefaultCatalog("catalog");
+        config.setDefaultSchema("schema");
+        config.setDefaultNamespace("namespace");
+        config.setVersion("version");
+        ApijsonUtils.forceInit(APIJSONSQLConfig.class);
+        ApijsonUtils.buildAPIJSONSQLConfigStatic(config, List.of(configurer));
+
+        assertThat(APIJSONSQLConfig.DEFAULT_DATABASE).isEqualTo(config.getDefaultDatabase());
+        assertThat(APIJSONSQLConfig.DEFAULT_SCHEMA).isEqualTo(config.getDefaultSchema());
+        assertThat(APIJSONSQLConfig.DEFAULT_CATALOG).isEqualTo(config.getDefaultCatalog());
+        assertThat(APIJSONSQLConfig.DEFAULT_NAMESPACE).isEqualTo(config.getDefaultNamespace());
+        assertThat(APIJSONSQLConfig.ENABLE_COLUMN_CONFIG).isEqualTo(config.isEnableColumnConfig());
 
         assertThat(AbstractSQLConfig.RAW_MAP).containsEntry("rawMap", "rawMap1");
         assertThat(ColumnUtil.VERSIONED_TABLE_COLUMN_MAP).hasSize(1);

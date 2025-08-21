@@ -1,5 +1,6 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -19,7 +20,7 @@ public class ApijsonPropertiesTest {
     private ApijsonProperties properties;
 
     @Test
-    public void defaultValue() {
+    public void givenProperties_thenCheckDefaultOk() {
         assertThat(properties.getApplication()).isEqualTo(ApijsonProperties.Application.fastjson2);
         assertThat(properties.getNewIdStrategy()).isEqualTo(ApijsonProperties.NewIdStrategy.timestamp);
     }

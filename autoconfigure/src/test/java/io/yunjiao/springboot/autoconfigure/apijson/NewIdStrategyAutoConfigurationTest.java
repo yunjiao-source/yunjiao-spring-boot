@@ -28,7 +28,7 @@ public class NewIdStrategyAutoConfigurationTest {
     }
 
     @Test
-    public void testNewIdSnowflakeStrategy() {
+    public void givenPropertySnowflake_whenConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY + "=" + ApijsonProperties.NewIdStrategy.snowflake)
                 .withBean(Snowflake.class, () -> Mockito.mock(Snowflake.class))
@@ -40,7 +40,7 @@ public class NewIdStrategyAutoConfigurationTest {
     }
 
     @Test
-    public void testNewIdTimestampStrategy() {
+    public void givenPropertyTimestamp_whenConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY + "=" + ApijsonProperties.NewIdStrategy.timestamp)
                 .run(context -> {
@@ -51,7 +51,7 @@ public class NewIdStrategyAutoConfigurationTest {
     }
 
     @Test
-    public void testNewIdUuidStrategy() {
+    public void givenPropertyUuid_whenConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY + "=" + ApijsonProperties.NewIdStrategy.uuid)
                 .run(context -> {
@@ -62,13 +62,13 @@ public class NewIdStrategyAutoConfigurationTest {
     }
 
     @Test
-    public void testNewIdCustomStrategy() {
+    public void givenPropertyCustom_whenConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY + "=" + ApijsonProperties.NewIdStrategy.custom)
                 .run(context -> {
                     assertThat(context).hasSingleBean(NewIdStrategy.class);
                     NewIdStrategy strategy = context.getBean(NewIdStrategy.class);
-                    assertTrue(strategy instanceof NewIdExceptionStrategy);
+                    assertInstanceOf(NewIdExceptionStrategy.class, strategy);
                 });
     }
 

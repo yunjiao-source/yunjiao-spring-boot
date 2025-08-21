@@ -3,10 +3,12 @@ package io.yunjiao.springboot.autoconfigure.apijson;
 import io.yunjiao.extension.apjson.orm.IdKeyApijsonStrategy;
 import io.yunjiao.extension.apjson.orm.IdKeyStrategy;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 
@@ -28,13 +30,18 @@ public class ApijsonAutoConfigurationTest {
     }
 
     @Test
-    public void testNewIdSnowflakeStrategy() {
+    public void shouldAutoConfigurationApplied() {
         applicationContextRunner
-                .withBean(DataSource.class, () -> Mockito.mock(DataSource.class))
                 .run(context -> {
                     assertThat(context).hasSingleBean(IdKeyStrategy.class);
                     IdKeyStrategy strategy = context.getBean(IdKeyStrategy.class);
                     assertInstanceOf(IdKeyApijsonStrategy.class, strategy);
+
+                    assertThat(context).hasSingleBean(WebMvcConfigurer.class);
+                    assertThat(context).hasSingleBean(ApijsonProperties.class);
+                    assertThat(context).hasSingleBean(ApijsonSqlProperties.class);
+                    assertThat(context).hasSingleBean(ApijsonParserProperties.class);
+                    assertThat(context).hasSingleBean(ApijsonVerifierProperties.class);
                 });
     }
 

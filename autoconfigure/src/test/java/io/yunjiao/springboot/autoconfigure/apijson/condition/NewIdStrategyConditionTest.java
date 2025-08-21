@@ -2,6 +2,7 @@ package io.yunjiao.springboot.autoconfigure.apijson.condition;
 
 import io.yunjiao.springboot.autoconfigure.test.TestUtils;
 import io.yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -24,7 +25,7 @@ public class NewIdStrategyConditionTest {
     private AnnotatedTypeMetadata metadata;
 
     @Test
-    void shouldMatchWhenPropertyMatchesExpectedType_Database() {
+    void shouldMatchWhenPropertyMatchesDatabase() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY, "database");
 
@@ -38,7 +39,7 @@ public class NewIdStrategyConditionTest {
     }
 
     @Test
-    void shouldMatchWhenPropertyMatchesExpectedType_Snowflake() {
+    void shouldMatchWhenPropertyMatchesSnowflake() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY, "snowflake");
 
@@ -52,7 +53,7 @@ public class NewIdStrategyConditionTest {
     }
 
     @Test
-    void shouldMatchWhenPropertyMatchesExpectedType_Timestamp() {
+    void shouldMatchWhenPropertyMatchesTimestamp() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY, "timestamp");
 
@@ -66,7 +67,7 @@ public class NewIdStrategyConditionTest {
     }
 
     @Test
-    void shouldMatchWhenPropertyMatchesExpectedType_Uuid() {
+    void shouldMatchWhenPropertyMatchesUuid() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_NEWIDSTRATEGY, "uuid");
 

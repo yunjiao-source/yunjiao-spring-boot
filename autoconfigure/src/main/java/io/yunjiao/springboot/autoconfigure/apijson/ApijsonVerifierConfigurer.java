@@ -9,7 +9,7 @@ import java.util.SortedMap;
 import java.util.regex.Pattern;
 
 /**
- * AbstractVerifier 用户自定义配置
+ * AbstractVerifier 配置器
  *
  * @author yangyunjiao
  */

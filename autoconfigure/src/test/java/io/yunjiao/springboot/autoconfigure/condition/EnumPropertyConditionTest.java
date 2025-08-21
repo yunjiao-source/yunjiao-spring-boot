@@ -24,7 +24,7 @@ public class EnumPropertyConditionTest {
     private AnnotatedTypeMetadata metadata;
 
     @Test
-    void giveCorrectValue_thenMatched() {
+    void givenCorrectValue_thenMatched() {
         // 准备测试环境
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PROPERTY_NAME, "female");
@@ -43,7 +43,7 @@ public class EnumPropertyConditionTest {
     }
 
     @Test
-    void giveWrongValue_thenNotMatched() {
+    void givenWrongValue_thenNotMatched() {
         // 准备测试环境
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PROPERTY_NAME, "Female");

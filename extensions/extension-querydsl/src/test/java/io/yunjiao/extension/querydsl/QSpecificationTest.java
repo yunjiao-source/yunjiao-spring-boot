@@ -18,19 +18,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class QSpecificationTest {
 
     @Test
-    void givenOne_thenAnd() {
+    void givenOne_whenAnd() {
         QSpecification spec = name();
         assertThat(create(spec).toString()).isEqualTo("users.name = abc");
     }
 
     @Test
-    void givenTrue_thenAnd() {
+    void givenTwo_whenAnd() {
         QSpecification spec = name().and(age());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc && users.age >= 18");
     }
 
     @Test
-    void givenThree_thenAnd() {
+    void givenThree_whenAnd() {
         QSpecification spec = name().and(age()).and(email());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc && users.age >= 18 && users.email = abc@qq.com");
 
@@ -39,7 +39,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void givenNull_thenAnd() {
+    void givenNull_whenAnd() {
         QSpecification spec = name().and(nullable()).and(age()).and(email());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc && users.age >= 18 && users.email = abc@qq.com");
 
@@ -48,7 +48,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void and() {
+    void givenNull_whenAndMulti() {
         QSpecification spec = nullable().and(age(), email(), birthDateEq());
         assertThat(create(spec).toString()).isEqualTo("users.age >= 18 && users.email = abc@qq.com && users.birthDate = 1970-01-01");
 
@@ -57,7 +57,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void andNot() {
+    void whenAndNot() {
         QSpecification spec = name().and(age()).andNot(email());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc && users.age >= 18 && !(users.email = abc@qq.com)");
 
@@ -75,19 +75,19 @@ public class QSpecificationTest {
     }
 
     @Test
-    void andAnyOf() {
+    void whenAndAnyOf() {
         QSpecification spec = name().andAnyOf(age(), email());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc && (users.age >= 18 || users.email = abc@qq.com)");
     }
 
     @Test
-    void orAllOf() {
+    void whenOrAllOf() {
         QSpecification spec = name().orAllOf(age(), email());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc || users.age >= 18 && users.email = abc@qq.com");
     }
 
     @Test
-    void not() {
+    void whenNot() {
         QSpecification spec = QSpecification.not(name());
         assertThat(create(spec).toString()).isEqualTo("!(users.name = abc)");
 
@@ -108,7 +108,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void or() {
+    void whenOr() {
         QSpecification spec = name();
         assertThat(create(spec).toString()).isEqualTo("users.name = abc");
 
@@ -123,7 +123,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void orNot() {
+    void whenOrNot() {
         QSpecification spec = name().orNot(age()).orNot(email()).and(birthDateEq());
         assertThat(create(spec).toString()).isEqualTo("(users.name = abc || !(users.age >= 18) || !(users.email = abc@qq.com)) && users.birthDate = 1970-01-01");
 
@@ -135,7 +135,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void orAnd() {
+    void whenOrAnd() {
         QSpecification spec = name().or(age()).and(email());
         assertThat(create(spec).toString()).isEqualTo("(users.name = abc || users.age >= 18) && users.email = abc@qq.com");
 
@@ -153,7 +153,7 @@ public class QSpecificationTest {
     }
 
     @Test
-    void where() {
+    void whenWhere() {
         QSpecification spec = QSpecification.where(name());
         assertThat(create(spec).toString()).isEqualTo("users.name = abc");
 

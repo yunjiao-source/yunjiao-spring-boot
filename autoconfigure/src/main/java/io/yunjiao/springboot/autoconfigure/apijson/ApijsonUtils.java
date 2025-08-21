@@ -24,11 +24,13 @@ public final class ApijsonUtils {
     /**
      * 使用反射强制初始化
      *
-     * @param clazz 类
+     * @param clazzes 类
      */
-    public static void forceInit(Class<?> clazz) {
+    public static void forceInit(Class<?>... clazzes) {
         try {
-            Class.forName(clazz.getName(), true, clazz.getClassLoader());
+            for (Class<?> clazz : clazzes) {
+                Class.forName(clazz.getName(), true, clazz.getClassLoader());
+            }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -127,9 +129,9 @@ public final class ApijsonUtils {
      * @param configurers           配置器
      */
     public static void buildAPIJSONVerifierStatic(ApijsonVerifierProperties verifier, List<ApijsonVerifierConfigurer> configurers) {
-        APIJSONVerifier.IS_UPDATE_MUST_HAVE_ID_CONDITION = verifier.isUpdateMustHaveIdCondition();
-        APIJSONVerifier.ENABLE_VERIFY_ROLE = verifier.isEnableVerifyRole();
-        APIJSONVerifier.ENABLE_VERIFY_CONTENT = verifier.isEnableVerifyContent();
+        AbstractVerifier.IS_UPDATE_MUST_HAVE_ID_CONDITION = verifier.isUpdateMustHaveIdCondition();
+        AbstractVerifier.ENABLE_VERIFY_ROLE = verifier.isEnableVerifyRole();
+        AbstractVerifier.ENABLE_VERIFY_CONTENT = verifier.isEnableVerifyContent();
         APIJSONVerifier.ENABLE_VERIFY_COLUMN = verifier.isEnableVerifyColumn();
         APIJSONVerifier.ENABLE_APIJSON_ROUTER = verifier.isEnableApijsonRouter();
 

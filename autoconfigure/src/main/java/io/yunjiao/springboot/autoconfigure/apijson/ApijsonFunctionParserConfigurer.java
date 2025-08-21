@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * AbstractVerifier 用户自定义配置
+ * AbstractVerifier 配置器
  *
  * @author yangyunjiao
  */

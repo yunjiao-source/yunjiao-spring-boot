@@ -1,6 +1,7 @@
 package io.yunjiao.springboot.autoconfigure.apijson;
 
 import io.yunjiao.extension.apjson.util.ApijsonConsts;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -20,7 +21,7 @@ public class ApijsonSqlPropertiesTest {
     private ApijsonSqlProperties properties;
 
     @Test
-    public void configDefaultValue() {
+    public void givenProperties_whenGetConfig_thenCheckDefaultOk() {
         ApijsonSqlProperties.Config confg = properties.getConfig();
         assertThat(confg.getDefaultDatabase()).isEqualTo(ApijsonConsts.SQL_CONFIG_DEFAULT_DATABASE);
         assertThat(confg.getDefaultSchema()).isEqualTo(ApijsonConsts.SQL_CONFIG_DEFAULT_SCHEMA);
@@ -28,7 +29,7 @@ public class ApijsonSqlPropertiesTest {
     }
 
     @Test
-    public void excutorDefaultValue() {
+    public void givenProperties_whenGetExecutor_thenCheckDefaultOk() {
         ApijsonSqlProperties.Executor executor = properties.getExecutor();
         assertThat(executor.getKeyRawList()).isEqualTo(ApijsonConsts.SQL_EXECUTOR_KEY_RAW_LIST);
         assertThat(executor.getKeyViceItem()).isEqualTo(ApijsonConsts.SQL_EXECUTOR_KEY_VICE_ITEM);
