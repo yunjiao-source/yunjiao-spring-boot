@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.gitee.yunjiao-source</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.x.2</version>
+        <version>3.5.x.3</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <revision>3.5.x.2</revision>
+        <revision>3.5.x.3</revision>
         <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <rsql.version>2.1.0</rsql.version>
     </properties>
