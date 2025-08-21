@@ -9,50 +9,39 @@ import java.awt.image.BufferedImage;
  */
 public final class GaussianBlur {
     /**
-     * 模糊程度：轻度
-     */
-    public final static int LIGHT = 5;
-
-    /**
-     * 模糊程度：中度
-     */
-    public final static int MEDIUM = 8;
-
-    /**
-     * 模糊程度：重度
-     */
-    public final static int HEAVY = 11;
-
-    /**
      * 轻度处理
+     *
      * @param image 原始图像
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurLight(BufferedImage image) {
-        return gaussianBlur(image, LIGHT);
+        return gaussianBlur(image, 5);
     }
 
     /**
      * 中度处理
+     *
      * @param image 原始图像
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurMedium(BufferedImage image) {
-        return gaussianBlur(image, MEDIUM);
+        return gaussianBlur(image, 8);
     }
 
     /**
      * 重度处理
+     *
      * @param image 原始图像
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurHeavy(BufferedImage image) {
-        return gaussianBlur(image, HEAVY);
+        return gaussianBlur(image, 11);
     }
 
     /**
      * 高斯模糊算法实现
-     * @param image 原始图像
+     *
+     * @param image  原始图像
      * @param radius 模糊半径
      * @return 模糊后的图像
      */
@@ -78,7 +67,10 @@ public final class GaussianBlur {
         // 水平模糊
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                double r = 0, g = 0, b = 0, a = 0;
+                double r = 0;
+                double g = 0;
+                double b = 0;
+                double a = 0;
 
                 for (int i = -kernelRadius; i <= kernelRadius; i++) {
                     int pixelX = Math.min(Math.max(x + i, 0), width - 1);
@@ -93,10 +85,10 @@ public final class GaussianBlur {
                     b += weight * (pixel & 0xFF);
                 }
 
-                int argb = ((int) a & 0xFF) << 24 |
-                        ((int) r & 0xFF) << 16 |
-                        ((int) g & 0xFF) << 8 |
-                        ((int) b & 0xFF);
+                int argb = ((int) a & 0xFF) << 24
+                        | ((int) r & 0xFF) << 16
+                        | ((int) g & 0xFF) << 8
+                        | ((int) b & 0xFF);
 
                 blurredPixels[y * width + x] = argb;
             }
@@ -105,7 +97,10 @@ public final class GaussianBlur {
         // 垂直模糊
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                double r = 0, g = 0, b = 0, a = 0;
+                double r = 0;
+                double g = 0;
+                double b = 0;
+                double a = 0;
 
                 for (int i = -kernelRadius; i <= kernelRadius; i++) {
                     int pixelY = Math.min(Math.max(y + i, 0), height - 1);
@@ -120,10 +115,10 @@ public final class GaussianBlur {
                     b += weight * (pixel & 0xFF);
                 }
 
-                int argb = ((int) a & 0xFF) << 24 |
-                        ((int) r & 0xFF) << 16 |
-                        ((int) g & 0xFF) << 8 |
-                        ((int) b & 0xFF);
+                int argb = ((int) a & 0xFF) << 24
+                        | ((int) r & 0xFF) << 16
+                        | ((int) g & 0xFF) << 8
+                        | ((int) b & 0xFF);
 
                 result.setRGB(x, y, argb);
             }
@@ -134,6 +129,7 @@ public final class GaussianBlur {
 
     /**
      * 创建高斯核
+     *
      * @param radius 模糊半径
      * @return 高斯核数组
      */

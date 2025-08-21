@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>io.gitee.yunjiao-source</groupId>
-            <artifactId>spring-boot-starter-apijson-fastjson2</artifactId>
+            <artifactId>starter-apijson-fastjson2</artifactId>
         </dependency>
 
         <dependency>

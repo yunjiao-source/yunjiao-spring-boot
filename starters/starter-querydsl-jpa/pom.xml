@@ -4,31 +4,35 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>io.gitee.yunjiao-source</groupId>
-        <artifactId>dependencies</artifactId>
+        <artifactId>starters</artifactId>
         <version>${revision}</version>
-        <relativePath>../dependencies/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-starter-hutool</artifactId>
+    <artifactId>starter-querydsl-jpa</artifactId>
     <packaging>jar</packaging>
-    <name>Spring Boot :: Starter Hutool</name>
-    <description>基于Hutool框架的 启动器</description>
+    <name>Starter :: QueryDSL JPA</name>
+    <description>QueryDSL JPA 启动器</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <dependency>
             <groupId>io.gitee.yunjiao-source</groupId>
             <artifactId>autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-core</artifactId>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>extension-querydsl</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-jpa</artifactId>
+            <classifier>jakarta</classifier>
+        </dependency>
     </dependencies>
 </project>

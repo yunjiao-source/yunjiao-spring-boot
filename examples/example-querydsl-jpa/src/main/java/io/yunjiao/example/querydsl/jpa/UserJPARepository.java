@@ -32,10 +32,6 @@ public class UserJPARepository extends JPAQueryRepositorySupport {
     private static final QUser qUser = QUser.user;
     private static final QOrder qOrder = QOrder.order;
 
-    @Autowired
-    private EntityManager entityManager;
-
-
     public UserJPARepository() {
         super(qUser);
     }

@@ -13,18 +13,14 @@
 
 | 项目                                    | 说明                                |
 |---------------------------------------|-----------------------------------|
-| spring-boot-autoconfigure             | 自动配置                              |
-| spring-boot-dependencies              | 项目依赖                              |
-| spring-boot-projects                  | 应用                                |
-| spring-boot-examples                  | 示例项目                              |
-| spring-querydsl                       | QueryDSL 集成                       |
-| spring-apijson                        | APIJSON 集成                        |
-| config                     | 配置                                |
-| spring-boot-starter-querydsl-jpa      | QueryDSL JPA Spring Boot 启动器      |
-| spring-boot-starter-querydsl-sql      | QueryDSL SQL Spring Boot 启动器      |
-| spring-boot-starter-hutool            | Hutool Spring Boot 启动器            |
-| spring-boot-starter-apijson-fastjson2 | APIJSON Fastjson2 Spring Boot 启动器 |
-| spring-boot-starter-apijson-gson      | APIJSON Gson Spring Boot 启动器      |
+| autoconfigure                         | 自动配置                              |
+| dependencies                          | 项目依赖                              |
+| projects                              | 应用                                |
+| examples                              | 示例项目                              |
+| extensions                            | 扩展                                |
+| config                                | 配置                                |
+| starters                              | 启动器                               |
+
 
 ## 如何编译
 

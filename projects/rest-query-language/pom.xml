@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>io.gitee.yunjiao-source</groupId>
-            <artifactId>spring-boot-starter-querydsl-jpa</artifactId>
+            <artifactId>starter-querydsl-jpa</artifactId>
         </dependency>
 
         <!-- Rsql -->

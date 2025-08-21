@@ -1,0 +1,3 @@
+spring:
+  hutool:
+    snowflake: true         # 默认true

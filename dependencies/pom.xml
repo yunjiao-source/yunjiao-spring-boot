@@ -67,27 +67,27 @@
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-querydsl-jpa</artifactId>
+                <artifactId>starter-querydsl-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-querydsl-sql</artifactId>
+                <artifactId>starter-querydsl-sql</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-hutool</artifactId>
+                <artifactId>starter-hutool</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-apijson-fastjson2</artifactId>
+                <artifactId>starter-apijson-fastjson2</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-starter-apijson-gson</artifactId>
+                <artifactId>starter-apijson-gson</artifactId>
                 <version>${revision}</version>
             </dependency>
 

@@ -4,23 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>io.gitee.yunjiao-source</groupId>
-        <artifactId>dependencies</artifactId>
+        <artifactId>starters</artifactId>
         <version>${revision}</version>
-        <relativePath>../dependencies/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-starter-apijson-fastjson2</artifactId>
+    <artifactId>starter-apijson-fastjson2</artifactId>
     <packaging>jar</packaging>
-    <name>Spring Boot :: Starter APIJSON Fastjson2</name>
+    <name>Starter :: APIJSON Fastjson2</name>
     <description>APIJSON Fastjson2 启动器</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>io.gitee.yunjiao-source</groupId>
             <artifactId>autoconfigure</artifactId>
