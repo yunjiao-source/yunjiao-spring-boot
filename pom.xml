@@ -102,6 +102,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <deploymentName>${revision}</deploymentName>
                         </configuration>
                     </plugin>
 
