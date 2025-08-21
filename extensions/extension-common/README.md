@@ -2,15 +2,6 @@
 
 通用工具集。
 
-## maven
-
-```xml
-<dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
-    <artifactId>spring-common</artifactId>
-    <version>${revision}</version>
-</dependency>
-```
 ## 使用指南
 
 ### TimestampIdGenerator
