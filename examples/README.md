@@ -15,9 +15,9 @@
 ** 注意
 在服务启动过程中，会出现异常，这是因为官方提供的gson插件还存在问题。有些接口请求也会出现异常
 
-## example-hutool
+## example-id
 
-基于`starter-hutool`示例项目。
+基于`starter-id`示例项目。
 
 ## example-querydsl-jpa
 
@@ -27,6 +27,9 @@
 
 基于`starter-querydsl-sql`示例项目。需要配置数据库及运行数据库脚本，请查看`resources`目录。
 
+## example-captcha
+
+验证码示例项目
 
 
 
