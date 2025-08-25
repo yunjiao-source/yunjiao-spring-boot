@@ -1,6 +1,6 @@
 package io.yunjiao.springboot.autoconfigure.querydsl;
 
-import com.querydsl.core.QueryFactory;
+import io.yunjiao.extension.querydsl._Querydsl;
 import io.yunjiao.springboot.autoconfigure.querydsl.jpa.QuerydslJPAAutoConfiguration;
 import io.yunjiao.springboot.autoconfigure.querydsl.sql.QuerydslSQLAutoConfiguration;
 import jakarta.annotation.PostConstruct;
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
  */
 @Slf4j
 @AutoConfiguration(after = DataSourceAutoConfiguration.class)
-@ConditionalOnClass({QueryFactory.class})
+@ConditionalOnClass({_Querydsl.class})
 @Import({
         QuerydslJPAAutoConfiguration.class,
         QuerydslSQLAutoConfiguration.class

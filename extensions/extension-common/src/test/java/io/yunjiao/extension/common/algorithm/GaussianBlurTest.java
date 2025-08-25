@@ -1,55 +1,19 @@
 package io.yunjiao.extension.common.algorithm;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.core.io.ClassPathResource;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.function.BiFunction;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * {@link GaussianBlur} 单元测试用例
  *
- * @author wanpinwei
+ * @author yangyunjiao
  */
 public class GaussianBlurTest {
-
-    @Test
-    @DisplayName("模糊真实的图片")
-    void testImage() throws IOException {
-        ClassPathResource resource = new ClassPathResource("images/input.png");
-        BufferedImage originalImage = ImageIO.read(resource.getInputStream());
-
-        Path targetDir = Paths.get("target", "processed-images");
-        if (!Files.exists(targetDir)) {
-            Files.createDirectories(targetDir);
-        }
-
-        BufferedImage modifiedImage = GaussianBlur.gaussianBlurLight(originalImage);
-        File outputFile = new File(targetDir.toFile(), "output-l.png");
-        ImageIO.write(modifiedImage, "png", outputFile);
-        System.out.println("图片处理完成，保存至: " + outputFile.getAbsolutePath());
-
-        modifiedImage = GaussianBlur.gaussianBlurMedium(originalImage);
-        outputFile = new File(targetDir.toFile(), "output-m.png");
-        ImageIO.write(modifiedImage, "png", outputFile);
-        System.out.println("图片处理完成，保存至: " + outputFile.getAbsolutePath());
-
-        modifiedImage = GaussianBlur.gaussianBlurHeavy(originalImage);
-        outputFile = new File(targetDir.toFile(), "output-h.png");
-        ImageIO.write(modifiedImage, "png", outputFile);
-        System.out.println("图片处理完成，保存至: " + outputFile.getAbsolutePath());
-    }
 
     @Test
     @DisplayName("测试全黑图像模糊")
@@ -63,7 +27,7 @@ public class GaussianBlurTest {
         }
 
         // 应用高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(blackImage, 5);
+        BufferedImage result = GaussianBlur.execute(blackImage, 5);
 
         // 验证结果仍然是全黑
         for (int x = 0; x < 10; x++) {
@@ -86,7 +50,7 @@ public class GaussianBlurTest {
         }
 
         // 应用高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(whiteImage, 5);
+        BufferedImage result = GaussianBlur.execute(whiteImage, 5);
 
         // 验证结果仍然是全白（允许轻微的颜色变化）
         for (int x = 0; x < 10; x++) {
@@ -112,7 +76,7 @@ public class GaussianBlurTest {
         singlePixel.setRGB(0, 0, 0xFFFF0000); // 红色
 
         // 应用高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(singlePixel, 3);
+        BufferedImage result = GaussianBlur.execute(singlePixel, 3);
 
         // 验证结果仍然是相同的颜色
         assertEquals(0xFFFF0000, result.getRGB(0, 0),
@@ -132,7 +96,7 @@ public class GaussianBlurTest {
         }
 
         // 应用半径为0的高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(testImage, 0);
+        BufferedImage result = GaussianBlur.execute(testImage, 0);
 
         // 验证图像没有变化
         for (int x = 0; x < 5; x++) {
@@ -156,7 +120,7 @@ public class GaussianBlurTest {
         testImage.setRGB(9, 9, 0xFFFFFF00); // 右下角黄色
 
         // 应用高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(testImage, 5);
+        BufferedImage result = GaussianBlur.execute(testImage, 5);
 
         // 验证四角颜色已经混合（不再是纯色）
         int topLeft = result.getRGB(0, 0);
@@ -183,10 +147,10 @@ public class GaussianBlurTest {
         }
 
         // 应用小半径模糊
-        BufferedImage smallBlur = GaussianBlur.gaussianBlur(chessboard, 1);
+        BufferedImage smallBlur = GaussianBlur.execute(chessboard, 1);
 
         // 应用大半径模糊
-        BufferedImage largeBlur = GaussianBlur.gaussianBlur(chessboard, 10);
+        BufferedImage largeBlur = GaussianBlur.execute(chessboard, 10);
 
         // 计算两幅图像的差异
         double difference = calculateImageDifference(smallBlur, largeBlur);
@@ -202,7 +166,7 @@ public class GaussianBlurTest {
         BufferedImage testImage = new BufferedImage(15, 20, BufferedImage.TYPE_INT_ARGB);
 
         // 应用高斯模糊
-        BufferedImage result = GaussianBlur.gaussianBlur(testImage, 5);
+        BufferedImage result = GaussianBlur.execute(testImage, 5);
 
         // 验证尺寸不变
         assertEquals(testImage.getWidth(), result.getWidth(), "模糊后图像宽度应该不变");
@@ -250,7 +214,7 @@ public class GaussianBlurTest {
         testImage.setRGB(2, 2, 0xFFFF0000); // 中心为红色
 
         // 应用非常大的模糊半径
-        BufferedImage result = GaussianBlur.gaussianBlur(testImage, 100);
+        BufferedImage result = GaussianBlur.execute(testImage, 100);
 
         // 验证图像没有崩溃，并且所有像素都有值
         for (int x = 0; x < 5; x++) {

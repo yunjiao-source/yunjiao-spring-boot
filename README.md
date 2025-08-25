@@ -82,11 +82,10 @@ mvn install
 
 ## 使用指南
 
-* spring-boot-starter-querydsl-jpa [使用指南](./spring-boot-starter-querydsl-jpa/README.md) [参考项目](./examples/example-querydsl-jpa)
-* spring-boot-starter-querydsl-sql [使用指南](./spring-boot-starter-querydsl-sql/README.md) [参考项目](./examples/example-querydsl-sql)
-* spring-boot-starter-hutool [使用指南](./spring-boot-starter-hutool/README.md) [参考项目](./examples/example-hutool)
-* spring-boot-starter-apijson-fastjson2 [使用指南](./spring-boot-starter-apijson-fastjson2/README.md) [参考项目](./examples/example-apijson-fastjson2)
-* spring-boot-starter-apijson-Gson [使用指南](./spring-boot-starter-apijson-gson/README.md) [参考项目](./examples/example-apijson-gons)
+* extensions [使用指南](./extensions/README.md)
+* starters [使用指南](./starters/README.md)
+* examples [使用指南](./examples/README.md)
+* projects [使用指南](./projects/README.md)
 
 ## 参考
 

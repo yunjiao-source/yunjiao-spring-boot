@@ -36,12 +36,11 @@ Serializable newId(RequestMethod method, String database, String schema, String 
 * NewIdDatabaseStrategy：数据库主键策略，使用数据库功能生成主键
 
 
-## extension-hutool
+## extension-id
 
-[Hutool](https://doc.hutool.cn/)是一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率，
-使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。
+ID扩展，集成`Hutool`框架中`SnowFlake`类。
 
-如何使用请参考启动器[starter-hutool](../starters/starter-hutool)
+如何使用请参考启动器[starter-id](../starters/starter-id)
 
 ## extension-querydsl
 
@@ -200,7 +199,6 @@ QSpecification spec = name().andAnyOf(age(), email());
 
 通用工具扩展
 
-重要的扩展如下：
 ### TimestampIdGenerator
 
 当前时间戳的ID生成器，`Long类型`，提供静态方法生成ID。线程安全的，仅用于测试或示例
@@ -216,3 +214,49 @@ QSpecification spec = name().andAnyOf(age(), email());
 ```text
 [1755402971097584, 1755402971097585, 1755402971097598, 1755402971097599, 1755402971097596, 1755402971097597, 1755402971097594, 1755402971097595, 1755402971097592, 1755402971097593]
 ```
+
+### GaussianBlur
+
+高斯模糊算法，用于图片，可以设置模糊程度
+
+### EnumCache
+
+枚举缓存，实现高效的枚举转换，如：名称转枚举，代码转枚举等
+
+在定义枚举时
+```text
+enum StatusEnum {
+        ......
+
+        static {
+            // 通过名称构建缓存,通过EnumCache.findByName(StatusEnum.class,"SUCCESS",null);调用能获取枚举
+            EnumCache.registerByName(StatusEnum.class, StatusEnum.values());
+            // 通过code构建缓存,通过EnumCache.findByValue(StatusEnum.class,"S",null);调用能获取枚举
+            EnumCache.registerByValue(StatusEnum.class, StatusEnum.values(), StatusEnum::getCode);
+        }
+    }
+```
+
+### CaptchaService
+
+验证码服务接口，主要功能包括验证码生成，校验等
+
+* CaptchaData draw() : 验证码生成
+* boolean verify(Object orignalCode, Object userCode)：验证码校验
+* CaptchaCategory getCategory()：分类
+
+
+
+## extension-captcha
+
+验证码扩展，集成Hutool-captcha框架
+
+如何使用请参考启动器[starter-captcha](../starters/starter-captcha)
+
+集成Hutool框架验证码
+* CircleCaptchaService: 线段干扰的验证码
+* GifCaptchaService: 圆圈干扰验证码
+* LineCaptchaService: gif验证码
+* ShearCaptchaService: 扭曲干扰验证码
+
+

@@ -2,7 +2,6 @@ package io.yunjiao.springboot.autoconfigure.apijson.condition;
 
 import io.yunjiao.springboot.autoconfigure.test.TestUtils;
 import io.yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -39,7 +38,6 @@ public class ApllicationConditionTest {
     }
 
     @Test
-    @DisplayName("Fastjson2配置开启")
     void shouldMatchWhenPropertyMatchesFastjson2() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_APPLICATION, "fastjson2");

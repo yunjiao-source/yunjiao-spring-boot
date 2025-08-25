@@ -19,7 +19,8 @@
         <module>extension-common</module>
         <module>extension-apijson</module>
         <module>extension-querydsl</module>
-        <module>extension-hutool</module>
+        <module>extension-captcha</module>
+        <module>extension-id</module>
     </modules>
 
     <dependencies>

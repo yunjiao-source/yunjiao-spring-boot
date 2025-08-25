@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 /**
  * 高斯模糊算法实现
  *
- * @author wanpinwei
+ * @author yangyunjiao
  */
 public final class GaussianBlur {
     /**
@@ -15,7 +15,7 @@ public final class GaussianBlur {
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurLight(BufferedImage image) {
-        return gaussianBlur(image, 5);
+        return execute(image, 5);
     }
 
     /**
@@ -25,7 +25,7 @@ public final class GaussianBlur {
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurMedium(BufferedImage image) {
-        return gaussianBlur(image, 8);
+        return execute(image, 8);
     }
 
     /**
@@ -35,7 +35,7 @@ public final class GaussianBlur {
      * @return 模糊后的图像
      */
     public static BufferedImage gaussianBlurHeavy(BufferedImage image) {
-        return gaussianBlur(image, 11);
+        return execute(image, 11);
     }
 
     /**
@@ -45,7 +45,7 @@ public final class GaussianBlur {
      * @param radius 模糊半径
      * @return 模糊后的图像
      */
-    public static BufferedImage gaussianBlur(BufferedImage image, int radius) {
+    public static BufferedImage execute(BufferedImage image, int radius) {
         int width = image.getWidth();
         int height = image.getHeight();
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>io.gitee.yunjiao-source</groupId>
+        <artifactId>starters</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>starter-captcha</artifactId>
+    <packaging>jar</packaging>
+    <name>Starter :: Captcha</name>
+    <description>验证码 启动器</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>extension-captcha</artifactId>
+        </dependency>
+
+
+    </dependencies>
+</project>

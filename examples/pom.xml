@@ -17,11 +17,12 @@
     <description>示例项目</description>
 
     <modules>
-        <module>example-hutool</module>
+        <module>example-id</module>
         <module>example-querydsl-sql</module>
         <module>example-querydsl-jpa</module>
         <module>example-apijson-fastjson2</module>
         <module>example-apijson-gson</module>
+        <module>example-captcha</module>
     </modules>
 
     <properties>

@@ -3,20 +3,16 @@ package io.yunjiao.springboot.autoconfigure.apijson;
 import io.yunjiao.extension.apjson.orm.IdKeyApijsonStrategy;
 import io.yunjiao.extension.apjson.orm.IdKeyStrategy;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import javax.sql.DataSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 /**
- * {@link NewIdStrategyAutoConfiguration}单元测试用例
+ * {@link NewIdStrategyConfiguration}单元测试用例
  *
  * @author yangyunjiao
  */

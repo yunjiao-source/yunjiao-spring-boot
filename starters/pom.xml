@@ -16,11 +16,12 @@
     <description>Starters启动器</description>
 
     <modules>
-        <module>starter-hutool</module>
+        <module>starter-id</module>
         <module>starter-querydsl-sql</module>
         <module>starter-querydsl-jpa</module>
         <module>starter-apijson-fastjson2</module>
         <module>starter-apijson-gson</module>
+        <module>starter-captcha</module>
     </modules>
 
     <dependencies>

@@ -42,6 +42,16 @@
             <artifactId>extension-querydsl</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>extension-captcha</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source</groupId>
+            <artifactId>extension-id</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>com.google.guava</groupId>

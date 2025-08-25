@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: info
+    org.springframework.boot.autoconfigure: info
+    io.yunjiao: debug
+

@@ -14,7 +14,7 @@
     <version>${version}</version>
 </dependency>
 ```
-所有的配置属性参考[application-all.yaml](../doc/apijson/application-all.yml)
+所有的配置属性参考[application-all.yaml](../examples/example-apijson-fastjson2/src/main/resources/application-all.yml)
 
 支持接口
 
@@ -46,7 +46,7 @@
 </dependency>
 ```
 
-所有的配置属性参考[application-all.yaml](../doc/apijson/application-all.yml)
+所有的配置属性参考[application-all.yaml](../examples/example-apijson-gson/src/main/resources/application-all.yml)
 
 支持的接口
 
@@ -65,9 +65,7 @@
 
 详细使用参考示例[example-apijson-gson](../examples/example-apijson-gson)
 
-## start-hutool
-
-集成`Hutool`框架的启动器， 所有的配置属性参考[application-all.yaml](../doc/hutool/application-all.yml)
+## start-id
 
 在`pom.xml`中添加依赖
 ```xml
@@ -119,3 +117,23 @@
 * SQLQueryFactory： 查询工厂
 
 详细使用参考示例[example-querydsl-sql](../examples/example-querydsl-sql)
+
+## start-captcha
+
+验证码启动器， 在`pom.xml`中添加依赖
+```xml
+<dependency>
+    <groupId>io.gitee.yunjiao-source</groupId>
+    <artifactId>starter-captcha</artifactId>
+    <version>${version}</version>
+</dependency>
+```
+
+已配置的Bean列表
+* CaptchaServiceFactory： 查询工厂
+* LineCaptchaService：线段干扰的验证码服务
+* CircleCaptchaService：圆圈干扰验证码服务
+* ShearCaptchaService：扭曲干扰验证码服务
+* GifCaptchaService：gif验证码服务
+
+详细使用参考示例[example-captcha](../examples/example-captcha)
