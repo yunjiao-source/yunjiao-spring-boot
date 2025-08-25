@@ -60,7 +60,7 @@ public class CaptchaData implements Serializable {
      *
      * @return 可能空
      */
-    public String getBackgroundImage() {
+    public String getBackgroundImageBase64() {
         if (backgroundImage == null) {
             return null;
         }
