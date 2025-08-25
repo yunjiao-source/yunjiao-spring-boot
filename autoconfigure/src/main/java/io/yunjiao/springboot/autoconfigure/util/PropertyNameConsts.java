@@ -41,7 +41,7 @@ public class PropertyNameConsts {
     /**
      * apijson rest-api enabled 属性
      */
-    public static final String PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE = PROPERTY_PREFIX_APIJSON_RESTAPI + PROPERTY_ENABLED;
+    public static final String PROPERTY_APIJSON_RESTAPI_ENABLE = PROPERTY_PREFIX_APIJSON_RESTAPI + PROPERTY_ENABLED;
 
     /**
      * apijson sql 属性

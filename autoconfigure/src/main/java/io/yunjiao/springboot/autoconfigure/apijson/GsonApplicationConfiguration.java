@@ -95,7 +95,7 @@ public class GsonApplicationConfiguration {
      */
     @RequiredArgsConstructor
     @AutoConfiguration
-    @ConditionalOnProperty(name = {PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE},
+    @ConditionalOnProperty(name = {PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE},
             havingValue = "true",
             matchIfMissing = true)
     static

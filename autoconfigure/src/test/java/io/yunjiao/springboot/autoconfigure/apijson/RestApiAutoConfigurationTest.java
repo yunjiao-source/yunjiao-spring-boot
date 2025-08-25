@@ -29,7 +29,7 @@ public class RestApiAutoConfigurationTest {
     @Test
     public void givenPropertyRestApiEnable_whenTrue_thenFastjson2Config() {
         applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=true")
+                .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(Fastjson2ApplicationConfiguration.Fastjson2RestApiAutoConfiguration.class)
                 .run(context -> {
                     assertThat(context).hasSingleBean(Fastjson2RestController.class);
@@ -40,7 +40,7 @@ public class RestApiAutoConfigurationTest {
     @Test
     public void givenPropertyRestApiEnable_whenFalse_thenFastjson2Config() {
         applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=false")
+                .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(Fastjson2ApplicationConfiguration.Fastjson2RestApiAutoConfiguration.class)
                 .run(context -> {
                     assertThat(context).doesNotHaveBean(Fastjson2RestController.class);
@@ -51,7 +51,7 @@ public class RestApiAutoConfigurationTest {
     @Test
     public void givenPropertyRestApiEnable_whenTrue_thenGsonConfig() {
         applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=true")
+                .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(GsonApplicationConfiguration.GsonRestApiAutoConfiguration.class)
                 .run(context -> {
                     assertThat(context).hasSingleBean(GsonRestController.class);
@@ -62,7 +62,7 @@ public class RestApiAutoConfigurationTest {
     @Test
     public void givenPropertyRestApiEnable_whenFalse_thenGsonConfig() {
         applicationContextRunner
-                .withPropertyValues(PropertyNameConsts.PROPERTY_PREFIX_APIJSON_RESTAPI_ENABLE + "=false")
+                .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(GsonApplicationConfiguration.GsonRestApiAutoConfiguration.class)
                 .run(context -> {
                     assertThat(context).doesNotHaveBean(GsonRestController.class);
