@@ -9,7 +9,7 @@
 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-apijson-fastjson2</artifactId>
     <version>${version}</version>
 </dependency>
@@ -40,7 +40,7 @@
 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-apijson-gson</artifactId>
     <version>${version}</version>
 </dependency>
@@ -70,7 +70,7 @@
 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-hutool</artifactId>
     <version>${version}</version>
 </dependency>
@@ -89,7 +89,7 @@
 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-querydsl-jpa</artifactId>
     <version>${version}</version>
 </dependency>
@@ -107,7 +107,7 @@
 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-querydsl-sql</artifactId>
     <version>${version}</version>
 </dependency>
@@ -123,7 +123,7 @@
 验证码启动器， 在`pom.xml`中添加依赖
 ```xml
 <dependency>
-    <groupId>io.gitee.yunjiao-source</groupId>
+    <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-captcha</artifactId>
     <version>${version}</version>
 </dependency>

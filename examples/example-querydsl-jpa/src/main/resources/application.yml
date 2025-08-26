@@ -12,6 +12,6 @@ logging:
   level:
     root: info
     org.springframework.boot.autoconfigure: info
-    io.yunjiao: debug
+    yunjiao.springboot: debug
     com.querydsl.jpa: debug # 打印SQL语句
 

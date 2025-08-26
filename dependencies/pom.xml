@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.gitee.yunjiao-source</groupId>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
         <artifactId>spring-boot</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
@@ -46,62 +46,62 @@
         <dependencies>
             <!-- 本项目包 -->
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>autoconfigure</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>extension-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>extension-querydsl</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>extension-apijson</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>extension-captcha</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>extension-id</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-querydsl-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-querydsl-sql</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-id</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-apijson-fastjson2</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-apijson-gson</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-captcha</artifactId>
                 <version>${revision}</version>
             </dependency>

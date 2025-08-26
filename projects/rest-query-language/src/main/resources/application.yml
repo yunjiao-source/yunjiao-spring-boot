@@ -18,5 +18,5 @@ logging:
     root: info
     org.springframework.boot.autoconfigure: info
     org.springframework.context: debug
-    io.yunjiao: debug
+    yunjiao.springboot: debug
 

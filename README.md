@@ -61,8 +61,8 @@ mvn install
 ```text
     <!-- 第一种方式(推荐)：使用本父项目-->
     <parent>
-        <groupId>io.gitee.yunjiao-source</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+        <artifactId>starter-parent</artifactId>
         <version>${你需要的版本}</version>
     </parent>
     
@@ -70,8 +70,8 @@ mvn install
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+                <artifactId>dependencies</artifactId>
                 <version>${你需要的版本}</version>
                 <type>pom</type>
                 <scope>import</scope>
