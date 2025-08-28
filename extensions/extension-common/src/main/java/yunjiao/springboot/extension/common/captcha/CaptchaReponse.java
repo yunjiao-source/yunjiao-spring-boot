@@ -32,10 +32,10 @@ public class CaptchaReponse {
 
     public static CaptchaReponse of(CaptchaData data) {
         CaptchaReponse reponse = new CaptchaReponse();
-        reponse.setCategory(data.getCategory());
-        reponse.setKey(data.getKey());
-        reponse.setBackgroundImageBase64(data.getBackgroundImageBase64());
-        reponse.setCaptchaImageBase64(data.getCaptchaImageBase64());
+        reponse.setCategory(data.category());
+        reponse.setKey(data.key());
+        reponse.setBackgroundImageBase64(data.backgroundImageBase64Url());
+        reponse.setCaptchaImageBase64(data.captchaImageBase64Url());
         return reponse;
     }
 }

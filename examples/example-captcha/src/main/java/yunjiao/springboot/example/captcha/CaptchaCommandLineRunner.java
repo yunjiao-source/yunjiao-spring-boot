@@ -27,20 +27,28 @@ public class CaptchaCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CaptchaService circleService = factory.findService(CaptchaCategory.hutoolCircle);
+        CaptchaService circleService = factory.findService(CaptchaCategory.circle);
         CaptchaData data = circleService.draw();
         saveImage(data);
 
-        CaptchaService lineService = factory.findService(CaptchaCategory.hutoolLine);
+        CaptchaService lineService = factory.findService(CaptchaCategory.line);
         data = lineService.draw();
         saveImage(data);
 
-        CaptchaService gifService = factory.findService(CaptchaCategory.hutoolGif);
+        CaptchaService gifService = factory.findService(CaptchaCategory.gif);
         data = gifService.draw();
         saveImage(data);
 
-        CaptchaService shearService = factory.findService(CaptchaCategory.hutoolShear);
+        CaptchaService shearService = factory.findService(CaptchaCategory.shear);
         data = shearService.draw();
+        saveImage(data);
+
+        CaptchaService blockPuzzleService = factory.findService(CaptchaCategory.blockPuzzle);
+        data = blockPuzzleService.draw();
+        saveImage(data);
+
+        CaptchaService clickWordService = factory.findService(CaptchaCategory.clickWord);
+        data = clickWordService.draw();
         saveImage(data);
     }
 
@@ -50,7 +58,12 @@ public class CaptchaCommandLineRunner implements CommandLineRunner {
             Files.createDirectories(targetDir);
         }
 
-        Path filePath = targetDir.resolve(data.getCategory().getCode() + "." + data.getCategory().getExt());
-        Files.write(filePath, data.getCaptchaImage());
+        Path filePath = targetDir.resolve(data.category().name() + "-captcha." + data.category().getExt());
+        Files.write(filePath, data.captchaImage());
+
+        if (data.backgroundImage() != null) {
+            filePath = targetDir.resolve(data.category().name() + "-background." + data.category().getExt());
+            Files.write(filePath, data.backgroundImage());
+        }
     }
 }

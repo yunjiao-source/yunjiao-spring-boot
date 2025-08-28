@@ -2,7 +2,6 @@ package yunjiao.springboot.autoconfigure.captcha;
 
 import cn.hutool.captcha.ICaptcha;
 import cn.hutool.core.lang.Assert;
-import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -10,6 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import yunjiao.springboot.extension.captcha.hutool.*;
+import yunjiao.springboot.extension.common.captcha.CaptchaService;
 
 import java.awt.*;
 
@@ -31,8 +31,8 @@ public class HutoolCaptchaConfiguration {
         log.info("Hutool Captcha Configuration");
     }
 
-    @Bean(CaptchaCategory.HUTOOL_LINE_CAPTCHA)
-    LineCaptchaService lineCaptchaService(HutoolCaptchaProperties properties) {
+    @Bean
+    CaptchaService lineCaptchaService(HutoolCaptchaProperties properties) {
         HutoolCaptchaProperties.DrawingOptions options = properties.getLine();
         validate(options);
         Font font = createFont(options.getFont());
@@ -47,8 +47,8 @@ public class HutoolCaptchaConfiguration {
         return service;
     }
 
-    @Bean(CaptchaCategory.HUTOOL_CIRCLE_CAPTCHA)
-    CircleCaptchaService circleCaptchaService(HutoolCaptchaProperties properties) {
+    @Bean
+    CaptchaService circleCaptchaService(HutoolCaptchaProperties properties) {
         HutoolCaptchaProperties.DrawingOptions options = properties.getCircle();
         validate(options);
 
@@ -62,8 +62,8 @@ public class HutoolCaptchaConfiguration {
         return service;
     }
 
-    @Bean(CaptchaCategory.HUTOOL_SHEAR_CAPTCHA)
-    ShearCaptchaService sheareCaptchaService(HutoolCaptchaProperties properties) {
+    @Bean
+    CaptchaService sheareCaptchaService(HutoolCaptchaProperties properties) {
         HutoolCaptchaProperties.DrawingOptions options = properties.getShear();
         validate(options);
 
@@ -78,8 +78,8 @@ public class HutoolCaptchaConfiguration {
     }
 
 
-    @Bean(CaptchaCategory.HUTOOL_GIF_CAPTCHA)
-    GifCaptchaService gifCaptchaService(HutoolCaptchaProperties properties) {
+    @Bean
+    CaptchaService gifCaptchaService(HutoolCaptchaProperties properties) {
         HutoolCaptchaProperties.GifDrawingOptions options = properties.getGif();
         validate(options);
         Assert.isTrue(options.getQuality() >= 1 && options.getQuality() <= 20, "验证码配置属性‘quality‘值必须在[1, 20]之间");

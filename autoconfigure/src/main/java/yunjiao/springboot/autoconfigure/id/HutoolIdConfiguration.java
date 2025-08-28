@@ -38,10 +38,6 @@ public class HutoolIdConfiguration {
         final String SNOWFLAKE_WORKER_ID = "SNOWFLAKE_WORKER_ID";
         final String SNOWFLAKE_DATACENTER_ID = "SNOWFLAKE_DATACENTER_ID";
 
-        if (log.isDebugEnabled()) {
-            log.debug("正在配置雪花算法，默认workerId=1，datacenterId=1。如需支持分布式，请设置系统环境变量：{} 与 {}", SNOWFLAKE_WORKER_ID, SNOWFLAKE_DATACENTER_ID);
-        }
-
         long workerId = 1L;
         try {
             String workIdEnv = env.getProperty(SNOWFLAKE_WORKER_ID);
@@ -61,6 +57,10 @@ public class HutoolIdConfiguration {
         Snowflake snowflake = IdUtil.getSnowflake(workerId, datacenterId);
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [Snowflake: {}], workerId={}, datacenterId={}", snowflake, workerId, datacenterId);
+        }
+
+        if (workerId == 1L &&  datacenterId == 1L) {
+            log.info("雪花算法配置参数workerId=1，datacenterId=1。如需支持分布式，请设置系统环境变量：{} 与 {}", SNOWFLAKE_WORKER_ID, SNOWFLAKE_DATACENTER_ID);
         }
         return snowflake;
     }

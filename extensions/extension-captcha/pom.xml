@@ -12,7 +12,7 @@
     <artifactId>extension-captcha</artifactId>
     <packaging>jar</packaging>
     <name>Extension :: Captcha</name>
-    <description>验证码扩展</description>
+    <description>验证码扩展，集成Hutool，aj-captcha</description>
 
     <dependencies>
         <dependency>
@@ -23,5 +23,10 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-captcha</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.anji-plus</groupId>
+            <artifactId>captcha</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

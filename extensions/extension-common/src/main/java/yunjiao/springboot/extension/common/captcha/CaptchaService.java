@@ -16,11 +16,11 @@ public interface CaptchaService {
     /**
      * 校验验证码
      *
-     * @param orignalCode 原始验证码
+     * @param originalCode 原始验证码
      * @param userCode 用户输入验证码
      * @return 相同返回true，否则false
      */
-    boolean verify(Object orignalCode, Object userCode);
+    boolean verify(String originalCode, String userCode);
 
     /**
      * 获取分类

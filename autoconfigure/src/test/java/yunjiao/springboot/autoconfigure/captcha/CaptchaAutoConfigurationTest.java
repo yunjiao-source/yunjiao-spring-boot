@@ -28,7 +28,7 @@ public class CaptchaAutoConfigurationTest {
                     assertThat(context).hasSingleBean(CaptchaServiceFactory.class);
 
                     CaptchaServiceFactory factory = context.getBean(CaptchaServiceFactory.class);
-                    assertThat(factory.getServices()).hasSize(4);
+                    assertThat(factory.services()).hasSize(7);
                 });
     }
 }

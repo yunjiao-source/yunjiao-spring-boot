@@ -2,10 +2,12 @@ package yunjiao.springboot.extension.captcha.hutool;
 
 import cn.hutool.core.img.ImgUtil;
 import cn.hutool.core.util.IdUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
+import yunjiao.springboot.extension.captcha.CaptchaException;
 import yunjiao.springboot.extension.common.algorithm.GaussianBlur;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
 import yunjiao.springboot.extension.common.captcha.CaptchaService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -27,11 +29,12 @@ public abstract class AbstractCaptchaService implements CaptchaService {
 
     protected abstract Integer getFuzziness();
 
-    protected void handleFuzziness(BufferedImage image) {
+    protected BufferedImage handleFuzziness(BufferedImage image) {
         Integer fuzziness = getFuzziness();
         if (fuzziness != null && fuzziness > 0) {
-            image = GaussianBlur.execute(image, fuzziness);
+            return GaussianBlur.execute(image, fuzziness);
         }
+        return image;
     }
 
     protected CaptchaData createCaptchaData(String code, BufferedImage image) {
@@ -39,39 +42,27 @@ public abstract class AbstractCaptchaService implements CaptchaService {
             ImgUtil.writePng(image, out);
             byte[] imageBytes = out.toByteArray();
 
-            return CaptchaData.builder()
+            return new CaptchaData()
                     .key(IdUtil.fastSimpleUUID())
                     .code(code)
                     .category(getCategory())
-                    .captchaImage(imageBytes)
-                    .build();
+                    .captchaImage(imageBytes);
         } catch (IOException e) {
             throw new CaptchaException("生成验证码图片异常", e);
         }
-
-
-
     }
 
     @Override
-    public boolean verify(Object orignalCode, Object userCode) {
-        if(orignalCode == null || userCode == null) {
-            return false;
-        }
-
-        if (orignalCode instanceof String orginalStr
-                && userCode instanceof String userStr ) {
-            // 是否忽略大写校验
+    public boolean verify(String originalCode, String userCode) {
+        if(StringUtils.hasText(originalCode) && StringUtils.hasText(userCode)) {
             Boolean ignoreCase = getValidIgnoreCase();
             if (Boolean.TRUE.equals(ignoreCase)) {
-                return orginalStr.equalsIgnoreCase(userStr);
+                return originalCode.equalsIgnoreCase(userCode);
             } else {
-                return orginalStr.equals(userStr);
+                return originalCode.equals(userCode);
             }
-        } else {
-            log.error("验证码应该是字符串类型，实际是{}和{}类型", orignalCode.getClass().getSimpleName(),
-                    userCode.getClass().getSimpleName());
         }
+
         return false;
     }
 }

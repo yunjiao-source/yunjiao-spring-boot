@@ -1,4 +1,4 @@
-package yunjiao.springboot.extension.captcha.hutool;
+package yunjiao.springboot.extension.captcha;
 
 import yunjiao.springboot.extension.common.util.CommonRuntimeException;
 

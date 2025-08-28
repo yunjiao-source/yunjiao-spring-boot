@@ -2,6 +2,12 @@ package yunjiao.springboot.extension.captcha;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import com.anji.captcha.model.common.Const;
+import com.anji.captcha.service.CaptchaCacheService;
+import com.anji.captcha.service.CaptchaService;
+import com.anji.captcha.service.impl.CaptchaServiceFactory;
+import yunjiao.springboot.extension.captcha.anji.BlockPuzzleCaptchaService;
+import yunjiao.springboot.extension.captcha.anji.ClickWorkCaptchaService;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
 import yunjiao.springboot.extension.common.model.ColorType;
 import yunjiao.springboot.extension.captcha.hutool.*;
@@ -10,6 +16,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Properties;
 
 /**
  * 可视化界面
@@ -29,10 +36,14 @@ public class CaptchaJFrameDemo extends JFrame  {
 
     private GifCaptchaService gifCaptchaService;
 
+    private BlockPuzzleCaptchaService blockPuzzleCaptchaService;
+
+    private ClickWorkCaptchaService clickWorkCaptchaService;
+
     public CaptchaJFrameDemo() {
         setTitle("验证码生成器");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 300);
+        setSize(800, 800);
         setLocationRelativeTo(null);
 
         initUI();
@@ -93,13 +104,40 @@ public class CaptchaJFrameDemo extends JFrame  {
         gcb.setMaxColor(255);
 
         gifCaptchaService = new GifCaptchaService(gcb);
+
+        Properties config = new Properties();
+        config.put(Const.CAPTCHA_CACHETYPE, "local");
+        config.put(Const.CAPTCHA_WATER_MARK, "我的水印");
+        config.put(Const.CAPTCHA_FONT_TYPE, "WenQuanZhengHei.ttf");
+        config.put(Const.CAPTCHA_TYPE, "default");
+        config.put(Const.CAPTCHA_INTERFERENCE_OPTIONS, "0");
+        config.put(Const.ORIGINAL_PATH_JIGSAW, "");
+        config.put(Const.ORIGINAL_PATH_PIC_CLICK, "");
+        config.put(Const.CAPTCHA_SLIP_OFFSET, "5");
+        config.put(Const.CAPTCHA_AES_STATUS, "false");
+        config.put(Const.CAPTCHA_WATER_FONT, "WenQuanZhengHei.ttf");
+        // CacheUtil的定时任务存在泄露的问题
+        config.put(Const.CAPTCHA_TIMING_CLEAR_SECOND, "0");
+
+        config.put(Const.CAPTCHA_FONT_SIZE, "25");
+        config.put(Const.CAPTCHA_FONT_STYLE, Font.BOLD);
+        config.put(Const.CAPTCHA_WORD_COUNT, "4");
+
+        CaptchaService captchaService = CaptchaServiceFactory.getInstance(config);
+        CaptchaCacheService captchaCacheService = CaptchaServiceFactory.getCache("local");
+        blockPuzzleCaptchaService = new BlockPuzzleCaptchaService(captchaService,
+                captchaCacheService,
+                5);
+        clickWorkCaptchaService = new ClickWorkCaptchaService(captchaService,
+                captchaCacheService,
+                5);
     }
 
     private void initUI() {
         setLayout(new BorderLayout());
 
         // 创建验证码显示面板
-        captchaPanel = new JPanel(new GridLayout(3, 2, 10, 10));
+        captchaPanel = new JPanel(new GridLayout(3, 3, 10, 10));
         captchaPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         add(captchaPanel, BorderLayout.CENTER);
 
@@ -139,16 +177,30 @@ public class CaptchaJFrameDemo extends JFrame  {
         captchaData = gifCaptchaService.draw();
         decodeImage(captchaData);
 
+        captchaData = blockPuzzleCaptchaService.draw();
+        decodeImage(captchaData);
+
+        captchaData = clickWorkCaptchaService.draw();
+        decodeImage(captchaData);
+
         captchaPanel.revalidate();
         captchaPanel.repaint();
     }
 
     private void decodeImage(CaptchaData captchaData) {
-        ImageIcon icon = new ImageIcon(captchaData.getCaptchaImage());
+        ImageIcon icon = new ImageIcon(captchaData.captchaImage());
 
         JLabel label = new JLabel(icon);
         label.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         captchaPanel.add(label);
+
+        if (captchaData.backgroundImage() != null) {
+            icon = new ImageIcon(captchaData.backgroundImage());
+
+            label = new JLabel(icon);
+            label.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+            captchaPanel.add(label);
+        }
     }
 
     public static void main(String[] args) {

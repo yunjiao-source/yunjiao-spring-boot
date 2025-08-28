@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.4</version>
+        <version>3.0.13</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-parent</artifactId>
-    <version>3.5.x.3</version>
+    <version>0.3.0</version>
     <packaging>pom</packaging>
     <name>Spring Boot :: Starter Parent</name>
     <description>启动器项目，方便用户开发</description>

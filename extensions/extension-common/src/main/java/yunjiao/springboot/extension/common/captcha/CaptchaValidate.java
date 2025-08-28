@@ -17,7 +17,7 @@ public class CaptchaValidate {
     /**
      * 验证码
      */
-    private Object code;
+    private String code;
 
 
     /**

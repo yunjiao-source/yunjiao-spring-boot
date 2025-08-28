@@ -242,7 +242,7 @@ enum StatusEnum {
 验证码服务接口，主要功能包括验证码生成，校验等
 
 * CaptchaData draw() : 验证码生成
-* boolean verify(Object orignalCode, Object userCode)：验证码校验
+* boolean verify(String originalCode, String userCode)：验证码校验
 * CaptchaCategory getCategory()：分类
 
 

@@ -12,20 +12,13 @@ import lombok.ToString;
 @Getter
 @ToString
 public enum CaptchaCategory {
-    hutoolLine(CaptchaCategory.HUTOOL_LINE_CAPTCHA, "png", "Hutool线段干扰验证码"),
-    hutoolCircle(CaptchaCategory.HUTOOL_CIRCLE_CAPTCHA, "png", "Hutool圆圈干扰验证码"),
-    hutoolShear(CaptchaCategory.HUTOOL_SHEAR_CAPTCHA, "png", "Hutool扭曲干扰验证码"),
-    hutoolGif(CaptchaCategory.HUTOOL_GIF_CAPTCHA, "gif", "Hutool GIF验证码");
-
-    public static final String HUTOOL_LINE_CAPTCHA = "HUTOOL_LINE";
-    public static final String HUTOOL_CIRCLE_CAPTCHA = "HUTOOL_CIRCLE";
-    public static final String HUTOOL_SHEAR_CAPTCHA = "HUTOOL_SHEAR";
-    public static final String HUTOOL_GIF_CAPTCHA = "HUTOOL_GIF";
-
-    /**
-     * 代码
-     */
-    private final String code;
+    line("png", "线段干扰验证码"),
+    circle("png", "圆圈干扰验证码"),
+    shear("png", "扭曲干扰验证码"),
+    gif("gif", "GIF验证码"),
+    blockPuzzle("png", "滑块拼图验证码"),
+    clickWord("png", "文字点选验证码"),
+    rotatePuzzle("png", "旋转拼图验证码");
 
     /**
      * 描述
@@ -37,14 +30,12 @@ public enum CaptchaCategory {
      */
     private final String ext;
 
-    CaptchaCategory(String code, String ext, String description) {
-        this.code = code;
+    CaptchaCategory(String ext, String description) {
         this.ext = ext;
         this.description = description;
     }
 
     static {
         EnumCache.registerByName(CaptchaCategory.class, CaptchaCategory.values());
-        EnumCache.registerByValue(CaptchaCategory.class, CaptchaCategory.values(), CaptchaCategory::getCode);
     }
 }

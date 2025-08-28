@@ -2,22 +2,16 @@ cd ..
 
 call mvn clean install
 
-echo ################################
-echo #  spring-boot-starter-parent  #
-echo ################################
-cd spring-boot-starter-parent
+echo [starter-parent]
+cd starter-parent
 call mvn clean install
 
-echo ################################
-echo #          examples            #
-echo ################################
+echo [examples]
 cd ..
 cd examples
 call mvn clean install
 
-echo ################################
-echo #          projects            #
-echo ################################
+echo [projects]
 cd ..
 cd projects
 call mvn clean install

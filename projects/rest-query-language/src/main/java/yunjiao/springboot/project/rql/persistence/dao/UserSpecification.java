@@ -1,5 +1,6 @@
 package yunjiao.springboot.project.rql.persistence.dao;
 
+import lombok.Getter;
 import yunjiao.springboot.project.rql.persistence.model.User;
 import yunjiao.springboot.project.rql.web.util.SpecSearchCriteria;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -8,25 +9,15 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
-public class UserSpecification implements Specification<User> {
-
-	private SpecSearchCriteria criteria;
-
-	public UserSpecification(final SpecSearchCriteria criteria) {
-		super();
-		this.criteria = criteria;
-	}
-
-	public SpecSearchCriteria getCriteria() {
-		return criteria;
-	}
+@Getter
+public record UserSpecification(SpecSearchCriteria criteria) implements Specification<User> {
 
     public static Specification<User> empty() {
-        return Specification.unrestricted();
+        return (root, query, builder) -> null;
     }
 
-	@Override
-	public Predicate toPredicate(final Root<User> root, final CriteriaQuery<?> query, final CriteriaBuilder builder) {
+    @Override
+    public Predicate toPredicate(final Root<User> root, final CriteriaQuery<?> query, final CriteriaBuilder builder) {
         return switch (criteria.getOperation()) {
             case EQUALITY -> builder.equal(root.get(criteria.getKey()), criteria.getValue());
             case NEGATION -> builder.notEqual(root.get(criteria.getKey()), criteria.getValue());
@@ -38,6 +29,6 @@ public class UserSpecification implements Specification<User> {
             case CONTAINS -> builder.like(root.get(criteria.getKey()), "%" + criteria.getValue() + "%");
             default -> null;
         };
-	}
+    }
 
 }

@@ -22,16 +22,16 @@ public class GifCaptchaService extends AbstractCaptchaService {
     public CaptchaData draw() {
         GifCaptcha captcha = builder.build();
         String code = captcha.getCode();
-        return CaptchaData.builder().key(IdUtil.fastSimpleUUID())
+        return new CaptchaData()
+                .key(IdUtil.fastSimpleUUID())
                 .code(code)
                 .category(getCategory())
-                .captchaImage(captcha.getImageBytes())
-                .build();
+                .captchaImage(captcha.getImageBytes());
     }
 
     @Override
     public CaptchaCategory getCategory() {
-        return CaptchaCategory.hutoolGif;
+        return CaptchaCategory.gif;
     }
 
     @Override

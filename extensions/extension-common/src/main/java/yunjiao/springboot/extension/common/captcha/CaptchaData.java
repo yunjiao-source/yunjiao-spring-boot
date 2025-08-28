@@ -1,8 +1,9 @@
 package yunjiao.springboot.extension.common.captcha;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Base64;
@@ -13,8 +14,9 @@ import java.util.Base64;
  * @author yangyunjiao
  */
 @Getter
-@Builder
+@Setter
 @ToString
+@Accessors(fluent = true, chain = true)
 public class CaptchaData implements Serializable {
     /**
      * 验证码唯一标识，通常是uuid字符
@@ -46,13 +48,13 @@ public class CaptchaData implements Serializable {
      *
      * @return 可能空
      */
-    public String getCaptchaImageBase64() {
+    public String captchaImageBase64Url() {
         if (captchaImage == null) {
             return null;
         }
 
         String base64 = Base64.getEncoder().encodeToString(captchaImage);
-        return "data:" + category.getExt() + ";base64," + base64;
+        return "data:image/" + category.getExt() + ";base64," + base64;
     }
 
     /**
@@ -60,12 +62,12 @@ public class CaptchaData implements Serializable {
      *
      * @return 可能空
      */
-    public String getBackgroundImageBase64() {
+    public String backgroundImageBase64Url() {
         if (backgroundImage == null) {
             return null;
         }
 
         String base64 = Base64.getEncoder().encodeToString(backgroundImage);
-        return "data:" + category.getExt() + ";base64," + base64;
+        return "data:image/" + category.getExt() + ";base64," + base64;
     }
 }

@@ -27,13 +27,13 @@ public class LineCaptchaService extends AbstractCaptchaService {
         // 生成图片
         BufferedImage image = (BufferedImage)captcha.createImage(code);
 
-        handleFuzziness(image);
+        image = handleFuzziness(image);
         return createCaptchaData(code, image);
     }
 
     @Override
     public CaptchaCategory getCategory() {
-        return CaptchaCategory.hutoolLine;
+        return CaptchaCategory.line;
     }
 
     @Override

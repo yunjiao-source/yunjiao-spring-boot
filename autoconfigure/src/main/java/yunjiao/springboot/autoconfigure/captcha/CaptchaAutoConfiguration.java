@@ -1,15 +1,18 @@
 package yunjiao.springboot.autoconfigure.captcha;
 
-import yunjiao.springboot.extension.captcha._Captcha;
-import yunjiao.springboot.extension.common.captcha.CaptchaService;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import yunjiao.springboot.extension.captcha._Captcha;
+import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
+import yunjiao.springboot.extension.common.captcha.CaptchaService;
 
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 验证码 自动配置
@@ -20,7 +23,8 @@ import java.util.Map;
 @AutoConfiguration
 @ConditionalOnClass({_Captcha.class})
 @Import({
-        HutoolCaptchaConfiguration.class
+        HutoolCaptchaConfiguration.class,
+        AnjiCaptchaConfiguration.class
 })
 public class CaptchaAutoConfiguration {
     /**
@@ -32,7 +36,10 @@ public class CaptchaAutoConfiguration {
     }
 
     @Bean
-    CaptchaServiceFactory captchaServiceFactory(Map<String, CaptchaService> services) {
+    CaptchaServiceFactory captchaServiceFactory(ObjectProvider<CaptchaService> captchaServices) {
+        Map<CaptchaCategory, CaptchaService> services =
+                captchaServices.stream()
+                .collect(Collectors.toMap(CaptchaService::getCategory, m -> m));
         CaptchaServiceFactory factory = new CaptchaServiceFactory(services);
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [Captcha Service Factory: {}]", factory);

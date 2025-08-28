@@ -14,8 +14,8 @@
     <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
 
     <properties>
-        <revision>3.5.x.3</revision>
-        <spring-boot.version>3.5.4</spring-boot.version>
+        <revision>0.3.0</revision>
+        <spring-boot.version>3.0.13</spring-boot.version>
 
         <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>

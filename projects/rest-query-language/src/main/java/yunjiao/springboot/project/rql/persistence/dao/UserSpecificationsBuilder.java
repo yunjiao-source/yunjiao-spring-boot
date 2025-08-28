@@ -60,7 +60,7 @@ public final class UserSpecificationsBuilder {
     }
 
     public final UserSpecificationsBuilder with(UserSpecification spec) {
-        params.add(spec.getCriteria());
+        params.add(spec.criteria());
         return this;
     }
 

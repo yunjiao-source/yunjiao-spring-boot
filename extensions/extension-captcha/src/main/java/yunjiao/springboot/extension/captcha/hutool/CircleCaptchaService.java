@@ -27,13 +27,13 @@ public class CircleCaptchaService extends AbstractCaptchaService {
         // 生成图片
         BufferedImage image = (BufferedImage)captcha.createImage(code);
 
-        handleFuzziness(image);
+        image = handleFuzziness(image);
         return createCaptchaData(code, image);
     }
 
     @Override
     public CaptchaCategory getCategory() {
-        return CaptchaCategory.hutoolCircle;
+        return CaptchaCategory.circle;
     }
 
     @Override

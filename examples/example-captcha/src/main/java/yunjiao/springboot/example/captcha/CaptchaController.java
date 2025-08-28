@@ -25,12 +25,13 @@ public class CaptchaController {
         CaptchaData data = service.draw();
 
         CaptchaReponse reponse = new CaptchaReponse();
-        reponse.setKey(data.getKey());
+        reponse.setKey(data.key());
         reponse.setCategory(service.getCategory());
-        reponse.setCaptchaImageBase64(data.getCaptchaImageBase64());
+        reponse.setCaptchaImageBase64(data.captchaImageBase64Url());
+        reponse.setBackgroundImageBase64(data.backgroundImageBase64Url());
 
-        timedCache.put(data.getKey(), data.getCode());
-        System.out.println("code=" + data.getCode());
+        timedCache.put(data.key(), data.code());
+        System.out.println("code=" + data.code());
         return reponse;
     }
 

@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author yangyunjiao
  */
-public class IdCaptchaConfigurationTest {
+public class HutoolCaptchaConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
@@ -33,7 +33,6 @@ public class IdCaptchaConfigurationTest {
                     assertThat(context).hasSingleBean(CircleCaptchaService.class);
                     assertThat(context).hasSingleBean(ShearCaptchaService.class);
                     assertThat(context).hasSingleBean(GifCaptchaService.class);
-
                 });
     }
 }

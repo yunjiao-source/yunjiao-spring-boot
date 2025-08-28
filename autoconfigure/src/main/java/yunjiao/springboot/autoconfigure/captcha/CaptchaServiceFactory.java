@@ -1,11 +1,9 @@
 package yunjiao.springboot.autoconfigure.captcha;
 
-import yunjiao.springboot.extension.captcha.hutool.CaptchaException;
+import yunjiao.springboot.extension.captcha.CaptchaException;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaService;
 import yunjiao.springboot.extension.common.lang.EnumCache;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
@@ -14,21 +12,18 @@ import java.util.Map;
  *
  * @author yangyunjiao
  */
-@Getter
-@RequiredArgsConstructor
-public class CaptchaServiceFactory {
-    private final Map<String, CaptchaService> services;
+public record CaptchaServiceFactory(Map<CaptchaCategory, CaptchaService> services) {
 
     /**
      * 根据分类代码，查找验证码服务
      *
-     * @param categoryCode 必须值
+     * @param categoryName 分类名称，必须值
      * @return 实例
      */
-    public CaptchaService findService(String categoryCode) {
-        CaptchaCategory category = EnumCache.findByValue(CaptchaCategory.class, categoryCode);
+    public CaptchaService findService(String categoryName) {
+        CaptchaCategory category = EnumCache.findByName(CaptchaCategory.class, categoryName);
         if (category == null) {
-            throw new CaptchaException("验证码分类代码不存在，代码是：" + categoryCode);
+            throw new CaptchaException("验证码分类代码不存在，名称是：" + categoryName);
         }
         return findService(category);
     }
@@ -40,7 +35,7 @@ public class CaptchaServiceFactory {
      * @return 实例
      */
     public CaptchaService findService(CaptchaCategory category) {
-        CaptchaService service = services.get(category.getCode());
+        CaptchaService service = services.get(category);
         if (service == null) {
             throw new CaptchaException("根据分类查找验证码服务未找到, 分类是：" + category);
         }

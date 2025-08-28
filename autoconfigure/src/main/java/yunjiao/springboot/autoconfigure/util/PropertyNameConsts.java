@@ -26,6 +26,11 @@ public class PropertyNameConsts {
      */
     public static final String PROPERTY_PREFIX_CAPTCHA_HUTOOL = PROPERTY_PREFIX_CAPTCHA + ".hutool";
 
+    /**
+     * 验证码属性 Hutool
+     */
+    public static final String PROPERTY_PREFIX_CAPTCHA_ANJI = PROPERTY_PREFIX_CAPTCHA + ".anji";
+
     // APIJSON
 
     /**

@@ -19,13 +19,14 @@
     <description>依赖项目</description>
 
     <properties>
-        <druid-spring-boot-starter.version>1.2.25</druid-spring-boot-starter.version>
         <querydsl.version>5.1.0</querydsl.version>
         <guava.version>33.4.8-jre</guava.version>
+        <gson.version>2.12.1</gson.version>
         <hutool.version>5.8.38</hutool.version>
         <apijson-framework.version>7.2.2</apijson-framework.version>
         <apijson-gson.version>1.0.0</apijson-gson.version>
         <apijson-fastjson2.version>1.0.2</apijson-fastjson2.version>
+        <ajcaptcha.version>1.4.0</ajcaptcha.version>
 
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -33,12 +34,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Maven plugins -->
-        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
-        <maven-jacoco-plugin.version>0.8.2</maven-jacoco-plugin.version>
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <maven-jacoco-plugin.version>0.8.12</maven-jacoco-plugin.version>
+        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
         <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     </properties>
 
@@ -122,18 +123,21 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- 第三方starter -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid-spring-boot-starter.version}</version>
-            </dependency>
-
             <!-- 工具框架 -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.anji-plus</groupId>
+                <artifactId>captcha</artifactId>
+                <version>${ajcaptcha.version}</version>
             </dependency>
 
             <!-- QueryDSL -->
@@ -343,6 +347,9 @@
     <profiles>
         <profile>
             <id>spring-boot-3.0.13</id>
+            <activation>
+                <activeByDefault>true</activeByDefault> <!-- 默认激活 -->
+            </activation>
             <properties>
                 <spring-boot.version>3.0.13</spring-boot.version>
             </properties>
@@ -378,9 +385,6 @@
 
         <profile>
             <id>spring-boot-3.5.4</id>
-            <activation>
-                <activeByDefault>true</activeByDefault> <!-- 默认激活 -->
-            </activation>
             <properties>
                 <spring-boot.version>3.5.4</spring-boot.version>
             </properties>
