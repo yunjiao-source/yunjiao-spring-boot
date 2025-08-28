@@ -1,3 +1,4 @@
-io.yunjiao.springboot.autoconfigure.querydsl.QueryDSLAutoConfig
-io.yunjiao.springboot.autoconfigure.hutool.HutoolAutoConfiguration
-io.yunjiao.springboot.autoconfigure.apijson.ApijsonAutoConfiguration
+yunjiao.springboot.autoconfigure.querydsl.QueryDSLAutoConfig
+yunjiao.springboot.autoconfigure.id.IdAutoConfiguration
+yunjiao.springboot.autoconfigure.captcha.CaptchaAutoConfiguration
+yunjiao.springboot.autoconfigure.apijson.ApijsonAutoConfiguration

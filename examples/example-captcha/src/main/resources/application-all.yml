@@ -1,0 +1,69 @@
+spring:
+  captcha:
+    #
+    hutool:
+      line:
+        width: 250                        # 图片的宽度， 默认：250
+        height: 50                        # 图片的高度， 默认： 50
+        interfere-count: 60               # 验证码干扰元素个数， 默认：60
+        background-color: white           # 背景色， 默认：white
+        #transparency:                    # 文字透明度，取值0~1，1表示不透明， 默认：null
+        fuzziness: 2                      # 模糊度（0 - 30）， 默认：2
+        valid-ignore-case: true           # 校验时忽略大小写 ， 默认：true
+        font:                             # 字体
+          #name:                          # 名称, 为空表示使用系统默认字体 ，默认： null
+          style: plain                    # 风格， 默认：plain
+          size: 36                        # 大小， 默认：36
+        code:                             # 码属性
+          generator: numandchar                    # 码生成类型，默认：numandchar
+          length: 5                       # 字符长度， 默认：5
+      circle:
+        width: 250                        # 图片的宽度， 默认：250
+        height: 50                        # 图片的高度， 默认： 50
+        interfere-count: 30               # 验证码干扰元素个数， 默认：30
+        background-color: white           # 背景色， 默认：white
+        #transparency:                    # 文字透明度，取值0~1，1表示不透明， 默认：null
+        fuzziness: 2                      # 模糊度（0 - 30）， 默认：2
+        valid-ignore-case: true           # 校验时忽略大小写 ， 默认：true
+        font:                             # 字体
+          #name:                          # 名称, 为空表示使用系统默认字体 ，默认： null
+          style: plain                    # 风格， 默认：plain
+          size: 36                        # 大小， 默认：36
+        code:                             # 码
+          generator: numandchar           # 码生成类型，默认：numandchar
+          length: 5                       # 字符长度， 默认：5
+      shear:
+        width: 250                        # 图片的宽度， 默认：250
+        height: 50                        # 图片的高度， 默认： 50
+        interfere-count: 4                # 验证码干扰线宽度， 默认：4
+        background-color: white           # 背景色， 默认：white
+        #transparency:                    # 文字透明度，取值0~1，1表示不透明， 默认：null
+        fuzziness: 2                      # 模糊度（0 - 30）， 默认：2
+        valid-ignore-case: true           # 校验时忽略大小写 ， 默认：true
+        font:                             # 字体
+          #name:                          # 名称, 为空表示使用系统默认字体 ，默认： null
+          style: plain                    # 风格， 默认：plain
+          size: 36                        # 大小， 默认：36
+        code:                             # 码
+          generator: numandchar           # 码生成类型，默认：numandchar
+          length: 5                       # 字符长度， 默认：5
+      gif:
+        width: 250                        # 图片的宽度， 默认：250
+        height: 50                        # 图片的高度， 默认： 50
+        interfere-count: 10               # 验证码干扰元素个数， 默认：10
+        background-color: white           # 背景色， 默认：white
+        #transparency:                    # 文字透明度，取值0~1，1表示不透明， 默认：null
+        fuzziness: 2                      # 模糊度（0 - 30）， 默认：2
+        valid-ignore-case: true           # 校验时忽略大小写 ， 默认：true
+        font:                             # 字体
+          #name:                          # 名称, 为空表示使用系统默认字体 ，默认： null
+          style: plain                    # 风格， 默认：plain
+          size: 36                        # 大小， 默认：36
+        code:                             # 码
+          generator: numandchar           # 码生成类型，默认：numandchar
+          length: 5                       # 字符长度， 默认：5
+        quality: 10                       # 量化器取样间隔, 1 ~ 20 值之间 - 默认是10
+        repeat: 0                         # 帧循环次数，默认是 0， 意味着无限循环
+        min-color: 0                      # 设置随机颜色时，最小的取色范围
+        max-color: 255                    # 设置随机颜色时，最大的取色范围
+

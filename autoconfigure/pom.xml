@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>io.gitee.yunjiao-source</groupId>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
         <artifactId>dependencies</artifactId>
         <version>${revision}</version>
         <relativePath>../dependencies/pom.xml</relativePath>
@@ -28,21 +28,46 @@
         </dependency>
 
         <dependency>
-            <groupId>io.gitee.yunjiao-source</groupId>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
             <artifactId>extension-common</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>io.gitee.yunjiao-source</groupId>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
             <artifactId>extension-apijson</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>io.gitee.yunjiao-source</groupId>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
             <artifactId>extension-querydsl</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+            <artifactId>extension-captcha</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+            <artifactId>extension-id</artifactId>
+            <optional>true</optional>
+        </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -112,6 +137,13 @@
             <groupId>com.github.APIJSON</groupId>
             <artifactId>apijson-gson</artifactId>
             <optional>true</optional>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

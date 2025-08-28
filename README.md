@@ -2,29 +2,31 @@
 
 基于`Spring Boot`框架，集成其他框架开发的`Starter`
 
-## 版本说明
+## 发布版本
 
-第一个的版本是`3.5.x.1`,前面两位是`Spring Boot`的版本，随着`Spring Boot`的版本升级而变。最后一位是本框架的版本，随着框架的扩展而增加，如：1,2,3，...x
-不会因`Spring Boot`版本变动而变动。
+| 项目版本         | String Boot 版本 |
+|--------------|----------------|
+| <=0.3.0      | 3.0.13         |
 
-如果需要 `Spring Boot` 3.5之前的包，请`fork`本项目，克隆代码，自己编译需要的版本。
+
+
+如果需要 `Spring Boot` 3.5之前的包，请`fork`本项目，克隆代码，自己编译需要的版本。例如编译`Spring Boot 3.5.4`的版本
+```shell
+mvn clean install -P spring-boot-3.5.4
+```
 
 ## 项目列表
 
 | 项目                                    | 说明                                |
 |---------------------------------------|-----------------------------------|
-| spring-boot-autoconfigure             | 自动配置                              |
-| spring-boot-dependencies              | 项目依赖                              |
-| spring-boot-projects                  | 应用                                |
-| spring-boot-examples                  | 示例项目                              |
-| spring-querydsl                       | QueryDSL 集成                       |
-| spring-apijson                        | APIJSON 集成                        |
-| config                     | 配置                                |
-| spring-boot-starter-querydsl-jpa      | QueryDSL JPA Spring Boot 启动器      |
-| spring-boot-starter-querydsl-sql      | QueryDSL SQL Spring Boot 启动器      |
-| spring-boot-starter-hutool            | Hutool Spring Boot 启动器            |
-| spring-boot-starter-apijson-fastjson2 | APIJSON Fastjson2 Spring Boot 启动器 |
-| spring-boot-starter-apijson-gson      | APIJSON Gson Spring Boot 启动器      |
+| autoconfigure                         | 自动配置                              |
+| dependencies                          | 项目依赖                              |
+| projects                              | 应用                                |
+| examples                              | 示例项目                              |
+| extensions                            | 扩展                                |
+| config                                | 配置                                |
+| starters                              | 启动器                               |
+
 
 ## 如何编译
 
@@ -65,8 +67,8 @@ mvn install
 ```text
     <!-- 第一种方式(推荐)：使用本父项目-->
     <parent>
-        <groupId>io.gitee.yunjiao-source</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+        <artifactId>starter-parent</artifactId>
         <version>${你需要的版本}</version>
     </parent>
     
@@ -74,8 +76,8 @@ mvn install
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.gitee.yunjiao-source</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+                <artifactId>dependencies</artifactId>
                 <version>${你需要的版本}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -86,11 +88,12 @@ mvn install
 
 ## 使用指南
 
-* spring-boot-starter-querydsl-jpa [使用指南](./spring-boot-starter-querydsl-jpa/README.md) [参考项目](./examples/example-querydsl-jpa)
-* spring-boot-starter-querydsl-sql [使用指南](./spring-boot-starter-querydsl-sql/README.md) [参考项目](./examples/example-querydsl-sql)
-* spring-boot-starter-hutool [使用指南](./spring-boot-starter-hutool/README.md) [参考项目](./examples/example-hutool)
-* spring-boot-starter-apijson-fastjson2 [使用指南](./spring-boot-starter-apijson-fastjson2/README.md) [参考项目](./examples/example-apijson-fastjson2)
-* spring-boot-starter-apijson-Gson [使用指南](./spring-boot-starter-apijson-gson/README.md) [参考项目](./examples/example-apijson-gons)
+* starter-apijson-fastjson2 [使用指南](./doc/md/STARTER-APIJSON-FASTJSON2.md)
+* starter-apijson-gson [使用指南](./doc/md/STARTER-APIJSON-GSON.md)
+* starter-captcha [使用指南](./doc/md/STARTER-CAPTCHA.md)
+* starter-id [使用指南](./doc/md/STARTER-ID.md)
+* starter-querydsl-jpa [使用指南](./doc/md/STARTER-QUERYDSL-JPA.md)
+* starter-querydsl-sql [使用指南](./doc/md/STARTER-QUERYDSL-SQL.md)
 
 ## 参考
 

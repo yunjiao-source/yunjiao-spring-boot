@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>io.gitee.yunjiao-source</groupId>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
         <artifactId>dependencies</artifactId>
         <version>${revision}</version>
         <relativePath>../dependencies/pom.xml</relativePath>
@@ -19,12 +19,15 @@
         <module>extension-common</module>
         <module>extension-apijson</module>
         <module>extension-querydsl</module>
+        <module>extension-captcha</module>
+        <module>extension-id</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

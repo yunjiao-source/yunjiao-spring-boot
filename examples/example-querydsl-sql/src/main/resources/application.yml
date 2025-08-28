@@ -10,6 +10,6 @@ logging:
   level:
     root: info
     org.springframework.boot.autoconfigure: debug
-    io.yunjiao: debug
+    yunjiao.springboot: debug
     com.querydsl.sql: debug # 打印SQL语句
 
