@@ -47,7 +47,7 @@ public class HutoolIdConfiguration {
         }
 
         if (workerId == 1L &&  datacenterId == 1L) {
-            log.info("雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：{} 与 {}", CommonConsts.ENV_SNOWFLAKE_WORKER_ID, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID);
+            log.info("Hutool 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：{} 与 {}", CommonConsts.ENV_SNOWFLAKE_WORKER_ID, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID);
         }
         return snowflake;
     }

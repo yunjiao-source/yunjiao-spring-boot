@@ -1,8 +1,10 @@
 ## start-id
 
-ID生成启动器，集成`Hutool`等框架
+ID生成启动器，集成`Hutool`, `Uid-Generator`等框架
 
-* Snowflake： 雪花算法。默认workerId=1，datacenterId=1。如需支持分布式，请设置系统环境变量：SNOWFLAKE_WORKER_ID 与 {SNOWFLAKE_DATACENTER_ID}。使用属性`spring.hutool.snowflak=false`可关闭配置
+
+* Snowflake： `Hutool`实现的雪花算法。
+* UidGeneratorCached，UidGeneratorDefault：分别包装了`Uid-Generator`框架的`CachedUidGenerator`与`DefaultUidGenerator`，实现雪花算法。包装是因为这样可以方便的注入
 
 详细使用参考示例[example-id](../../examples/example-id)
 

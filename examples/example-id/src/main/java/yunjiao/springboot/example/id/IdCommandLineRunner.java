@@ -9,6 +9,7 @@ import yunjiao.springboot.extension.id.uidgenerator.UidGeneratorCached;
 import yunjiao.springboot.extension.id.uidgenerator.UidGeneratorDefault;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -30,13 +31,15 @@ public class IdCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        TimeUnit.SECONDS.sleep(3);
+
         log.info("Snowflake = {}",  generator(() -> snowflake.nextId()).size());
         log.info("uidGeneratorCached = {}", generator(() -> uidGeneratorCached.getUID()).size() );
         log.info("uidGeneratorDefault = {}", generator(() -> uidGeneratorDefault.getUID()).size() );
     }
 
     private Set<Long> generator(Supplier<Long> supplier) {
-        return IntStream.range(0, 1000).mapToObj(i -> supplier.get())
+        return IntStream.range(0, 4000).mapToObj(i -> supplier.get())
                 .peek(l -> System.out.print(l + ","))
                 .collect(Collectors.toSet());
     }
