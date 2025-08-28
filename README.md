@@ -88,10 +88,12 @@ mvn install
 
 ## 使用指南
 
-* extensions [使用指南](./extensions/README.md)
-* starters [使用指南](./starters/README.md)
-* examples [使用指南](./examples/README.md)
-* projects [使用指南](./projects/README.md)
+* starter-apijson-fastjson2 [使用指南](./doc/md/STARTER-APIJSON-FASTJSON2.md)
+* starter-apijson-gson [使用指南](./doc/md/STARTER-APIJSON-GSON.md)
+* starter-captcha [使用指南](./doc/md/STARTER-CAPTCHA.md)
+* starter-id [使用指南](./doc/md/STARTER-ID.md)
+* starter-querydsl-jpa [使用指南](./doc/md/STARTER-QUERYDSL-JPA.md)
+* starter-querydsl-sql [使用指南](./doc/md/STARTER-QUERYDSL-SQL.md)
 
 ## 参考
 
