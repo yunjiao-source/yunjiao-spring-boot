@@ -43,6 +43,7 @@ import static apijson.framework.APIJSONConstant.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("ext")
+@SuppressWarnings({"all"})
 public class GsonEXtRestController extends APIJSONController<Serializable> {
     public static final  String USER_;
 

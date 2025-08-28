@@ -5,7 +5,7 @@ import com.querydsl.sql.MySQLTemplates;
 import com.querydsl.sql.SQLQueryFactory;
 import com.querydsl.sql.SQLTemplates;
 import yunjiao.springboot.extension.querydsl.sql.SQLQueryCurdExecutor;
-import yunjiao.springboot.autoconfigure.querydsl.sql.QuerydslSQLAutoConfiguration;
+import yunjiao.springboot.autoconfigure.querydsl.sql.QuerydslSQLConfiguration;
 import yunjiao.springboot.autoconfigure.querydsl.sql.SQLQueryFactoryConfigurer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,17 +20,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 /**
- * ${@link QuerydslSQLAutoConfiguration} 单元测试用例
+ * ${@link QuerydslSQLConfiguration} 单元测试用例
  *
  * @author yangyunjiao
  */
-public class QuerydslSQLAutoConfigurationTest {
+public class QuerydslSQLConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
     public void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
-                .withConfiguration(AutoConfigurations.of(QuerydslSQLAutoConfiguration.class));
+                .withConfiguration(AutoConfigurations.of(QuerydslSQLConfiguration.class));
     }
 
     @Test

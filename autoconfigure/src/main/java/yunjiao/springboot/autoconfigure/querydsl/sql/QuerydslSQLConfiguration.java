@@ -26,12 +26,12 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({SQLQueryFactory.class, DataSource.class})
-public class QuerydslSQLAutoConfiguration {
+public class QuerydslSQLConfiguration {
     private final DataSource dataSource;
 
     @PostConstruct
     public void postConstruct() {
-        log.info("QueryDSL SQL Auto Configuration");
+        log.info("QueryDSL SQL Configuration");
     }
 
     @Bean

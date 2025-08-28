@@ -16,7 +16,8 @@ import org.springframework.context.annotation.Import;
 @AutoConfiguration
 @ConditionalOnClass({_Id.class})
 @Import({
-        HutoolIdConfiguration.class
+        HutoolIdConfiguration.class,
+        UidGeneratorConfiguration.class
 })
 public class IdAutoConfiguration {
     /**

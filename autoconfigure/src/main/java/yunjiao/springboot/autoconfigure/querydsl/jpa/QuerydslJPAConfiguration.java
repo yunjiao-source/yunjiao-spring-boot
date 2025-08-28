@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({JPAQueryFactory.class})
-public class QuerydslJPAAutoConfiguration {
+public class QuerydslJPAConfiguration {
     private final EntityManager entityManager;
 
     /**
@@ -28,7 +28,7 @@ public class QuerydslJPAAutoConfiguration {
      */
     @PostConstruct
     public void postConstruct() {
-        log.info("QueryDSL JPA Auto Configuration");
+        log.info("QueryDSL JPA Configuration");
     }
 
     @Bean

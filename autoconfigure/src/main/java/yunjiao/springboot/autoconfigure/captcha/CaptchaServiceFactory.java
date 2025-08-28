@@ -3,7 +3,7 @@ package yunjiao.springboot.autoconfigure.captcha;
 import yunjiao.springboot.extension.captcha.CaptchaException;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaService;
-import yunjiao.springboot.extension.common.lang.EnumCache;
+import yunjiao.springboot.extension.common.util.EnumCache;
 
 import java.util.Map;
 

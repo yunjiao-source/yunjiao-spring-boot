@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class GsonUtilsTest {
 
     @Test
     public void testToJson() {
-        TestUser user = new TestUser("张三", 25, new Date(91, 0, 1));
+        TestUser user = new TestUser("张三", 25, Calendar.getInstance().getTime());
         String json = GsonUtils.toJson(user);
 
         assertThat(json).contains("\"name\": \"张三\"");

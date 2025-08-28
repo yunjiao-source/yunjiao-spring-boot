@@ -16,6 +16,21 @@ public class PropertyNameConsts {
      */
     public static final String PROPERTY_PREFIX_SPRING = "spring";
 
+    // id
+
+    /**
+     * id 属性
+     */
+    public static final String PROPERTY_PREFIX_ID = PROPERTY_PREFIX_SPRING + ".id";
+
+    /**
+     * Uid-Generator 属性
+     */
+    public static final String PROPERTY_PREFIX_ID_UIDGENERATOR = PROPERTY_PREFIX_ID + ".uid-generator";
+
+
+    // captcha
+
     /**
      * 验证码属性
      */

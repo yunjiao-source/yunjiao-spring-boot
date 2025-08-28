@@ -23,6 +23,7 @@ public class GsonMap<K, V> extends LinkedHashMap<K, V> {
      * @param key 主键
      * @return map值
      */
+    @SuppressWarnings({"all"})
     public Map<K, V> getJSONObject(K key) {
         return (Map)get(key);
     }

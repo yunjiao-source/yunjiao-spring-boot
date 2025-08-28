@@ -1,15 +1,13 @@
 package yunjiao.springboot.project.rql.persistence.dao;
 
-import lombok.Getter;
-import yunjiao.springboot.project.rql.persistence.model.User;
-import yunjiao.springboot.project.rql.web.util.SpecSearchCriteria;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
+import yunjiao.springboot.project.rql.persistence.model.User;
+import yunjiao.springboot.project.rql.web.util.SpecSearchCriteria;
 
-@Getter
 public record UserSpecification(SpecSearchCriteria criteria) implements Specification<User> {
 
     public static Specification<User> empty() {

@@ -1,5 +1,6 @@
 package yunjiao.springboot.project.rql.persistence.dao;
 
+import lombok.Getter;
 import yunjiao.springboot.project.rql.web.util.SearchCriteria;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
@@ -9,11 +10,12 @@ import java.util.function.Consumer;
 
 public class UserSearchQueryCriteriaConsumer implements Consumer<SearchCriteria>{
 
+    @Getter
     private Predicate predicate;
-    private CriteriaBuilder builder;
-    private Root r;
+    private final CriteriaBuilder builder;
+    private final Root<?> r;
 
-    public UserSearchQueryCriteriaConsumer(Predicate predicate, CriteriaBuilder builder, Root r) {
+    public UserSearchQueryCriteriaConsumer(Predicate predicate, CriteriaBuilder builder, Root<?> r) {
         super();
         this.predicate = predicate;
         this.builder = builder;
@@ -36,7 +38,4 @@ public class UserSearchQueryCriteriaConsumer implements Consumer<SearchCriteria>
         }
     }
 
-    public Predicate getPredicate() {
-        return predicate;
-    }
 }

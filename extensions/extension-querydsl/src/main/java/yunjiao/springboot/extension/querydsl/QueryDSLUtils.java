@@ -16,6 +16,7 @@ import java.util.Objects;
  *
  * @author yangyunjiao
  */
+@SuppressWarnings({"all"})
 public final class QueryDSLUtils {
     /**
      * 创建{@link OrderSpecifier}实例
