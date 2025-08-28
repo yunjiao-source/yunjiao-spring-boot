@@ -144,4 +144,18 @@ Caused by: org.hibernate.query.sqm.UnknownEntityException: Could not resolve roo
             em.setPackagesToScan("yunjiao.springboot");
 ......
             return em;
-        }```
+        }
+```
+
+* 发布时异常
+```text
+mvn clean install -P release
+
+[INFO] --- gpg:1.6:sign (default) @ spring-boot ---
+gpg: can't connect to the keyboxd: IPC connect call failed
+gpg: error opening key DB: No Keybox daemon running
+gpg: no default secret key: Input/output error
+gpg: signing failed: Input/output error
+```
+
+安装的GPG版本（可能是较新的2.x版本）与Maven插件试图调用的方式不兼容。 将插件`maven-gpg-plugin`的版本`1.6`升级到`3.2.8`
