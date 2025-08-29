@@ -48,7 +48,7 @@ public class ApijsonInitConfiguration {
         ApijsonInitializingBean bean = new ApijsonInitializingBean(parserProperties, verifierProperties,
                 sqlProperties, sqlConfigConfigurers,apijsonVerifierConfigurers,apijsonFunctionParserConfigurers);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Apijson Initializing Bean: {}]", bean);
+            log.debug("Configure Bean [Apijson Initializing Bean -> {}]", bean);
         }
         return bean;
     }

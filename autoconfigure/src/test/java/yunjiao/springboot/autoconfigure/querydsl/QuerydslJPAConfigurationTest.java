@@ -25,13 +25,13 @@ public class QuerydslJPAConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(QuerydslJPAConfiguration.class));
     }
 
     @Test
-    public void givenEntityManager_thenConfig() {
+    void givenEntityManager_thenConfig() {
         applicationContextRunner
                 .withBean(EntityManager.class, () -> Mockito.mock(EntityManager.class))
                 .withUserConfiguration(TestConfiguration.class)

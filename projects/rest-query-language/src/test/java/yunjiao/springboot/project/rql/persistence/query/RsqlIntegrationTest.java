@@ -26,7 +26,7 @@ public class RsqlIntegrationTest {
     private User userTom;
 
     @BeforeEach
-    public void init() {
+    void init() {
         userJohn = new User();
         userJohn.setFirstName("john");
         userJohn.setLastName("doe");
@@ -46,7 +46,7 @@ public class RsqlIntegrationTest {
     }
 
     @Test
-    public void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
         final Node rootNode = new RSQLParser().parse("firstName==john;lastName==doe");
         final Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<>());
         final List<User> results = repository.findAll(spec);
@@ -56,7 +56,7 @@ public class RsqlIntegrationTest {
     }
 
     @Test
-    public void givenFirstNameInverse_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstNameInverse_whenGettingListOfUsers_thenCorrect() {
         final Node rootNode = new RSQLParser().parse("firstName!=john");
         final Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<>());
         final List<User> results = repository.findAll(spec);
@@ -66,7 +66,7 @@ public class RsqlIntegrationTest {
     }
 
     @Test
-    public void givenMinAge_whenGettingListOfUsers_thenCorrect() {
+    void givenMinAge_whenGettingListOfUsers_thenCorrect() {
         final Node rootNode = new RSQLParser().parse("age>25");
         final Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<User>());
         final List<User> results = repository.findAll(spec);
@@ -76,7 +76,7 @@ public class RsqlIntegrationTest {
     }
 
     @Test
-    public void givenFirstNamePrefix_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstNamePrefix_whenGettingListOfUsers_thenCorrect() {
         final Node rootNode = new RSQLParser().parse("firstName==jo*");
         final Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<User>());
         final List<User> results = repository.findAll(spec);
@@ -86,7 +86,7 @@ public class RsqlIntegrationTest {
     }
 
     @Test
-    public void givenListOfFirstName_whenGettingListOfUsers_thenCorrect() {
+    void givenListOfFirstName_whenGettingListOfUsers_thenCorrect() {
         final Node rootNode = new RSQLParser().parse("firstName=in=(john,jack)");
         final Specification<User> spec = rootNode.accept(new CustomRsqlVisitor<User>());
         final List<User> results = repository.findAll(spec);

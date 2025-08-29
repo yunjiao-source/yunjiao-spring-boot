@@ -1,6 +1,6 @@
 package yunjiao.springboot.autoconfigure.apijson.condition;
 
-import yunjiao.springboot.autoconfigure.test.TestUtils;
+import yunjiao.springboot.autoconfigure.TestUtils;
 import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

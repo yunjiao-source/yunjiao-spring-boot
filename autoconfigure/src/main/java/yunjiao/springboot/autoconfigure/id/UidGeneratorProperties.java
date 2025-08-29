@@ -12,9 +12,9 @@ import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 @Data
 @ConfigurationProperties(prefix = PropertyNameConsts.PROPERTY_PREFIX_ID_UIDGENERATOR)
 public class UidGeneratorProperties {
-    private Integer timeBits = 29;
+    private Integer timeBits = 28;
 
-    private Integer workerBits = 21;
+    private Integer workerBits = 22;
 
     private Integer seqBits = 13;
 

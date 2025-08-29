@@ -18,13 +18,13 @@ public class HutoolIdConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(HutoolIdConfiguration.class));
     }
 
     @Test
-    public void whenConfig_thenExist() {
+    void whenConfig_thenExist() {
         applicationContextRunner
                 .run(context -> {
                     assertThat(context).hasSingleBean(Snowflake.class);
@@ -32,7 +32,7 @@ public class HutoolIdConfigurationTest {
     }
 
     @Test
-    public void giveEnv_whenConfig_thenOK() {
+    void giveEnv_whenConfig_thenOK() {
         System.setProperty(CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID, "2");
         System.setProperty(CommonConsts.ENV_SNOWFLAKE_WORKER_ID, "3");
         applicationContextRunner

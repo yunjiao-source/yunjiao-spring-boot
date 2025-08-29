@@ -42,7 +42,7 @@ public class CaptchaAutoConfiguration {
                 .collect(Collectors.toMap(CaptchaService::getCategory, m -> m));
         CaptchaServiceFactory factory = new CaptchaServiceFactory(services);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Captcha Service Factory: {}]", factory);
+            log.debug("Configure Bean [Captcha Service Factory -> {}]", factory);
         }
         return factory;
     }

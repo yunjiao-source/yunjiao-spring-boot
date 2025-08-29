@@ -21,13 +21,13 @@ public class RestApiAutoConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(ApijsonAutoConfiguration.class));
     }
 
     @Test
-    public void givenPropertyRestApiEnable_whenTrue_thenFastjson2Config() {
+    void givenPropertyRestApiEnable_whenTrue_thenFastjson2Config() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(Fastjson2ApplicationConfiguration.Fastjson2RestApiAutoConfiguration.class)
@@ -38,7 +38,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void givenPropertyRestApiEnable_whenFalse_thenFastjson2Config() {
+    void givenPropertyRestApiEnable_whenFalse_thenFastjson2Config() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(Fastjson2ApplicationConfiguration.Fastjson2RestApiAutoConfiguration.class)
@@ -49,7 +49,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void givenPropertyRestApiEnable_whenTrue_thenGsonConfig() {
+    void givenPropertyRestApiEnable_whenTrue_thenGsonConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=true")
                 .withUserConfiguration(GsonApplicationConfiguration.GsonRestApiAutoConfiguration.class)
@@ -60,7 +60,7 @@ public class RestApiAutoConfigurationTest {
     }
 
     @Test
-    public void givenPropertyRestApiEnable_whenFalse_thenGsonConfig() {
+    void givenPropertyRestApiEnable_whenFalse_thenGsonConfig() {
         applicationContextRunner
                 .withPropertyValues(PropertyNameConsts.PROPERTY_APIJSON_RESTAPI_ENABLE + "=false")
                 .withUserConfiguration(GsonApplicationConfiguration.GsonRestApiAutoConfiguration.class)

@@ -38,7 +38,7 @@ public class QuerydslJPAConfiguration {
         jpaQueryFactoryConfigurer.orderedStream().forEach(configurer -> configurer.configure(bean));
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [JPA Query Factory: {}]", bean);
+            log.debug("Configure Bean [JPA Query Factory -> {}]", bean);
         }
         return bean;
     }
@@ -48,7 +48,7 @@ public class QuerydslJPAConfiguration {
         JPAQueryCurdExecutor bean = new JPAQueryCurdExecutor();
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [JPAQuery Curd Executor: {}]", bean);
+            log.debug("Configure Bean [JPAQuery Curd Executor -> {}]", bean);
         }
         return bean;
     }

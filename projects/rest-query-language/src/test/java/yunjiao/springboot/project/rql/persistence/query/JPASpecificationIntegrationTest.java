@@ -32,7 +32,7 @@ public class JPASpecificationIntegrationTest {
     private User userPercy;
 
     @BeforeEach
-    public void init() {
+    void init() {
         userJohn = new User();
         userJohn.setFirstName("john");
         userJohn.setLastName("doe");
@@ -58,7 +58,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("firstName", SearchOperation.EQUALITY, "john"));
         final UserSpecification spec1 = new UserSpecification(new SpecSearchCriteria("lastName", SearchOperation.EQUALITY, "doe"));
         final List<User> results = repository.findAll(spec.and(spec1));
@@ -68,7 +68,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstOrLastName_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstOrLastName_whenGettingListOfUsers_thenCorrect() {
         UserSpecificationsBuilder builder = new UserSpecificationsBuilder();
 
         SpecSearchCriteria spec = new SpecSearchCriteria("firstName", SearchOperation.EQUALITY, "john");
@@ -85,7 +85,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstOrLastNameAndAgeGenericBuilder_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstOrLastNameAndAgeGenericBuilder_whenGettingListOfUsers_thenCorrect() {
         GenericSpecificationsBuilder<User> builder = new GenericSpecificationsBuilder<>();
         Function<SpecSearchCriteria, Specification<User>> converter = UserSpecification::new;
 
@@ -99,7 +99,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstOrLastNameGenericBuilder_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstOrLastNameGenericBuilder_whenGettingListOfUsers_thenCorrect() {
         GenericSpecificationsBuilder<User> builder = new GenericSpecificationsBuilder<>();
         Function<SpecSearchCriteria, Specification<User>> converter = UserSpecification::new;
 
@@ -114,7 +114,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstNameInverse_whenGettingListOfUsers_thenCorrect() {
+     void givenFirstNameInverse_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("firstName", SearchOperation.NEGATION, "john"));
         final List<User> results = repository.findAll(spec);
 
@@ -123,7 +123,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenMinAge_whenGettingListOfUsers_thenCorrect() {
+    void givenMinAge_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("age", SearchOperation.GREATER_THAN, "25"));
         final List<User> results = repository.findAll(spec);
 
@@ -132,7 +132,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstNamePrefix_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstNamePrefix_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("firstName", SearchOperation.STARTS_WITH, "jo"));
         final List<User> results = repository.findAll(spec);
 
@@ -141,7 +141,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstNameSuffix_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstNameSuffix_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("firstName", SearchOperation.ENDS_WITH, "n"));
         final List<User> results = repository.findAll(spec);
 
@@ -150,7 +150,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenFirstNameSubstring_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstNameSubstring_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("firstName", SearchOperation.CONTAINS, "oh"));
         final List<User> results = repository.findAll(spec);
 
@@ -159,7 +159,7 @@ public class JPASpecificationIntegrationTest {
     }
 
     @Test
-    public void givenAgeRange_whenGettingListOfUsers_thenCorrect() {
+    void givenAgeRange_whenGettingListOfUsers_thenCorrect() {
         final UserSpecification spec = new UserSpecification(new SpecSearchCriteria("age", SearchOperation.GREATER_THAN, "20"));
         final UserSpecification spec1 = new UserSpecification(new SpecSearchCriteria("age", SearchOperation.LESS_THAN, "25"));
         final List<User> results = repository.findAll(spec.and(spec1));

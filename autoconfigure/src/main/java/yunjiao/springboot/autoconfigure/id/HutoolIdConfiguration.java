@@ -43,7 +43,7 @@ public class HutoolIdConfiguration {
 
         Snowflake snowflake = IdUtil.getSnowflake(workerId, datacenterId);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Snowflake: {}], workerId={}, datacenterId={}", snowflake, workerId, datacenterId);
+            log.debug("Configure Bean [Snowflake -> {}], workerId={}, datacenterId={}", snowflake, workerId, datacenterId);
         }
 
         if (workerId == 1L &&  datacenterId == 1L) {

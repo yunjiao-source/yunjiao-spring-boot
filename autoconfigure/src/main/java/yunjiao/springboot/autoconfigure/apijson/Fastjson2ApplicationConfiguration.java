@@ -50,7 +50,7 @@ public class Fastjson2ApplicationConfiguration {
                                       ApijsonSqlProperties sqlProperties) {
         Fastjson2Creator bean = new Fastjson2Creator(dataSource, sqlProperties);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Fastjson2 Creator: {}]", bean);
+            log.debug("Configure Bean [Fastjson2 Creator -> {}]", bean);
         }
         return bean;
     }
@@ -67,7 +67,7 @@ public class Fastjson2ApplicationConfiguration {
                                                     NewIdStrategy newIdStrategy) {
         Fastjson2SimpleCallback bean = new Fastjson2SimpleCallback(idKeyStrategy, newIdStrategy);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Fastjson2 Simple Callback: {}]", bean);
+            log.debug("Configure Bean [Fastjson2 Simple Callback -> {}]", bean);
         }
         return bean;
     }
@@ -85,7 +85,7 @@ public class Fastjson2ApplicationConfiguration {
                                                         ApijsonProperties properties) {
         Fastjson2InitializingBean bean = new Fastjson2InitializingBean(fastjson2SimpleCallback, fastjson2Creator, properties);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Fastjson2 Initializing Bean: {}]", bean);
+            log.debug("Configure Bean [Fastjson2 Initializing Bean -> {}]", bean);
         }
         return bean;
     }
@@ -111,7 +111,7 @@ public class Fastjson2ApplicationConfiguration {
         Fastjson2RestController fastjson2RestController() {
             Fastjson2RestController bean = new Fastjson2RestController(properties);
             if (log.isDebugEnabled()) {
-                log.debug("Configure Bean [Fastjson2 Rest Controller: {}]", bean);
+                log.debug("Configure Bean [Fastjson2 Rest Controller -> {}]", bean);
             }
             return bean;
         }
@@ -125,7 +125,7 @@ public class Fastjson2ApplicationConfiguration {
         Fastjson2EXtRestController fastjson2ExtRestController() {
             Fastjson2EXtRestController bean = new Fastjson2EXtRestController();
             if (log.isDebugEnabled()) {
-                log.debug("Configure Bean [Fastjson2 Rest Ext Controller: {}]", bean);
+                log.debug("Configure Bean [Fastjson2 Rest Ext Controller -> {}]", bean);
             }
             return bean;
         }

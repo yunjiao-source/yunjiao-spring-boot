@@ -60,7 +60,7 @@ public class ApijsonAutoConfiguration {
     IdKeyStrategy idKeyApijsonStrategy() {
         IdKeyStrategy bean = new IdKeyApijsonStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Id Key APIJSON Strategy: {}]", bean);
+            log.debug("Configure Bean [Id Key APIJSON Strategy -> {}]", bean);
         }
         return bean;
     }

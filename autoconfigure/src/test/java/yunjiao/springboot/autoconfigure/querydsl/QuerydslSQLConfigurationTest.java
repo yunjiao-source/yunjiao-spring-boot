@@ -34,7 +34,7 @@ public class QuerydslSQLConfigurationTest {
     }
 
     @Test
-    public void givenDefault_thenConfig() {
+    void givenDefault_thenConfig() {
         applicationContextRunner
                 .withBean(DataSource.class, () -> mock(DataSource.class))
                 .withUserConfiguration(TestConfiguration.class)
@@ -49,7 +49,7 @@ public class QuerydslSQLConfigurationTest {
     }
 
     @Test
-    public void givenH2Template_thenConfig() {
+    void givenH2Template_thenConfig() {
         applicationContextRunner
                 .withBean(DataSource.class, () -> mock(DataSource.class))
                 .withUserConfiguration(NewSQLTemplateConfiguration.class)

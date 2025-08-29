@@ -40,7 +40,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testToJson() {
+    void testToJson() {
         TestUser user = new TestUser("张三", 25, Calendar.getInstance().getTime());
         String json = GsonUtils.toJson(user);
 
@@ -50,7 +50,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testFromJson() {
+    void testFromJson() {
         String json = "{\"name\":\"李四\",\"age\":30,\"birthDate\":\"1991-01-01 00:00:00\"}";
         TestUser user = GsonUtils.fromJson(json, TestUser.class);
 
@@ -60,7 +60,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testFromJsonWithReader() {
+    void testFromJsonWithReader() {
         String json = "{\"name\":\"王五\",\"age\":35,\"birthDate\":\"1991-01-01 00:00:00\"}";
         StringReader reader = new StringReader(json);
         TestUser user = GsonUtils.fromJson(reader, TestUser.class);
@@ -71,7 +71,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testToList() {
+    void testToList() {
         String json = "[{\"name\":\"张三\",\"age\":25,\"birthDate\":\"1991-01-01 00:00:00\"}," +
                 "{\"name\":\"李四\",\"age\":30,\"birthDate\":\"1991-01-01 00:00:00\"}]";
 
@@ -83,7 +83,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testToMap() {
+    void testToMap() {
         String json = "{\"user1\":{\"name\":\"张三\",\"age\":25,\"birthDate\":\"1991-01-01 00:00:00\"}," +
                 "\"user2\":{\"name\":\"李四\",\"age\":30,\"birthDate\":\"1991-01-01 00:00:00\"}}";
 
@@ -97,7 +97,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testFormatJson() {
+    void testFormatJson() {
         String unformattedJson = "{\"name\":\"张三\",\"age\":25,\"birthDate\":\"1991-01-01 00:00:00\"}";
         String formattedJson = GsonUtils.formatJson(unformattedJson);
 
@@ -106,7 +106,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testIsValidJson() {
+    void testIsValidJson() {
         // 测试有效JSON
         assertTrue(GsonUtils.isValidJson("{\"name\":\"张三\"}"));
         assertTrue(GsonUtils.isValidJson("[1, 2, 3]"));
@@ -117,7 +117,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testFromJsonWithType() {
+    void testFromJsonWithType() {
         String json = "[{\"name\":\"张三\",\"age\":25,\"birthDate\":\"1991-01-01 00:00:00\"}," +
                 "{\"name\":\"李四\",\"age\":30,\"birthDate\":\"1991-01-01 00:00:00\"}]";
 
@@ -130,7 +130,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testNullHandling() {
+    void testNullHandling() {
         // 测试null对象转JSON
         String json = GsonUtils.toJson(null);
         assertEquals("null", json);
@@ -145,7 +145,7 @@ public class GsonUtilsTest {
     }
 
     @Test
-    public void testInvalidJsonConversion() {
+    void testInvalidJsonConversion() {
         String invalidJson = "{\"name\":\"张三\",\"age\":}"; // 无效的JSON
 
         assertThatThrownBy(() -> GsonUtils.fromJson(invalidJson, TestUser.class))

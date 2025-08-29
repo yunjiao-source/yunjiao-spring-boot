@@ -24,7 +24,7 @@ public class JPACriteriaQueryIntegrationTest {
     private User userTom;
 
     @BeforeEach
-    public void init() {
+    void init() {
         userJohn = new User();
         userJohn.setFirstName("john");
         userJohn.setLastName("doe");
@@ -43,7 +43,7 @@ public class JPACriteriaQueryIntegrationTest {
     }
 
     @Test
-    public void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
         final List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         params.add(new SearchCriteria("firstName", ":", "john"));
         params.add(new SearchCriteria("lastName", ":", "doe"));
@@ -54,7 +54,7 @@ public class JPACriteriaQueryIntegrationTest {
     }
 
     @Test
-    public void givenLast_whenGettingListOfUsers_thenCorrect() {
+    void givenLast_whenGettingListOfUsers_thenCorrect() {
         final List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         params.add(new SearchCriteria("lastName", ":", "doe"));
         final List<User> results = userRepository.searchUser(params);
@@ -64,7 +64,7 @@ public class JPACriteriaQueryIntegrationTest {
     }
 
     @Test
-    public void givenLastAndAge_whenGettingListOfUsers_thenCorrect() {
+    void givenLastAndAge_whenGettingListOfUsers_thenCorrect() {
         final List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         params.add(new SearchCriteria("lastName", ":", "doe"));
         params.add(new SearchCriteria("age", ">", "25"));
@@ -75,7 +75,7 @@ public class JPACriteriaQueryIntegrationTest {
     }
 
     @Test
-    public void givenWrongFirstAndLast_whenGettingListOfUsers_thenCorrect() {
+    void givenWrongFirstAndLast_whenGettingListOfUsers_thenCorrect() {
         final List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         params.add(new SearchCriteria("firstName", ":", "adam"));
         params.add(new SearchCriteria("lastName", ":", "fox"));
@@ -86,7 +86,7 @@ public class JPACriteriaQueryIntegrationTest {
     }
 
     @Test
-    public void givenPartialFirst_whenGettingListOfUsers_thenCorrect() {
+    void givenPartialFirst_whenGettingListOfUsers_thenCorrect() {
         final List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         params.add(new SearchCriteria("firstName", ":", "jo"));
         final List<User> results = userRepository.searchUser(params);

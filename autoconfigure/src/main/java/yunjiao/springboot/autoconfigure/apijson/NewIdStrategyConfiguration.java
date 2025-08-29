@@ -34,7 +34,7 @@ public class NewIdStrategyConfiguration {
     NewIdStrategy newIdDatabaseStrategy() {
         NewIdStrategy bean = new NewIdDatabaseStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [New Id Database Strategy: {}]", bean);
+            log.debug("Configure Bean [New Id Database Strategy -> {}]", bean);
         }
         return bean;
     }
@@ -44,7 +44,7 @@ public class NewIdStrategyConfiguration {
     NewIdStrategy newIdSnowflakeStrategy(Snowflake snowflake) {
         NewIdStrategy bean = new NewIdSnowflakeStrategy(snowflake);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [New Id Snowflake Strategy: {}]", bean);
+            log.debug("Configure Bean [New Id Snowflake Strategy -> {}]", bean);
         }
         return bean;
     }
@@ -54,7 +54,7 @@ public class NewIdStrategyConfiguration {
     NewIdStrategy newIdTimestampStrategy() {
         NewIdStrategy bean = new NewIdTimestampStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [New Id Timestamp Strategy: {}]", bean);
+            log.debug("Configure Bean [New Id Timestamp Strategy -> {}]", bean);
         }
         return bean;
     }
@@ -64,7 +64,7 @@ public class NewIdStrategyConfiguration {
     NewIdStrategy newIdUuidStrategy() {
         NewIdStrategy bean = new NewIdUuidStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [New Id UUID Strategy: {}]", bean);
+            log.debug("Configure Bean [New Id UUID Strategy -> {}]", bean);
         }
         return bean;
     }
@@ -75,7 +75,7 @@ public class NewIdStrategyConfiguration {
     NewIdStrategy newIdCustomStrategy() {
         NewIdStrategy bean = new NewIdExceptionStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [New Id Exception Strategy: {}]", bean);
+            log.debug("Configure Bean [New Id Exception Strategy -> {}]", bean);
         }
         return bean;
     }

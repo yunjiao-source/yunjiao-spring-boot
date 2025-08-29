@@ -20,7 +20,7 @@ public class ApijsonSqlPropertiesTest {
     private ApijsonSqlProperties properties;
 
     @Test
-    public void givenProperties_whenGetConfig_thenCheckDefaultOk() {
+    void givenProperties_whenGetConfig_thenCheckDefaultOk() {
         ApijsonSqlProperties.Config confg = properties.getConfig();
         assertThat(confg.getDefaultDatabase()).isEqualTo(ApijsonConsts.SQL_CONFIG_DEFAULT_DATABASE);
         assertThat(confg.getDefaultSchema()).isEqualTo(ApijsonConsts.SQL_CONFIG_DEFAULT_SCHEMA);
@@ -28,7 +28,7 @@ public class ApijsonSqlPropertiesTest {
     }
 
     @Test
-    public void givenProperties_whenGetExecutor_thenCheckDefaultOk() {
+    void givenProperties_whenGetExecutor_thenCheckDefaultOk() {
         ApijsonSqlProperties.Executor executor = properties.getExecutor();
         assertThat(executor.getKeyRawList()).isEqualTo(ApijsonConsts.SQL_EXECUTOR_KEY_RAW_LIST);
         assertThat(executor.getKeyViceItem()).isEqualTo(ApijsonConsts.SQL_EXECUTOR_KEY_VICE_ITEM);

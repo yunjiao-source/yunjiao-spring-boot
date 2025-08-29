@@ -38,7 +38,7 @@ public class UidGeneratorConfiguration {
     WorkerIdAssigner workerIdAssigner(Environment env) {
         EnvironmentWorkerIdAssigner bean = new EnvironmentWorkerIdAssigner(env);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Environment Worker Id Assigner:{}]", bean);
+            log.debug("Configure Bean [Environment Worker Id Assigner -> {}]", bean);
         }
         return bean;
     }
@@ -56,7 +56,7 @@ public class UidGeneratorConfiguration {
 
         UidGeneratorDefault bean = new UidGeneratorDefault(defaultUidGenerator);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Uid Generator Default:{}]", bean);
+            log.debug("Configure Bean [Uid Generator Default -> {}]", bean);
         }
         return bean;
     }
@@ -77,7 +77,7 @@ public class UidGeneratorConfiguration {
 
         UidGeneratorCached bean = new UidGeneratorCached(cachedUidGenerator);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Uid Generator Cached:{}]", bean);
+            log.debug("Configure Bean [Uid Generator Cached -> {}]", bean);
         }
         return bean;
     }

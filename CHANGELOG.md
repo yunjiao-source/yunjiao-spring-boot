@@ -3,6 +3,7 @@
 ## [未发布]
 ### 新增
 - 集成uid-generator框架，生成ID
+- 自动配置cn.hutool.extra.spring.SpringUtil工具
 
 ### 变更
 - 扩展APIJSON框架，实现多数据源
