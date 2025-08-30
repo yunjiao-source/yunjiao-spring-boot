@@ -74,7 +74,7 @@ public enum CodeGeneratorType implements Function<Integer,CodeGenerator> {
     },
 
     /**
-     * 小写写字母 验证码
+     * 小写字母 验证码
      */
     lowerChar {
         @Override
@@ -83,6 +83,9 @@ public enum CodeGeneratorType implements Function<Integer,CodeGenerator> {
         }
     },
 
+    /**
+     * 大小写字母 验证码
+     */
     upperAndLowerChar {
         @Override
         public CodeGenerator apply(Integer length) {

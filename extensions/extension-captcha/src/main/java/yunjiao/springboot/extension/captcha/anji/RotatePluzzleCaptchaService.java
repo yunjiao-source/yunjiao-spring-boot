@@ -16,6 +16,12 @@ import java.util.Base64;
  */
 public class RotatePluzzleCaptchaService extends BaseCaptchaService {
 
+    /**
+     * 构造器
+     *
+     * @param captchaService 必须值
+     * @param captchaCacheService 必须值
+     */
     public RotatePluzzleCaptchaService(CaptchaService captchaService, CaptchaCacheService captchaCacheService) {
         super(captchaService, captchaCacheService);
     }
@@ -36,9 +42,9 @@ public class RotatePluzzleCaptchaService extends BaseCaptchaService {
     }
 
     @Override
-    protected CaptchaData convert(CaptchaData data, CaptchaVO vo) {
-        String captchaImageBase64 = vo.getOriginalImageBase64();
+    protected CaptchaData convert(CaptchaData source, CaptchaVO target) {
+        String captchaImageBase64 = target.getOriginalImageBase64();
 
-        return data.captchaImage(Base64.getDecoder().decode(captchaImageBase64));
+        return source.captchaImage(Base64.getDecoder().decode(captchaImageBase64));
     }
 }

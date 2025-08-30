@@ -18,8 +18,18 @@ import java.util.List;
  * @author yangyunjiao
  */
 public class ClickWorkCaptchaService extends BaseCaptchaService {
+    /**
+     * 拼图坐标允许误差偏移量
+     */
     private final Integer slipOffset;
 
+    /**
+     * 构造器
+     *
+     * @param captchaService 验证码服务
+     * @param captchaCacheService 验证码缓存
+     * @param slipOffset 拼图坐标允许误差偏移量
+     */
     public ClickWorkCaptchaService(CaptchaService captchaService, CaptchaCacheService captchaCacheService, Integer slipOffset) {
         super(captchaService, captchaCacheService);
         this.slipOffset = slipOffset;
@@ -57,9 +67,9 @@ public class ClickWorkCaptchaService extends BaseCaptchaService {
     }
 
     @Override
-    protected CaptchaData convert(CaptchaData data, CaptchaVO vo) {
-        String captchaImageBase64 = vo.getOriginalImageBase64();
+    protected CaptchaData convert(CaptchaData source, CaptchaVO target) {
+        String captchaImageBase64 = target.getOriginalImageBase64();
 
-        return data.captchaImage(Base64.getDecoder().decode(captchaImageBase64));
+        return source.captchaImage(Base64.getDecoder().decode(captchaImageBase64));
     }
 }

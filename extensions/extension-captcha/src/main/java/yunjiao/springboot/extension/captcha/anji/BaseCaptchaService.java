@@ -19,18 +19,50 @@ import yunjiao.springboot.extension.common.captcha.CaptchaService;
 @Getter
 @RequiredArgsConstructor
 public abstract class BaseCaptchaService implements CaptchaService {
+    /**
+     * 缓存类型
+     */
     protected static final String CACHE_TYPE = "local";
 
+    /**
+     * 缓存key前缀
+     */
     protected static final String REDIS_CAPTCHA_KEY = "RUNNING:CAPTCHA:%s";
 
+    /**
+     * 验证码服务
+     */
     private final com.anji.captcha.service.CaptchaService captchaService;
 
+    /**
+     * 验证码缓存服务
+     */
     private final CaptchaCacheService captchaCacheService;
 
+    /**
+     * 获取验证码类型
+     *
+     * @return 证码类型
+     */
     protected abstract CaptchaTypeEnum getCaptchaType();
 
-    protected abstract CaptchaData convert(CaptchaData data, CaptchaVO vo);
+    /**
+     * 转换对象
+     *
+     * @param source 源对象
+     * @param target 目标对象
+     * @return 源对象
+     */
+    protected abstract CaptchaData convert(CaptchaData source, CaptchaVO target);
 
+    /**
+     * 检查数值范围，[start, end]
+     *
+     * @param target 检查值
+     * @param start 范围起始(包含)
+     * @param end 范围结束(包含)
+     * @return 是否在范围内
+     */
     protected boolean between(int target, int start, int end) {
         return start <= target && target <= end;
     }

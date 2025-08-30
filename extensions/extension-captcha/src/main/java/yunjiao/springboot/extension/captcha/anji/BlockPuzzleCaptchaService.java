@@ -17,8 +17,18 @@ import java.util.Base64;
  * @author yangyunjiao
  */
 public class BlockPuzzleCaptchaService extends BaseCaptchaService {
+    /**
+     * 拼图坐标允许误差偏移量
+     */
     private final Integer slipOffset;
 
+    /**
+     * 构造器
+     *
+     * @param captchaService 验证码服务
+     * @param captchaCacheService 验证码缓存
+     * @param slipOffset 拼图坐标允许误差偏移量
+     */
     public BlockPuzzleCaptchaService(CaptchaService captchaService, CaptchaCacheService captchaCacheService, Integer slipOffset) {
         super(captchaService, captchaCacheService);
         this.slipOffset = slipOffset;
@@ -45,11 +55,11 @@ public class BlockPuzzleCaptchaService extends BaseCaptchaService {
     }
 
     @Override
-    protected CaptchaData convert(CaptchaData data, CaptchaVO vo) {
-        String backgroundImageBase64 = vo.getOriginalImageBase64();
-        String captchaImageBase64 = vo.getJigsawImageBase64();
+    protected CaptchaData convert(CaptchaData source, CaptchaVO target) {
+        String backgroundImageBase64 = target.getOriginalImageBase64();
+        String captchaImageBase64 = target.getJigsawImageBase64();
 
-        return data.backgroundImage(Base64.getDecoder().decode(backgroundImageBase64))
+        return source.backgroundImage(Base64.getDecoder().decode(backgroundImageBase64))
                 .captchaImage(Base64.getDecoder().decode(captchaImageBase64));
     }
 }

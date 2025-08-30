@@ -22,13 +22,23 @@ import java.io.IOException;
 public abstract class AbstractCaptchaService implements CaptchaService {
 
     /**
-     * 获取 校验时是否忽略大小写
+     * 获取参数
      * @return 校验时是否忽略大小写
      */
     protected abstract Boolean getValidIgnoreCase();
 
+    /**
+     * 获取参数
+     * @return 模糊度
+     */
     protected abstract Integer getFuzziness();
 
+    /**
+     * 模糊度处理
+     *
+     * @param image 必须值
+     * @return 模糊后的图片
+     */
     protected BufferedImage handleFuzziness(BufferedImage image) {
         Integer fuzziness = getFuzziness();
         if (fuzziness != null && fuzziness > 0) {
@@ -37,6 +47,13 @@ public abstract class AbstractCaptchaService implements CaptchaService {
         return image;
     }
 
+    /**
+     * 创建验证码信息
+     *
+     * @param code 码，必须值
+     * @param image 必须值
+     * @return 验证码信息
+     */
     protected CaptchaData createCaptchaData(String code, BufferedImage image) {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             ImgUtil.writePng(image, out);
