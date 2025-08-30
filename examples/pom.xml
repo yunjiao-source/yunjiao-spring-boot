@@ -22,6 +22,7 @@
         <module>example-querydsl-jpa</module>
         <module>example-apijson-fastjson2</module>
         <module>example-apijson-gson</module>
+        <module>example-apijson-multipledatasource</module>
         <module>example-captcha</module>
     </modules>
 

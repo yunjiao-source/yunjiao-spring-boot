@@ -159,3 +159,37 @@ gpg: signing failed: Input/output error
 ```
 
 安装的GPG版本（可能是较新的2.x版本）与Maven插件试图调用的方式不兼容。 将插件`maven-gpg-plugin`的版本`1.6`升级到`3.2.8`
+
+* 配置了多数据源，初始化数据源失败
+
+```text
+Caused by: java.lang.IllegalArgumentException: jdbcUrl is required with driverClassName.
+	at com.zaxxer.hikari.HikariConfig.validate(HikariConfig.java:1022)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:109)
+	at org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource.getConnection(AbstractRoutingDataSource.java:194)
+```
+
+HikariCP 要求使用 jdbc-url 而不是常见的 url 来指定数据库连接字符串。在单数据源情况下，Spring Boot 的自动配置会做转换，但在多数据源手动配置中，你需要显式使用正确的属性键。
+
+单数据源配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/apijson?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+```
+
+多数据源配置
+```yaml
+spring:
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/apijson?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+
+```

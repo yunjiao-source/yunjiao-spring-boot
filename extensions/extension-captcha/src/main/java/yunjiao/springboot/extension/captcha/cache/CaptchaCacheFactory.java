@@ -7,22 +7,29 @@ import java.time.Duration;
  *
  * @author yangyunjiao
  */
-public class CaptchaCacheFactory {
+public final class CaptchaCacheFactory {
     private static volatile CaptchaCache instance;
 
     private CaptchaCacheFactory() {
 
     }
 
+    /**
+     * 初始化缓存
+     *
+     * @param expireTime 过期时间
+     * @return 实例
+     */
     public static CaptchaCache initHtoolCache(Duration expireTime) {
         return initHtoolCache(expireTime, Duration.ofSeconds(1L));
     }
 
     /**
+     * 初始化缓存
      *
      * @param expireTime 过期时间
-     * @param delay
-     * @return
+     * @param delay 清理过期缓存间隔
+     * @return 实例
      */
     public static CaptchaCache initHtoolCache(Duration expireTime, Duration delay) {
         if (instance == null) {
@@ -36,6 +43,7 @@ public class CaptchaCacheFactory {
     }
 
     /**
+     * 初始化缓存
      *
      * @param expireTime 过期时间
      * @param maxSize 最大缓存大小，0表示无限制

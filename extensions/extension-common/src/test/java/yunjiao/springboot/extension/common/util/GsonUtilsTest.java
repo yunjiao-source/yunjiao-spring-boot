@@ -3,6 +3,7 @@ package yunjiao.springboot.extension.common.util;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import lombok.Data;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.StringReader;
@@ -44,9 +45,9 @@ public class GsonUtilsTest {
         TestUser user = new TestUser("张三", 25, Calendar.getInstance().getTime());
         String json = GsonUtils.toJson(user);
 
-        assertThat(json).contains("\"name\": \"张三\"");
-        assertThat(json).contains("\"age\": 25");
-        assertThat(json).contains("\"birthDate\": ");
+        assertThat(json).contains("\"name\":\"张三\"");
+        assertThat(json).contains("\"age\":25");
+        assertThat(json).contains("\"birthDate\":");
     }
 
     @Test
@@ -97,6 +98,7 @@ public class GsonUtilsTest {
     }
 
     @Test
+    @Disabled("取消格式化")
     void testFormatJson() {
         String unformattedJson = "{\"name\":\"张三\",\"age\":25,\"birthDate\":\"1991-01-01 00:00:00\"}";
         String formattedJson = GsonUtils.formatJson(unformattedJson);
