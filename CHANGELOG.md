@@ -8,9 +8,10 @@
 - 集成guava，hutool-core，hutool-extra，gson，commons-lang3
 - 集成Tika
 - 验证码缓存工厂（CaptchaCacheFactory），单例模式
+- 扩展APIJSON框架，实现多数据源
 
 ### 变更
-- 扩展APIJSON框架，实现多数据源
+- 
 
 ### 修复
 - 
