@@ -8,8 +8,16 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author yangyunjiao
  */
 public final class TimestampIdGenerator {
+    /**
+     * 计数器
+     */
     private static final AtomicLong counter = new AtomicLong(System.currentTimeMillis() * 1000);
 
+    /**
+     * 获取下一个值
+     *
+     * @return id
+     */
     public static long next() {
         return counter.getAndIncrement();
     }

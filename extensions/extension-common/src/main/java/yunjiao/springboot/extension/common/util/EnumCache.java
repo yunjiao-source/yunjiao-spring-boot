@@ -5,9 +5,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 枚举缓存
- * <p></p>
- * <p>
- * 参考文章：如何高效优雅的使用java枚举
  *
  * @author yangyunjiao
  */

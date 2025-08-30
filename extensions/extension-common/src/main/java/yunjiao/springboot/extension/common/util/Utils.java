@@ -15,9 +15,12 @@ public final class Utils {
      * 获取环境变量，并转换成数字。
      * @param env 必须值
      * @param name 变量名称
+     * @param targetClass 目标类型
+     * @param defaultValue 默认值
      * @return 变量值
+     * @param <T> 类型
      */
-    public static <T extends Number> T convertEnv(Environment env, String name, Class<T> clazz, T defaultValue) {
+    public static <T extends Number> T convertEnv(Environment env, String name, Class<T> targetClass, T defaultValue) {
         // 从Environment对象中获取环境变量值
         String value = env.getProperty(name);
 
@@ -28,20 +31,20 @@ public final class Utils {
 
         try {
             // 根据目标类型进行转换
-            if (clazz == Integer.class) {
-                return clazz.cast(Integer.parseInt(value));
-            } else if (clazz == Double.class) {
-                return clazz.cast(Double.parseDouble(value));
-            } else if (clazz == Float.class) {
-                return clazz.cast(Float.parseFloat(value));
-            } else if (clazz == Long.class) {
-                return clazz.cast(Long.parseLong(value));
-            } else if (clazz == Short.class) {
-                return clazz.cast(Short.parseShort(value));
-            } else if (clazz == Byte.class) {
-                return clazz.cast(Byte.parseByte(value));
+            if (targetClass == Integer.class) {
+                return targetClass.cast(Integer.parseInt(value));
+            } else if (targetClass == Double.class) {
+                return targetClass.cast(Double.parseDouble(value));
+            } else if (targetClass == Float.class) {
+                return targetClass.cast(Float.parseFloat(value));
+            } else if (targetClass == Long.class) {
+                return targetClass.cast(Long.parseLong(value));
+            } else if (targetClass == Short.class) {
+                return targetClass.cast(Short.parseShort(value));
+            } else if (targetClass == Byte.class) {
+                return targetClass.cast(Byte.parseByte(value));
             } else {
-                throw new IllegalArgumentException("Unsupported number type: " + clazz.getName());
+                throw new IllegalArgumentException("Unsupported number type: " + targetClass.getName());
             }
         } catch (NumberFormatException e) {
             return defaultValue;

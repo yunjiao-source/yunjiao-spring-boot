@@ -1,11 +1,11 @@
 package yunjiao.springboot.example.captcha;
 
-import cn.hutool.cache.CacheUtil;
-import cn.hutool.cache.impl.TimedCache;
-import yunjiao.springboot.autoconfigure.captcha.CaptchaServiceFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import yunjiao.springboot.autoconfigure.captcha.CaptchaServiceFactory;
+import yunjiao.springboot.extension.captcha.cache.CaptchaCache;
+import yunjiao.springboot.extension.captcha.cache.CaptchaCacheFactory;
 import yunjiao.springboot.extension.common.captcha.*;
 
 /**
@@ -17,7 +17,7 @@ import yunjiao.springboot.extension.common.captcha.*;
 @RequiredArgsConstructor
 public class CaptchaController {
     private final CaptchaServiceFactory factory;
-    private final TimedCache<String, String> timedCache = CacheUtil.newTimedCache(30 * 1000);
+    private final CaptchaCache cache = CaptchaCacheFactory.getInstance();
 
     @GetMapping("/captcha")
     public CaptchaReponse get(@RequestParam(name = "category") CaptchaCategory category) {
@@ -30,14 +30,14 @@ public class CaptchaController {
         reponse.setCaptchaImageBase64(data.captchaImageBase64Url());
         reponse.setBackgroundImageBase64(data.backgroundImageBase64Url());
 
-        timedCache.put(data.key(), data.code());
+        cache.put(data.key(), data.code());
         System.out.println("code=" + data.code());
         return reponse;
     }
 
     @PostMapping("/captcha")
     public String post(@RequestBody CaptchaValidate validate) {
-        String cacheCode = timedCache.get(validate.getKey());
+        String cacheCode = cache.get(validate.getKey()).orElse(null);
         if (!StringUtils.hasText(cacheCode)) {
             return "验证码校验失败";
         }

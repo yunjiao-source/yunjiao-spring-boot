@@ -1,0 +1,514 @@
+[[captcha]]
+== Captcha（验证码）扩展
+
+Captcha（验证码）是很常见的需求，广泛应用在登录，下载等功能中。本框架集成Hutool，aj-captcha等开源验证码工具，提供多种验证码，如：线段干扰验证码，
+圆圈干扰验证码，扭曲干扰验证码，GIF验证码，滑块拼图验证码，文字点选验证码，旋转拼图验证码等等
+
+[NOTE]
+====
+本框架验证码服务只有生成，校验功能。不涉及验证码缓存及失效
+====
+
+****
+.示例
+Gitee: https://gitee.com/yunjiao-source/yunjiao-spring-boot/tree/master/examples/example-captcha[examples/example-captcha]
+****
+
+[[captcha-rhsy]]
+=== 如何使用
+
+在pom.xml文件中添加
+[source,xml,indent=0]
+[subs="verbatim,quotes"]
+----
+        <dependency>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+            <artifactId>starter-captcha</artifactId>
+        </dependency>
+----
+
+[[captcha-pzzn]]
+=== 配置指南
+
+在`application.yml`中配置参数
+
+线段干扰验证码（line）配置
+|===
+| 配置参数 | 默认值 | 说明
+
+| spring.captcha.hutool.line.width
+| 250
+| 图片的宽度
+
+| spring.captcha.hutool.line.height
+| 50
+| 图片的高度
+
+| spring.captcha.hutool.line.interfereCount
+| 60
+| 验证码干扰元素个数
+
+| spring.captcha.hutool.line.backgroundColor
+| ColorType.white
+| 背景色
+
+| spring.captcha.hutool.line.transparency
+| null
+| 文字透明度，取值0~1，1表示不透明
+
+| spring.captcha.hutool.line.fuzziness
+| 2
+| 模糊度（0 - 30）
+
+| spring.captcha.hutool.line.validIgnoreCase
+| true
+| 校验时忽略大小写
+
+| spring.captcha.hutool.line.font.name
+| null
+| 字体名称, 为空表示使用系统默认字体
+
+| spring.captcha.hutool.line.font.style
+| FontStyle.plain
+| 字体风格
+
+| spring.captcha.hutool.line.font.size
+| 36
+| 字体大小
+
+| spring.captcha.hutool.line.code.generator
+| CodeGeneratorType.numAndChar
+| 码生成类型
+
+| spring.captcha.hutool.line.code.length
+| 5
+| 字符长度
+
+|===
+
+圆圈干扰验证码（circle）配置
+|===
+| 配置参数 | 默认值 | 说明
+
+| spring.captcha.hutool.circle.width
+| 250
+| 图片的宽度
+
+| spring.captcha.hutool.circle.height
+| 50
+| 图片的高度
+
+| spring.captcha.hutool.circle.interfereCount
+| 30
+| 验证码干扰元素个数
+
+| spring.captcha.hutool.circle.backgroundColor
+| ColorType.white
+| 背景色
+
+| spring.captcha.hutool.circle.transparency
+| null
+| 文字透明度，取值0~1，1表示不透明
+
+| spring.captcha.hutool.circle.fuzziness
+| 2
+| 模糊度（0 - 30）
+
+| spring.captcha.hutool.circle.validIgnoreCase
+| true
+| 校验时忽略大小写
+
+| spring.captcha.hutool.circle.font.name
+| null
+| 字体名称, 为空表示使用系统默认字体
+
+| spring.captcha.hutool.circle.font.style
+| FontStyle.plain
+| 字体风格
+
+| spring.captcha.hutool.circle.font.size
+| 36
+| 字体大小
+
+| spring.captcha.hutool.circle.code.generator
+| CodeGeneratorType.numAndChar
+| 码生成类型
+
+| spring.captcha.hutool.circle.code.length
+| 5
+| 字符长度
+
+|===
+
+扭曲干扰验证码（shear）配置
+|===
+| 配置参数 | 默认值 | 说明
+
+| spring.captcha.hutool.shear.width
+| 250
+| 图片的宽度
+
+| spring.captcha.hutool.shear.height
+| 50
+| 图片的高度
+
+| spring.captcha.hutool.shear.interfereCount
+| 10
+| 干扰线宽度
+
+| spring.captcha.hutool.shear.backgroundColor
+| ColorType.white
+| 背景色
+
+| spring.captcha.hutool.shear.transparency
+| null
+| 文字透明度，取值0~1，1表示不透明
+
+| spring.captcha.hutool.shear.fuzziness
+| 2
+| 模糊度（0 - 30）
+
+| spring.captcha.hutool.shear.validIgnoreCase
+| true
+| 校验时忽略大小写
+
+| spring.captcha.hutool.shear.font.name
+| null
+| 字体名称, 为空表示使用系统默认字体
+
+| spring.captcha.hutool.shear.font.style
+| FontStyle.plain
+| 字体风格
+
+| spring.captcha.hutool.shear.font.size
+| 36
+| 字体大小
+
+| spring.captcha.hutool.shear.code.generator
+| CodeGeneratorType.numAndChar
+| 码生成类型
+
+| spring.captcha.hutool.shear.code.length
+| 5
+| 字符长度
+
+
+|===
+
+Gif验证码（gif）配置
+|===
+| 配置参数 | 默认值 | 说明
+
+| spring.captcha.hutool.gif.width
+| 250
+| 图片的宽度
+
+| spring.captcha.hutool.gif.height
+| 50
+| 图片的高度
+
+| spring.captcha.hutool.gif.interfereCount
+| 10
+| 干扰线宽度
+
+| spring.captcha.hutool.gif.backgroundColor
+| ColorType.white
+| 背景色
+
+| spring.captcha.hutool.gif.transparency
+| null
+| 文字透明度，取值0~1，1表示不透明
+
+| spring.captcha.hutool.gif.fuzziness
+| 2
+| 模糊度（0 - 30）
+
+| spring.captcha.hutool.gif.validIgnoreCase
+| true
+| 校验时忽略大小写
+
+| spring.captcha.hutool.gif.font.name
+| null
+| 字体名称, 为空表示使用系统默认字体
+
+| spring.captcha.hutool.gif.font.style
+| FontStyle.plain
+| 字体风格
+
+| spring.captcha.hutool.gif.font.size
+| 36
+| 字体大小
+
+| spring.captcha.hutool.gif.code.generator
+| CodeGeneratorType.numAndChar
+| 码生成类型
+
+| spring.captcha.hutool.gif.code.length
+| 5
+| 字符长度
+
+| spring.captcha.hutool.gif.quality
+| 10
+| 量化器取样间隔, 1 ~ 20 值之间 - 默认是10ms
+
+| spring.captcha.hutool.gif.repeat
+| 0
+| 帧循环次数，默认是 0， 意味着无限循环
+
+| spring.captcha.hutool.gif.min-color
+| 0
+| 设置随机颜色时，最小的取色范围
+
+| spring.captcha.hutool.gif.max-color
+| 255
+| 设置随机颜色时，最大的取色范围
+
+|===
+
+滑块拼图验证码（blockPuzzle）及文字点选验证码（clickWord）配置
+|===
+| 配置参数 | 默认值 | 说明
+
+| spring.captcha.anji.water-mark
+| 我的水印
+| 右下角水印文字
+
+| spring.captcha.anji.water-font
+| WenQuanZhengHei.ttf
+| 右下角水印字体
+
+| spring.captcha.anji.block-puzzle.jigsaw
+|
+| 滑动拼图底图路径
+
+| spring.captcha.anji.block-puzzle.slip-offset
+| 5
+| 校验滑动拼图允许误差偏移量
+
+| spring.captcha.anji.block-puzzle.interference-options
+| 0
+| 滑块干扰项
+
+| spring.captcha.anji.click-word.pic-click
+|
+| 点选文字底图路径
+
+| spring.captcha.anji.click-word.font-type
+| WenQuanZhengHei.ttf
+| 点选文字验证码的文字字体
+
+| spring.captcha.anji.click-word.font-style
+| FontStyle.bold
+| 点选字体样式
+
+| spring.captcha.anji.click-word.font-size
+| 25
+| 点选字体大小
+
+| spring.captcha.anji.click-word.click-word-count
+| 4
+| 点选文字个数
+
+| spring.captcha.anji.click-word.slip-offset
+| 13
+| 校验拼图允许误差(默认13像素).
+
+|===
+
+[[captcha-kfzn]]
+=== 开发指南
+
+使用验证码服务工厂（CaptchaServiceFactory），可以很方便获取验证码服务
+
+[source,java,indent=0]
+[subs="verbatim,quotes"]
+----
+@Slf4j
+@Component
+public class CaptchaCommandLineRunner implements CommandLineRunner {
+    @Autowired
+    private CaptchaServiceFactory factory;
+
+    @Override
+    public void run(String... args) throws Exception {
+        CaptchaService circleService = factory.findService(CaptchaCategory.circle);
+        CaptchaData data = circleService.draw();
+        log.info(GsonUtils.toJson(data));
+        saveImage(data);
+
+        CaptchaService lineService = factory.findService(CaptchaCategory.line);
+        data = lineService.draw();
+        saveImage(data);
+
+        CaptchaService gifService = factory.findService(CaptchaCategory.gif);
+        data = gifService.draw();
+        saveImage(data);
+
+        CaptchaService shearService = factory.findService(CaptchaCategory.shear);
+        data = shearService.draw();
+        saveImage(data);
+
+        CaptchaService blockPuzzleService = factory.findService(CaptchaCategory.blockPuzzle);
+        data = blockPuzzleService.draw();
+        saveImage(data);
+
+        CaptchaService clickWordService = factory.findService(CaptchaCategory.clickWord);
+        data = clickWordService.draw();
+        saveImage(data);
+    }
+
+    private void saveImage(CaptchaData data) throws IOException {
+        Path targetDir = Paths.get("target", "processed-images");
+        if (!Files.exists(targetDir)) {
+            Files.createDirectories(targetDir);
+        }
+
+        Path filePath = targetDir.resolve(data.category().name() + "-captcha." + data.category().getExt());
+        Files.write(filePath, data.captchaImage());
+
+        if (data.backgroundImage() != null) {
+            filePath = targetDir.resolve(data.category().name() + "-background." + data.category().getExt());
+            Files.write(filePath, data.backgroundImage());
+        }
+    }
+}
+----
+
+所有的验证码服务生成的验证码信息是统一的，使用更加方便
+
+验证码信息（json）格式
+[source,text,indent=0]
+[subs="verbatim,quotes"]
+----
+{"key":"5e1bf15c178b4ea3a6d0599ba8fb3743","captchaImage":[-119,80,78,71,13,10,....],"backgroundImage":null,"code":"z8yOk","category":"circle"}
+----
+
+验证码信息属性说明
+|===
+| 属性 | 说明
+
+| key
+| String类型，验证码ID，生成的每个验证码都有唯一的ID
+
+
+| captchaImage
+| byte[]类型，验证码图片。
+
+
+| backgroundImage
+| byte[]类型，验证码背景图片。分类是blockPuzzle才有值
+
+
+| code
+| String类型，校验码，
+
+| category
+| 枚举类型，分类
+
+|===
+
+[NOTE]
+====
+如果需要Base64类型的图片信息，可以调用`CaptchaData.captchaImageBase64Url`或`CaptchaData.backgroundImageBase64Url`方法
+====
+
+使用验证码缓存工厂（CaptchaCacheFactory）存储验证码信息，支持`Hutool`框架的`TimedCache`缓存和`Guava`框架的`LoadingCache`缓存，可以自由
+选择缓存，而且可以自定义配置
+
+[source,java,indent=0]
+[subs="verbatim,quotes"]
+----
+@Slf4j
+@Configuration
+public class CaptchaConfiguration {
+
+    @PostConstruct
+    void postConstruct() {
+        // 设置过期时间
+        CaptchaCacheFactory.initHtoolCache(Duration.ofSeconds(30));
+    }
+
+}
+----
+
+[NOTE]
+====
+验证码缓存工厂（CaptchaCacheFactory）功能与 验证码服务工厂（CaptchaServiceFactory）功能**没有关联**
+====
+
+写一个简单的验证码生成及校验接口
+
+[source,java,indent=0]
+[subs="verbatim,quotes"]
+----
+@RestController
+@RequiredArgsConstructor
+public class CaptchaController {
+    private final CaptchaServiceFactory factory;
+    private final CaptchaCache cache = CaptchaCacheFactory.getInstance();
+
+    @GetMapping("/captcha")
+    public CaptchaReponse get(@RequestParam(name = "category") CaptchaCategory category) {
+        CaptchaService service = factory.findService(category);
+        CaptchaData data = service.draw();
+
+        CaptchaReponse reponse = new CaptchaReponse();
+        reponse.setKey(data.key());
+        reponse.setCategory(service.getCategory());
+        reponse.setCaptchaImageBase64(data.captchaImageBase64Url());
+        reponse.setBackgroundImageBase64(data.backgroundImageBase64Url());
+
+        cache.put(data.key(), data.code());
+        System.out.println("code=" + data.code());
+        return reponse;
+    }
+
+    @PostMapping("/captcha")
+    public String post(@RequestBody CaptchaValidate validate) {
+        String cacheCode = cache.get(validate.getKey()).orElse(null);
+        if (!StringUtils.hasText(cacheCode)) {
+            return "验证码校验失败";
+        }
+
+        CaptchaService service = factory.findService(validate.getCategory());
+        boolean pass = service.verify(cacheCode, validate.getCode());
+        if (pass) {
+            return "验证码校验成功";
+        } else {
+            return "验证码校验失败";
+        }
+    }
+}
+----
+
+获取验证码请求
+
+[source,console,indent=0]
+[subs="verbatim,quotes"]
+----
+curl --location --request GET 'http://localhost:8080/captcha?category=line' \
+--header 'Accept: */*' \
+--header 'Host: localhost:8080' \
+--header 'Connection: keep-alive'
+----
+
+校验验证码请求
+[source,console,indent=0]
+[subs="verbatim,quotes"]
+----
+curl --location --request POST 'http://localhost:8080/captcha' \
+--header 'Content-Type: application/json' \
+--header 'Accept: */*' \
+--header 'Host: localhost:8080' \
+--header 'Connection: keep-alive' \
+--data-raw '{
+    "key": "e3d15841b93543f88e2404fc93cd8edb",
+    "category": "line",
+    "code": "1kNk9"
+}'
+----
+
+[TIP]
+====
+*注意*编写生成验证码接口时，不要将校验码（CaptchaData.code属性）返回给前端
+====

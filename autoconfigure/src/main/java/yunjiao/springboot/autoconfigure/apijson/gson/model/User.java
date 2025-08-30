@@ -39,18 +39,35 @@ public class User extends BaseModel implements Visitor<Long> {
 
     public static final int SEX_UNKNOWN = 2;
 
+    /**
+     * 性别
+     */
+    private Integer sex;
 
-    private Integer sex; //性别
+    /**
+     * 头像url
+     */
+    private String head;
 
-    private String head; //头像url
+    /**
+     * 姓名
+     */
+    private String name;
 
-    private String name; //姓名
+    /**
+     * 标签
+     */
+    private String tag;
 
-    private String tag; //标签
+    /**
+     * 照片列表
+     */
+    private List<String> pictureList;
 
-    private List<String> pictureList; //照片列表
-
-    private List<Long> contactIdList; //朋友列表
+    /**
+     * 朋友列表
+     */
+    private List<Long> contactIdList;
 
     /**
      * 默认构造方法，JSON等解析时必须要有

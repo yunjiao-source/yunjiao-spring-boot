@@ -40,10 +40,30 @@ public interface SqlConnectProvider {
         }
     }
 
+    /**
+     * 获取链接
+     *
+     * @param key 关键字，必须值
+     * @return 连接
+     * @throws Exception 获取时异常
+     */
     @NotNull
     Connection getConnection(String key) throws Exception;
 
+    /**
+     * 放入链接
+     *
+     * @param key 关键字，必须值
+     * @param newCon 连接
+     * @return 连接
+     * @throws Exception 放入时异常
+     */
     Connection putConnection(String key, Connection newCon) throws Exception;
 
+    /**
+     * 获取数据源
+     *
+     * @return 实例
+     */
     DataSource getDataSource();
 }

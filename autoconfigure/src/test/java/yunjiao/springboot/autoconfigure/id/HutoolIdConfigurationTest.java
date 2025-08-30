@@ -33,9 +33,8 @@ public class HutoolIdConfigurationTest {
 
     @Test
     void giveEnv_whenConfig_thenOK() {
-        System.setProperty(CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID, "2");
-        System.setProperty(CommonConsts.ENV_SNOWFLAKE_WORKER_ID, "3");
         applicationContextRunner
+                .withPropertyValues(CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID+ "=2", CommonConsts.ENV_SNOWFLAKE_WORKER_ID+ "=3")
                 .run(context -> {
                     assertThat(context).hasSingleBean(Snowflake.class);
                     Snowflake bean = context.getBean(Snowflake.class);

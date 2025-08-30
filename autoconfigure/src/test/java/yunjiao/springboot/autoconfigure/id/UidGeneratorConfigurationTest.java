@@ -42,8 +42,8 @@ public class UidGeneratorConfigurationTest {
 
     @Test
     void giveWorkId_whenConfig_thenOk() {
-        System.setProperty(CommonConsts.ENV_SNOWFLAKE_WORKER_ID, "2");
         applicationContextRunner
+                .withPropertyValues(CommonConsts.ENV_SNOWFLAKE_WORKER_ID+ "=2")
                 .run(context -> {
                     UidGeneratorDefault uidGeneratorDefault = context.getBean(UidGeneratorDefault.class);
                     long id = uidGeneratorDefault.getUID();

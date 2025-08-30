@@ -10,6 +10,14 @@ import java.util.Objects;
  * @author yangyunjiao
  */
 public class GsonMap<K, V> extends LinkedHashMap<K, V> {
+    /**
+     * 转换
+     *
+     * @param map 必须值
+     * @return 实例
+     * @param <K> 键
+     * @param <V> 值
+     */
     public static <K, V> GsonMap<K, V> of(Map<K, V> map) {
         GsonMap<K, V> gsonMap = new GsonMap<>();
         if (Objects.nonNull(map)) {

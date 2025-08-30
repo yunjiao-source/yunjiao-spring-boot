@@ -21,7 +21,8 @@ public final class GsonUtils {
     private static final Gson GSON = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss") // 设置日期格式
             .disableHtmlEscaping() // 禁止转义HTML标签
-            .setPrettyPrinting() // 格式化输出
+            .serializeNulls()
+            //.setPrettyPrinting() // 格式化输出
             .create();
 
     private GsonUtils() {

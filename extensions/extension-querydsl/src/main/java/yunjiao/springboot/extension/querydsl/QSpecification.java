@@ -221,6 +221,11 @@ public interface QSpecification extends Serializable {
                 .reduce(this, QSpecification::or);
     }
 
+    /**
+     * 构建条件对象
+     * @param builder 必须值
+     * @return 实例
+     */
     @Nullable
     Predicate toPredicate(BooleanBuilder builder);
 
