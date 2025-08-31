@@ -23,7 +23,7 @@
         <flatten-maven-plugin.version>1.7.2</flatten-maven-plugin.version>
         <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
 
-        <author>yangyunjiao</author>
+        <author>杨运交</author>
         <email>1290308475@qq.com</email>
     </properties>
 
@@ -114,8 +114,8 @@
                                 </goals>
                                 <configuration>
                                     <backend>html</backend>
-                                    <sourceDirectory>doc/adoc</sourceDirectory>
-                                    <outputDirectory>doc/build/html</outputDirectory>
+                                    <sourceDirectory>docs</sourceDirectory>
+                                    <outputDirectory>docs/build/html</outputDirectory>
                                 </configuration>
                             </execution>
                             <execution>
@@ -126,8 +126,8 @@
                                 </goals>
                                 <configuration>
                                     <backend>pdf</backend>
-                                    <sourceDirectory>doc/adoc</sourceDirectory>
-                                    <outputDirectory>doc/build/pdf</outputDirectory>
+                                    <sourceDirectory>docs</sourceDirectory>
+                                    <outputDirectory>docs/build/pdf</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>

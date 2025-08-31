@@ -2,6 +2,8 @@
 
 基于`Spring Boot`框架，集成其他框架开发的`Starter`
 
+[使用指南](https://yunjiao-source.github.io)
+
 ## 发布版本
 
 | 项目版本    | String Boot 版本 |
@@ -85,15 +87,6 @@ mvn install
         </dependencies>
     </dependencyManagement>    
 ```
-
-## 使用指南
-
-* starter-apijson-fastjson2 [使用指南](./doc/md/STARTER-APIJSON-FASTJSON2.md)
-* starter-apijson-gson [使用指南](./doc/md/STARTER-APIJSON-GSON.md)
-* starter-captcha [使用指南](./doc/md/STARTER-CAPTCHA.md)
-* starter-id [使用指南](./doc/md/STARTER-ID.md)
-* starter-querydsl-jpa [使用指南](./doc/md/STARTER-QUERYDSL-JPA.md)
-* starter-querydsl-sql [使用指南](./doc/md/STARTER-QUERYDSL-SQL.md)
 
 ## 参考
 
