@@ -17,14 +17,14 @@ import java.nio.charset.StandardCharsets;
  * @author yangyunjiao
  */
 public class MultipleDataSourceDemoTestIT {
-    private WebClient commont = WebClient.builder()
+    private final WebClient commonClient = WebClient.builder()
             .baseUrl("http://localhost:8080/api-json/common")
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
             .build();
 
     @Test
     void test1() {
-        String data = commont.post()
+        String data = commonClient.post()
                 .uri("/get")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(readJson("1. 第一个查询.json"))
@@ -37,7 +37,7 @@ public class MultipleDataSourceDemoTestIT {
 
     @Test
     void test2() {
-        String data = commont.post()
+        String data = commonClient.post()
                 .uri("/get")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(readJson("2. 指定数据源查询.json"))
