@@ -1,7 +1,6 @@
-package yunjiao.springboot.autoconfigure.apijson;
+package yunjiao.springboot.extension.common.spring.jdbc;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-import yunjiao.springboot.extension.apjson.orm.DataSourceContextHolder;
 
 /**
  * 多数据源

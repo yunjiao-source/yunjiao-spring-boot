@@ -1,4 +1,4 @@
-package yunjiao.springboot.extension.apjson.orm;
+package yunjiao.springboot.extension.common.spring.jdbc;
 
 import org.springframework.util.StringUtils;
 
@@ -13,10 +13,12 @@ public class DataSourceContextHolder {
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 
     public static void setDataSourceType(String dsType) {
-        if(!StringUtils.hasText(dsType) || "null".equals(dsType)) {
-            dsType = DEFAULT;
+        if (!StringUtils.hasText(dsType)) {
+            contextHolder.set(DEFAULT);
+        } else {
+            contextHolder.set(dsType);
         }
-        contextHolder.set(dsType);
+
     }
 
     public static String getDataSourceType() {

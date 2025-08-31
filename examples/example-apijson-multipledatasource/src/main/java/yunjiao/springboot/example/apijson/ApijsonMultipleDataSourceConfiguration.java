@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import yunjiao.springboot.autoconfigure.apijson.MultipleDataSource;
+import yunjiao.springboot.extension.common.spring.jdbc.MultipleDataSource;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonSqlProperties;
 import yunjiao.springboot.example.apijson.fastjson2.CustomFastjson2Creator;
-import yunjiao.springboot.extension.apjson.orm.DataSourceContextHolder;
+import yunjiao.springboot.extension.common.spring.jdbc.DataSourceContextHolder;
 import yunjiao.springboot.extension.apjson.util.ApijsonConsts;
 
 import javax.sql.DataSource;

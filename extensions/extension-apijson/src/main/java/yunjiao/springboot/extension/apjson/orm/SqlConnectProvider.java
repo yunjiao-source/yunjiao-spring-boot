@@ -4,6 +4,7 @@ import apijson.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+import yunjiao.springboot.extension.common.spring.jdbc.DataSourceContextHolder;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
