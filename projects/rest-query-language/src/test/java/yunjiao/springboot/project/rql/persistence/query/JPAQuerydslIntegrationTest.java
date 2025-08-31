@@ -25,7 +25,7 @@ public class JPAQuerydslIntegrationTest {
     private MyUser userTom;
 
     @BeforeEach
-    public void init() {
+    void init() {
         userJohn = new MyUser();
         userJohn.setFirstName("john");
         userJohn.setLastName("doe");
@@ -44,7 +44,7 @@ public class JPAQuerydslIntegrationTest {
     }
 
     @Test
-    public void givenLast_whenGettingListOfUsers_thenCorrect() {
+    void givenLast_whenGettingListOfUsers_thenCorrect() {
         final MyUserPredicatesBuilder builder = new MyUserPredicatesBuilder().with("lastName", ":", "doe");
 
         final Iterable<MyUser> results = repo.findAll(builder.build());
@@ -52,7 +52,7 @@ public class JPAQuerydslIntegrationTest {
     }
 
     @Test
-    public void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
+    void givenFirstAndLastName_whenGettingListOfUsers_thenCorrect() {
         final MyUserPredicatesBuilder builder = new MyUserPredicatesBuilder().with("firstName", ":", "john").with("lastName", ":", "doe");
 
         final Iterable<MyUser> results = repo.findAll(builder.build());
@@ -62,7 +62,7 @@ public class JPAQuerydslIntegrationTest {
     }
 
     @Test
-    public void givenLastAndAge_whenGettingListOfUsers_thenCorrect() {
+    void givenLastAndAge_whenGettingListOfUsers_thenCorrect() {
         final MyUserPredicatesBuilder builder = new MyUserPredicatesBuilder().with("lastName", ":", "doe").with("age", ">", "25");
 
         final Iterable<MyUser> results = repo.findAll(builder.build());
@@ -72,7 +72,7 @@ public class JPAQuerydslIntegrationTest {
     }
 
     @Test
-    public void givenWrongFirstAndLast_whenGettingListOfUsers_thenCorrect() {
+    void givenWrongFirstAndLast_whenGettingListOfUsers_thenCorrect() {
         final MyUserPredicatesBuilder builder = new MyUserPredicatesBuilder().with("firstName", ":", "adam").with("lastName", ":", "fox");
 
         final Iterable<MyUser> results = repo.findAll(builder.build());
@@ -80,7 +80,7 @@ public class JPAQuerydslIntegrationTest {
     }
 
     @Test
-    public void givenPartialFirst_whenGettingListOfUsers_thenCorrect() {
+    void givenPartialFirst_whenGettingListOfUsers_thenCorrect() {
         final MyUserPredicatesBuilder builder = new MyUserPredicatesBuilder().with("firstName", ":", "jo");
 
         final Iterable<MyUser> results = repo.findAll(builder.build());

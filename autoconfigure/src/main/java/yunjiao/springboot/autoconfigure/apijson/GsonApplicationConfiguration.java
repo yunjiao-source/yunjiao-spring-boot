@@ -50,7 +50,7 @@ public class GsonApplicationConfiguration {
                             ApijsonSqlProperties sqlProperties) {
         GsonCreator bean = new GsonCreator(dataSource, sqlProperties);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Gson Creator: {}]", bean);
+            log.debug("Configure Bean [Gson Creator -> {}]", bean);
         }
         return bean;
     }
@@ -67,7 +67,7 @@ public class GsonApplicationConfiguration {
                                           NewIdStrategy newIdStrategy) {
         GsonSimpleCallback bean = new GsonSimpleCallback(idKeyStrategy, newIdStrategy);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Gson Simple Callback: {}]", bean);
+            log.debug("Configure Bean [Gson Simple Callback -> {}]", bean);
         }
         return bean;
     }
@@ -85,7 +85,7 @@ public class GsonApplicationConfiguration {
                                               ApijsonProperties properties) {
         GsonInitializingBean bean = new GsonInitializingBean(gsonSimpleCallback, gsonCreator, properties);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Gson Initializing Bean: {}]", bean);
+            log.debug("Configure Bean [Gson Initializing Bean -> {}]", bean);
         }
         return bean;
     }
@@ -106,7 +106,7 @@ public class GsonApplicationConfiguration {
         GsonRestController gsonRestController() {
             GsonRestController bean = new GsonRestController(properties);
             if (log.isDebugEnabled()) {
-                log.debug("Configure Bean [Gson Rest Controller: {}]", bean);
+                log.debug("Configure Bean [Gson Rest Controller -> {}]", bean);
             }
             return bean;
         }
@@ -115,7 +115,7 @@ public class GsonApplicationConfiguration {
         GsonEXtRestController gsonEXtRestController() {
             GsonEXtRestController bean = new GsonEXtRestController();
             if (log.isDebugEnabled()) {
-                log.debug("Configure Bean [Gson Ext Rest Controller: {}]", bean);
+                log.debug("Configure Bean [Gson Ext Rest Controller -> {}]", bean);
             }
             return bean;
         }

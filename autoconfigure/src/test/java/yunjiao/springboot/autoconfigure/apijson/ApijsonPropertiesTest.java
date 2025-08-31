@@ -19,7 +19,7 @@ public class ApijsonPropertiesTest {
     private ApijsonProperties properties;
 
     @Test
-    public void givenProperties_thenCheckDefaultOk() {
+    void givenProperties_thenCheckDefaultOk() {
         assertThat(properties.getApplication()).isEqualTo(ApijsonProperties.Application.fastjson2);
         assertThat(properties.getNewIdStrategy()).isEqualTo(ApijsonProperties.NewIdStrategy.timestamp);
     }

@@ -23,5 +23,9 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cc.siyecao.uid</groupId>
+            <artifactId>uid-core</artifactId>
+        </dependency>
     </dependencies>
 </project>

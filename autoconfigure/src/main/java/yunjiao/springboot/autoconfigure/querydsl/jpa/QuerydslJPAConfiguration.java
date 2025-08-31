@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({JPAQueryFactory.class})
-public class QuerydslJPAAutoConfiguration {
+public class QuerydslJPAConfiguration {
     private final EntityManager entityManager;
 
     /**
@@ -28,7 +28,7 @@ public class QuerydslJPAAutoConfiguration {
      */
     @PostConstruct
     public void postConstruct() {
-        log.info("QueryDSL JPA Auto Configuration");
+        log.info("QueryDSL JPA Configuration");
     }
 
     @Bean
@@ -38,7 +38,7 @@ public class QuerydslJPAAutoConfiguration {
         jpaQueryFactoryConfigurer.orderedStream().forEach(configurer -> configurer.configure(bean));
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [JPA Query Factory: {}]", bean);
+            log.debug("Configure Bean [JPA Query Factory -> {}]", bean);
         }
         return bean;
     }
@@ -48,7 +48,7 @@ public class QuerydslJPAAutoConfiguration {
         JPAQueryCurdExecutor bean = new JPAQueryCurdExecutor();
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [JPAQuery Curd Executor: {}]", bean);
+            log.debug("Configure Bean [JPAQuery Curd Executor -> {}]", bean);
         }
         return bean;
     }

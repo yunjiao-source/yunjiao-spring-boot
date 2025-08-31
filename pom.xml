@@ -14,13 +14,17 @@
     <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
 
     <properties>
-        <revision>0.3.0</revision>
+        <revision>0.4.0</revision>
         <spring-boot.version>3.0.13</spring-boot.version>
 
         <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
         <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
         <flatten-maven-plugin.version>1.7.2</flatten-maven-plugin.version>
+        <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
+
+        <author>yangyunjiao</author>
+        <email>1290308475@qq.com</email>
     </properties>
 
     <modules>
@@ -52,8 +56,8 @@
 
     <developers>
         <developer>
-            <name>yangyunjiao</name>
-            <email>44010039@qq.com</email>
+            <name>${author}</name>
+            <email>${email}</email>
         </developer>
     </developers>
 
@@ -91,6 +95,54 @@
                     </plugin>
 
                     <plugin>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <version>${asciidoctor-maven-plugin.version}</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-pdf</artifactId>
+                                <version>2.3.19</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>output-html</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>process-asciidoc</goal>
+                                </goals>
+                                <configuration>
+                                    <backend>html</backend>
+                                    <sourceDirectory>doc/adoc</sourceDirectory>
+                                    <outputDirectory>doc/build/html</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>output-pdf</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>process-asciidoc</goal>
+                                </goals>
+                                <configuration>
+                                    <backend>pdf</backend>
+                                    <sourceDirectory>doc/adoc</sourceDirectory>
+                                    <outputDirectory>doc/build/pdf</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <attributes>
+                                <java-version>${java.version}</java-version>
+                                <spring-boot-version>${spring-boot.version}</spring-boot-version>
+                                <project-version>${revision}</project-version>
+                                <author>${author}</author>
+                                <email>${email}</email>
+                            </attributes>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
                         <version>${central-publishing-maven-plugin.version}</version>
@@ -98,7 +150,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
-                            <deploymentName>${revision}</deploymentName>
+                            <deploymentName>${project.groupId}.${project.artifactId}-${project.version}</deploymentName>
                         </configuration>
                     </plugin>
 

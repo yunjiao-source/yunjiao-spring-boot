@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class TimestampIdGeneratorTest {
     @Test
-    public void givenSzie_whenParllelGenerator_thenOk() {
+    void givenSzie_whenParllelGenerator_thenOk() {
         final int SIZE = 3000;
         Set<Long> idSet = IntStream.range(0, SIZE).parallel().mapToLong(i -> TimestampIdGenerator.next()).boxed()
                 .collect(Collectors.toSet());

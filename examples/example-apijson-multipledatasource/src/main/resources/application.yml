@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/apijson?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+    db1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/yunjiao?userSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+
+  apijson:
+    application: fastjson2
+    new-id-strategy: timestamp
+    need-verify-login: false
+    need-verify-role: false
+    log-debug: true
+    sql:
+      config:
+        default-database: MYSQL
+        default-schema: apijson
+        version: 8.0.11
+
+
+logging:
+  level:
+    root: info
+    org.springframework.boot.autoconfigure: info
+    yunjiao.springboot: debug
+

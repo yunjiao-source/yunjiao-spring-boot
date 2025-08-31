@@ -1,0 +1,9 @@
+{
+  "[]": {
+    "Orders": {
+      "@datasource": "db1",
+      "@schema": "yunjiao"
+    }
+  },
+  "total@": "/[]/total"
+}

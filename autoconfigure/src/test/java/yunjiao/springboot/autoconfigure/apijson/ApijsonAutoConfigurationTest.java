@@ -20,13 +20,13 @@ public class ApijsonAutoConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(ApijsonAutoConfiguration.class));
     }
 
     @Test
-    public void shouldAutoConfigurationApplied() {
+    void shouldAutoConfigurationApplied() {
         applicationContextRunner
                 .run(context -> {
                     assertThat(context).hasSingleBean(IdKeyStrategy.class);

@@ -27,6 +27,7 @@
         <apijson-gson.version>1.0.0</apijson-gson.version>
         <apijson-fastjson2.version>1.0.2</apijson-fastjson2.version>
         <ajcaptcha.version>1.4.0</ajcaptcha.version>
+        <uid-generator.version>2.2</uid-generator.version>
 
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -138,6 +139,11 @@
                 <groupId>com.anji-plus</groupId>
                 <artifactId>captcha</artifactId>
                 <version>${ajcaptcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cc.siyecao.uid</groupId>
+                <artifactId>uid-core</artifactId>
+                <version>${uid-generator.version}</version>
             </dependency>
 
             <!-- QueryDSL -->

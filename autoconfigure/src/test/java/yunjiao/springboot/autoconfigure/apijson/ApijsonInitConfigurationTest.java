@@ -20,13 +20,13 @@ public class ApijsonInitConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(ApijsonInitConfiguration.class, TestConfiguration.class));
     }
 
     @Test
-    public void givenNoConfigurer_whenConfig() {
+    void givenNoConfigurer_whenConfig() {
         applicationContextRunner.run(context -> {
             assertThat(context).doesNotHaveBean(ApijsonSqlConfigConfigurer.class);
             assertThat(context).doesNotHaveBean(ApijsonVerifierConfigurer.class);
@@ -36,7 +36,7 @@ public class ApijsonInitConfigurationTest {
     }
 
     @Test
-    public void givenConfigurer_whenConfig() {
+    void givenConfigurer_whenConfig() {
         applicationContextRunner
                 .withUserConfiguration(ConfigurerConfiguration.class)
                 .run(context -> {

@@ -21,13 +21,13 @@ public class AnjiCaptchaConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(AnjiCaptchaConfiguration.class));
     }
 
     @Test
-    public void givenDefault_thenConfig() {
+    void givenDefault_thenConfig() {
         applicationContextRunner
                 .run(context -> {
                     assertThat(context).hasSingleBean(CaptchaCacheService.class);

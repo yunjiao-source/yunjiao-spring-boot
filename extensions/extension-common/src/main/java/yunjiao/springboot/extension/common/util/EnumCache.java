@@ -1,13 +1,10 @@
-package yunjiao.springboot.extension.common.lang;
+package yunjiao.springboot.extension.common.util;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 枚举缓存
- * <p></p>
- * <p>
- * 参考文章：如何高效优雅的使用java枚举
  *
  * @author yangyunjiao
  */
@@ -130,6 +127,7 @@ public class EnumCache {
      * @return 实例
      * @param <E> 枚举类型
      */
+    @SuppressWarnings({"all"})
     private static <E extends Enum<?>> E find(Class<E> clazz, Object obj, Map<Class<? extends Enum<?>>, Map<Object, Enum<?>>> cache, E defaultEnum) {
         Map<Object, Enum<?>> map = cache.get(clazz);
         if (map == null) {

@@ -1,6 +1,7 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
 
+import apijson.framework.APIJSONApplication;
 import yunjiao.springboot.extension.apjson._APIJSON;
 import yunjiao.springboot.extension.apjson.annotation.ApijsonRest;
 import yunjiao.springboot.extension.apjson.orm.IdKeyApijsonStrategy;
@@ -25,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Slf4j
 @AutoConfiguration
-@ConditionalOnClass({_APIJSON.class})
+@ConditionalOnClass({_APIJSON.class, APIJSONApplication.class})
 @RequiredArgsConstructor
 @EnableConfigurationProperties({ApijsonProperties.class, ApijsonSqlProperties.class,
         ApijsonParserProperties.class, ApijsonVerifierProperties.class})
@@ -59,7 +60,7 @@ public class ApijsonAutoConfiguration {
     IdKeyStrategy idKeyApijsonStrategy() {
         IdKeyStrategy bean = new IdKeyApijsonStrategy();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Id Key APIJSON Strategy: {}]", bean);
+            log.debug("Configure Bean [Id Key APIJSON Strategy -> {}]", bean);
         }
         return bean;
     }

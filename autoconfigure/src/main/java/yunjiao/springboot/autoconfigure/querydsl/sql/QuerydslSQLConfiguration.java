@@ -26,12 +26,12 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({SQLQueryFactory.class, DataSource.class})
-public class QuerydslSQLAutoConfiguration {
+public class QuerydslSQLConfiguration {
     private final DataSource dataSource;
 
     @PostConstruct
     public void postConstruct() {
-        log.info("QueryDSL SQL Auto Configuration");
+        log.info("QueryDSL SQL Configuration");
     }
 
     @Bean
@@ -48,7 +48,7 @@ public class QuerydslSQLAutoConfiguration {
         sqlQueryFactoryConfigurers.orderedStream().forEach(configurer -> configurer.configure(bean));
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [SQL Query Factory: {}]", bean);
+            log.debug("Configure Bean [SQL Query Factory -> {}]", bean);
         }
         return bean;
     }
@@ -58,7 +58,7 @@ public class QuerydslSQLAutoConfiguration {
         SQLQueryCurdExecutor bean = new SQLQueryCurdExecutor();
 
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [SQLQuery Curd Executor: {}]", bean);
+            log.debug("Configure Bean [SQLQuery Curd Executor -> {}]", bean);
         }
         return bean;
     }
@@ -68,7 +68,7 @@ public class QuerydslSQLAutoConfiguration {
     SQLTemplates mysqlTemplates() {
         SQLTemplates bean = MySQLTemplates.builder().build();
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [MySQL Templates: {}]", bean);
+            log.debug("Configure Bean [MySQL Templates -> {}]", bean);
         }
         return bean;
     }

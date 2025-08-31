@@ -1,6 +1,7 @@
-package yunjiao.springboot.extension.common.lang;
+package yunjiao.springboot.extension.common.util;
 
 import org.junit.jupiter.api.Test;
+import yunjiao.springboot.extension.common.util.EnumCache;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

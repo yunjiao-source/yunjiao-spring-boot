@@ -12,14 +12,13 @@
 
     <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
     <artifactId>starter-parent</artifactId>
-    <version>0.3.0</version>
     <packaging>pom</packaging>
     <name>Spring Boot :: Starter Parent</name>
     <description>启动器项目，方便用户开发</description>
     <url>https://gitee.com/yunjiao-source/yunjiao-spring-boot</url>
 
     <properties>
-        <yunjiao-spring-boot.version>${project.version}</yunjiao-spring-boot.version>
+        <yunjiao-spring-boot.version>0.4.0</yunjiao-spring-boot.version>
         <apt-maven-plugin.version>1.1.3</apt-maven-plugin.version>
         <querydsl-maven-plugin.version>5.1.0</querydsl-maven-plugin.version>
 
@@ -52,7 +51,7 @@
     <developers>
         <developer>
             <name>yangyunjiao</name>
-            <email>44010039@qq.com</email>
+            <email>1290308475@qq.com</email>
         </developer>
     </developers>
 
@@ -145,6 +144,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <deploymentName>${project.groupId}.${project.artifactId}-${project.version}</deploymentName>
                         </configuration>
                     </plugin>
 

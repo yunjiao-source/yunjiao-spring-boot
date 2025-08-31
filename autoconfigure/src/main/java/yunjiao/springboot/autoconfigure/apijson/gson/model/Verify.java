@@ -45,11 +45,20 @@ public class Verify extends BaseModel {
 
     public static final int TYPE_RELOAD = 4; //重载配置
 
-    private String phone;    //手机
+    /**
+     * 手机
+     */
+    private String phone;
 
-    private String verify;    //验证码
+    /**
+     * 验证码
+     */
+    private String verify;
 
-    private Integer type;    //验证类型
+    /**
+     * 验证类型
+     */
+    private Integer type;
 
     public Verify() {
         super();

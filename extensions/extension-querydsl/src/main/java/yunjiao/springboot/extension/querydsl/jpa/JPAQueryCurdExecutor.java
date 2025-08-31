@@ -266,6 +266,7 @@ public class JPAQueryCurdExecutor {
      * 查询必须的一条，参考{@link #findMustOne(JPAQuery, QSpecification, QSort)}
      *
      * @param query 查询对象
+     * @param spec 查询条件
      * @return 实例
      * @param <T> 类型
      */
@@ -453,6 +454,7 @@ public class JPAQueryCurdExecutor {
     /**
      * 查询分页
      *
+     * @param countQuery 统计对象
      * @param query 查询对象
      * @param pageable 分页信息
      * @return 页信息
@@ -467,6 +469,7 @@ public class JPAQueryCurdExecutor {
     /**
      * 查询分页
      *
+     * @param countQuery 统计对象
      * @param query 查询对象
      * @param pageable 分页信息
      * @param spec 条件信息

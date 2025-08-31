@@ -23,7 +23,7 @@ public class ApijsonUtilsTest {
     };
 
     @Test
-    public void givenNotList_whenCheckItemInList_thenException() {
+    void givenNotList_whenCheckItemInList_thenException() {
         assertThatThrownBy(() -> ApijsonUtils.checkItemInList(new Object(), stringAndNotEmpty))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(" 不符合 Array 数组类型! 结构必须是 [] ！");
@@ -31,7 +31,7 @@ public class ApijsonUtilsTest {
     }
 
     @Test
-    public void givenEmpty_whenCheckItemInList_thenException() {
+    void givenEmpty_whenCheckItemInList_thenException() {
         List<String> list = List.of("123","345", "");
 
         assertThatThrownBy(() -> ApijsonUtils.checkItemInList(list, stringAndNotEmpty))
@@ -40,7 +40,7 @@ public class ApijsonUtilsTest {
     }
 
     @Test
-    public void givenNotEmptyList_whenCheckItemInList_thenSucess() {
+    void givenNotEmptyList_whenCheckItemInList_thenSucess() {
         List<String> list = List.of("123","345");
 
         assertThatCode(() -> ApijsonUtils.checkItemInList(list, stringAndNotEmpty)).doesNotThrowAnyException();

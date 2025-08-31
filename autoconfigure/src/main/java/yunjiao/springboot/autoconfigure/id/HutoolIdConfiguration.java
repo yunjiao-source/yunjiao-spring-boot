@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import yunjiao.springboot.extension.common.CommonConsts;
+import yunjiao.springboot.extension.common.util.Utils;
 
 /**
  * 基于Hutool框架的自动配置
@@ -15,6 +17,7 @@ import org.springframework.core.env.Environment;
  * @author yangyunjiao
  */
 @Slf4j
+@ConditionalOnClass({Snowflake.class})
 @Configuration(proxyBeanMethods = false)
 public class HutoolIdConfiguration {
     /**
@@ -22,7 +25,7 @@ public class HutoolIdConfiguration {
      */
     @PostConstruct
     public void postConstruct() {
-        log.info("Hutool Id Auto Configuration");
+        log.info("Hutool Id Configuration");
     }
 
     /**
@@ -35,33 +38,18 @@ public class HutoolIdConfiguration {
     @Bean
     @ConditionalOnClass({Snowflake.class})
     public Snowflake snowflake(Environment env) {
-        final String SNOWFLAKE_WORKER_ID = "SNOWFLAKE_WORKER_ID";
-        final String SNOWFLAKE_DATACENTER_ID = "SNOWFLAKE_DATACENTER_ID";
-
-        long workerId = 1L;
-        try {
-            String workIdEnv = env.getProperty(SNOWFLAKE_WORKER_ID);
-            workerId = Long.parseLong(workIdEnv);
-        } catch (Exception ignored) {
-
-        }
-
-        long datacenterId = 1L;
-        try {
-            String datacenterIdEnv = env.getProperty(SNOWFLAKE_DATACENTER_ID);
-            datacenterId = Long.parseLong(datacenterIdEnv);
-        } catch (Exception ignored) {
-
-        }
+        long workerId = Utils.convertEnv(env, CommonConsts.ENV_SNOWFLAKE_WORKER_ID, Long.class, 1L);
+        long datacenterId = Utils.convertEnv(env, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID, Long.class, 1L);
 
         Snowflake snowflake = IdUtil.getSnowflake(workerId, datacenterId);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Snowflake: {}], workerId={}, datacenterId={}", snowflake, workerId, datacenterId);
+            log.debug("Configure Bean [Snowflake -> {}], workerId={}, datacenterId={}", snowflake, workerId, datacenterId);
         }
 
         if (workerId == 1L &&  datacenterId == 1L) {
-            log.info("雪花算法配置参数workerId=1，datacenterId=1。如需支持分布式，请设置系统环境变量：{} 与 {}", SNOWFLAKE_WORKER_ID, SNOWFLAKE_DATACENTER_ID);
+            log.warn("Hutool 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：{} 与 {}", CommonConsts.ENV_SNOWFLAKE_WORKER_ID, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID);
         }
         return snowflake;
     }
+
 }

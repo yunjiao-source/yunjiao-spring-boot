@@ -48,7 +48,7 @@ public class AnjiCaptchaConfiguration {
     CaptchaCacheService captchaCacheService(){
         CaptchaCacheService service = CaptchaServiceFactory.getCache("local");
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Captcha Cache Service:{}]", service);
+            log.debug("Configure Bean [Captcha Cache Service -> {}]", service);
         }
         return service;
     }
@@ -79,7 +79,7 @@ public class AnjiCaptchaConfiguration {
         initPicClickResource(properties.getClickWord().getPicClick());
         CaptchaService service = CaptchaServiceFactory.getInstance(config);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Captcha Service:{}]", service);
+            log.debug("Configure Bean [Captcha Service -> {}]", service);
         }
         return service;
     }
@@ -115,7 +115,7 @@ public class AnjiCaptchaConfiguration {
                 captchaCacheService,
                 properties.getBlockPuzzle().getSlipOffset());
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Block Puzzle CaptchaService:{}]", service);
+            log.debug("Configure Bean [Block Puzzle CaptchaService -> {}]", service);
         }
         return service;
     }
@@ -128,7 +128,7 @@ public class AnjiCaptchaConfiguration {
                 captchaCacheService,
                 properties.getBlockPuzzle().getSlipOffset());
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Click Work CaptchaService:{}]", service);
+            log.debug("Configure Bean [Click Work CaptchaService -> {}]", service);
         }
         return service;
     }
@@ -139,7 +139,7 @@ public class AnjiCaptchaConfiguration {
         RotatePluzzleCaptchaService service = new RotatePluzzleCaptchaService(captchaService,
                 captchaCacheService);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Rotate Pluzzle CaptchaService:{}]", service);
+            log.debug("Configure Bean [Rotate Pluzzle CaptchaService -> {}]", service);
         }
         return service;
     }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import yunjiao.springboot.extension.common.CommonConsts;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,20 +14,33 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author yangyunjiao
  */
-public class IdIdConfigurationTest {
+public class HutoolIdConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
                 .withConfiguration(AutoConfigurations.of(HutoolIdConfiguration.class));
     }
 
     @Test
-    public void givenDefault_thenConfig() {
+    void whenConfig_thenExist() {
         applicationContextRunner
                 .run(context -> {
                     assertThat(context).hasSingleBean(Snowflake.class);
+                });
+    }
+
+    @Test
+    void giveEnv_whenConfig_thenOK() {
+        applicationContextRunner
+                .withPropertyValues(CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID+ "=2", CommonConsts.ENV_SNOWFLAKE_WORKER_ID+ "=3")
+                .run(context -> {
+                    assertThat(context).hasSingleBean(Snowflake.class);
+                    Snowflake bean = context.getBean(Snowflake.class);
+                    long id = bean.nextId();
+                    assertThat(bean.getDataCenterId(id)).isEqualTo(2);
+                    assertThat(bean.getWorkerId(id)).isEqualTo(3);
                 });
     }
 }

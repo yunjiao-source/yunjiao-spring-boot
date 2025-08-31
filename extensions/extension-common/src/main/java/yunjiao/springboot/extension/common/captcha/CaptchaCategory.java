@@ -1,6 +1,6 @@
 package yunjiao.springboot.extension.common.captcha;
 
-import yunjiao.springboot.extension.common.lang.EnumCache;
+import yunjiao.springboot.extension.common.util.EnumCache;
 import lombok.Getter;
 import lombok.ToString;
 

@@ -3,7 +3,7 @@ package yunjiao.springboot.autoconfigure.querydsl;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import yunjiao.springboot.extension.querydsl.jpa.JPAQueryCurdExecutor;
 import yunjiao.springboot.autoconfigure.querydsl.jpa.JPAQueryFactoryConfigurer;
-import yunjiao.springboot.autoconfigure.querydsl.jpa.QuerydslJPAAutoConfiguration;
+import yunjiao.springboot.autoconfigure.querydsl.jpa.QuerydslJPAConfiguration;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,21 +17,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 /**
- * ${@link QuerydslJPAAutoConfiguration} 单元测试用例
+ * ${@link QuerydslJPAConfiguration} 单元测试用例
  *
  * @author yangyunjiao
  */
-public class QuerydslJPAAutoConfigurationTest {
+public class QuerydslJPAConfigurationTest {
     private ApplicationContextRunner applicationContextRunner;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         applicationContextRunner = new ApplicationContextRunner()
-                .withConfiguration(AutoConfigurations.of(QuerydslJPAAutoConfiguration.class));
+                .withConfiguration(AutoConfigurations.of(QuerydslJPAConfiguration.class));
     }
 
     @Test
-    public void givenEntityManager_thenConfig() {
+    void givenEntityManager_thenConfig() {
         applicationContextRunner
                 .withBean(EntityManager.class, () -> Mockito.mock(EntityManager.class))
                 .withUserConfiguration(TestConfiguration.class)

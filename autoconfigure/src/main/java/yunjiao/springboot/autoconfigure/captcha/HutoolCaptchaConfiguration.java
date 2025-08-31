@@ -42,7 +42,7 @@ public class HutoolCaptchaConfiguration {
 
         LineCaptchaService service = new LineCaptchaService(lcb);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Line Captcha Service:{}]", service);
+            log.debug("Configure Bean [Line Captcha Service -> {}]", service);
         }
         return service;
     }
@@ -57,7 +57,7 @@ public class HutoolCaptchaConfiguration {
 
         CircleCaptchaService service = new CircleCaptchaService(ccb);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Circle Captcha Service:{}]", service);
+            log.debug("Configure Bean [Circle Captcha Service -> {}]", service);
         }
         return service;
     }
@@ -72,7 +72,7 @@ public class HutoolCaptchaConfiguration {
 
         ShearCaptchaService service = new ShearCaptchaService(scb);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Shear Captcha Service:{}]", service);
+            log.debug("Configure Bean [Shear Captcha Service -> {}]", service);
         }
         return service;
     }
@@ -96,7 +96,7 @@ public class HutoolCaptchaConfiguration {
 
         GifCaptchaService service = new GifCaptchaService(gcb);
         if (log.isDebugEnabled()) {
-            log.debug("Configure Bean [Gif Captcha Service:{}]", service);
+            log.debug("Configure Bean [Gif Captcha Service -> {}]", service);
         }
         return service;
     }

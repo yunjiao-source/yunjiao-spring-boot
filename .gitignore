@@ -31,4 +31,5 @@ hs_err_pid*
 .project
 .settings
 target
+build
 .DS_Store

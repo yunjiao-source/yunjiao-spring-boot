@@ -1,0 +1,151 @@
+= Yunjiao Spring Boot 参考手册
+:toc: left
+:toclevels: 3
+:icons: font
+:source-highlighter: highlight.js
+:highlightjs-languages: java, javascript, xml
+:docinfo: shared
+:repo_url: https://gitee.com/yunjiao-source/yunjiao-spring-boot
+
+版本：{project-version}
+日期：{localdate}
+
+[[kjgs]]
+== 框架概述
+本框架集成第三开源工具，开发Spring Boot Starter风格的包，方便引入及使用
+
+主要目标：
+
+* 只集成工具，适当的扩展工具，使其更容易与Spring Boot集成
+* 每个Starter功能单一，或者只专注某一方面，如：ID生成器，验证码生成器等等
+* 积累知识，技术，经验
+
+****
+.源码仓库
+Gitee: https://gitee.com/yunjiao-source/yunjiao-spring-boot
+
+Github: https://github.com/yunjiao-source/yunjiao-spring-boot
+
+注意，Gitee是主库，发布时会同步到Github
+****
+
+[[zyylbbdy]]
+== 主要依赖及版本对应
+
+* JDK: {java-version}
+* Spring Boot {spring-boot-version}
+
+|===
+| 本框架版本| Spring Boot 版本
+
+| < = 0.4.0
+| 3.0.13
+
+|===
+
+[[rhsy]]
+== 如何使用
+
+有两个方法引入本框架，分别是继承`starter-parent`项目和导入`dependencies`项目。第一个方法更方便；第二个方法更有灵活性。
+
+[NOTE]
+====
+如果是示例或小型系统（单一项目），推荐使用第一种方法。大型系统（多项目）就使用第二种方法
+====
+
+[[rhsy-jc]]
+=== 继承`starter-parent`项目
+
+`starter-parent`继承了`spring-boot-starter-parent`项目，在此基础上扩展功能，如：导入本框架，添加插件等等
+
+在项目`pom.xml`中添加：
+
+[source,xml,indent=0]
+[subs="verbatim,quotes"]
+----
+    <parent>
+        <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+        <artifactId>starter-parent</artifactId>
+        <version>3.0.13</version>
+    </parent>
+----
+
+[NOTE]
+====
+`starter-parent`的版本与Spring Boot的版本保持一致。对应本框架的版本，请查看<<zyylbbdy>>
+====
+
+[[rhsy-dr]]
+=== 导入`dependencies`项目
+
+`dependencies`项目包含本框架的所有包，在项目中导入即可
+
+在项目`pom.xml`中添加：
+[source,xml,indent=0]
+[subs="verbatim,quotes"]
+----
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+                <artifactId>dependencies</artifactId>
+                <version>0.4.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+----
+
+[[byym]]
+== 编译源码
+
+源码目录中包含多个独立项目，需要分别编译，打包
+
+[TIP]
+====
+因为是独立的项目，IDE中只能自动导入主项目，其他项目需要手工导入
+====
+
+
+[[byym-mljg]]
+=== 目录结构
+
+|===
+| 项目名 | 目录及说明
+
+| Spring Boot
+| autoconfigure（自动配置包）, dependencies（所有的依赖包）, extensions（扩展包）, starters（启动器包）
+
+| Spring Boot :: Starter Parent
+| starter-parent, 此项目集成`Spring Boot`的`spring-boot-starter-parent`项目
+
+| Spring Boot :: Examples
+| examples, 示例项目
+
+| Spring Boot :: Projects
+| projects, 示例应用
+
+|===
+
+[[byym-bydb]]
+=== 编译打包
+
+首先编译打包主项目
+
+[source,console,indent=0]
+----
+# cd yunjiao-spring-boot
+# mvn clean install
+----
+
+其次打包starter-parent
+[source,console,indent=0]
+----
+# cd starter-parent
+# mvn clean install
+----
+
+其他的项目，编译，打包方法是一样的
+
+
