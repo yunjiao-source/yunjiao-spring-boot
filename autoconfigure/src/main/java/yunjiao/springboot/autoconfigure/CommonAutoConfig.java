@@ -1,4 +1,4 @@
-package yunjiao.springboot.autoconfigure.util;
+package yunjiao.springboot.autoconfigure;
 
 import cn.hutool.extra.spring.SpringUtil;
 import jakarta.annotation.PostConstruct;
@@ -9,20 +9,20 @@ import org.springframework.context.annotation.Bean;
 import yunjiao.springboot.extension.common._Common;
 
 /**
- * 工具自动配置
+ * 通用的自动配置
  *
  * @author yangyunjiao
  */
 @Slf4j
 @AutoConfiguration
 @ConditionalOnClass({_Common.class})
-public class UtilsAutoConfig {
+public class CommonAutoConfig {
     /**
      * {@link PostConstruct} 注解方法
      */
     @PostConstruct
     public void postConstruct() {
-        log.info("Utils Auto Configuration");
+        log.info("Common Auto Configuration");
     }
 
     @Bean

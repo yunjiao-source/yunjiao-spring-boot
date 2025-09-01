@@ -2,4 +2,4 @@ yunjiao.springboot.autoconfigure.querydsl.QueryDSLAutoConfig
 yunjiao.springboot.autoconfigure.id.IdAutoConfiguration
 yunjiao.springboot.autoconfigure.captcha.CaptchaAutoConfiguration
 yunjiao.springboot.autoconfigure.apijson.ApijsonAutoConfiguration
-yunjiao.springboot.autoconfigure.util.UtilsAutoConfig
+yunjiao.springboot.autoconfigure.CommonAutoConfig
