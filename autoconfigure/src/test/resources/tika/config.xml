@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+    <!-- loadErrorHandler=(IGNORE, WARN, THROW) initializableProblemHandler=('ignore', 'info', 'warn' or 'throw')-->
+    <service-loader loadErrorHandler="THROW" initializableProblemHandler="throw"/>
+
+    <encodingDetectors>
+        <encodingDetector class="org.apache.tika.parser.html.HtmlEncodingDetector">
+            <params>
+                <param name="markLimit" type="int">64000</param>
+            </params>
+        </encodingDetector>
+    </encodingDetectors>
+</properties>

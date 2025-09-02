@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  *
  * @author yangyunjiao
  */
-public class MultipleDataSourceDemoTestIT {
+public class MultipleDataSourceTestIT {
     private final WebClient commonClient = WebClient.builder()
             .baseUrl("http://localhost:8080/api-json/common")
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)

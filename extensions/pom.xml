@@ -21,6 +21,7 @@
         <module>extension-querydsl</module>
         <module>extension-captcha</module>
         <module>extension-id</module>
+        <module>extension-tika</module>
     </modules>
 
     <dependencies>

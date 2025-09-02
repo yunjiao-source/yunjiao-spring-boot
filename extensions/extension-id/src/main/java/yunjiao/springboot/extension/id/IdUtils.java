@@ -27,7 +27,13 @@ public final class IdUtils {
     private static UidGeneratorDefault uidGeneratorDefault;
 
     /**
-     * 从Spring容器中获取，并初始化实例，避免重复获取
+     * 构造器
+     */
+    private IdUtils() {
+    }
+
+    /**
+     * 从Spring容器中获取
      */
     private static synchronized void initSnowflake() {
         if (snowflake == null) {
@@ -36,7 +42,7 @@ public final class IdUtils {
     }
 
     /**
-     * 从Spring容器中获取，并初始化实例，避免重复获取
+     * 从Spring容器中获取
      */
     private static synchronized void initUidGeneratorCached() {
         if (uidGeneratorCached == null) {
@@ -45,18 +51,12 @@ public final class IdUtils {
     }
 
     /**
-     * 从Spring容器中获取，并初始化实例，避免重复获取
+     * 从Spring容器中获取
      */
     private static synchronized void initUidGeneratorDefault() {
         if (uidGeneratorDefault == null) {
             uidGeneratorDefault = SpringUtil.getBean(UidGeneratorDefault.class);
         }
-    }
-
-    /**
-     * 构造器
-     */
-    private IdUtils() {
     }
 
     /**

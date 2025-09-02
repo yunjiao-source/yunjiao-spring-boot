@@ -22,6 +22,7 @@
         <module>starter-apijson-fastjson2</module>
         <module>starter-apijson-gson</module>
         <module>starter-captcha</module>
+        <module>starter-tika</module>
     </modules>
 
     <dependencies>

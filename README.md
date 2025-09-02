@@ -2,7 +2,7 @@
 
 基于`Spring Boot`框架，集成其他框架开发的`Starter`
 
-[使用指南](https://yunjiao-source.github.io)
+[使用指南](https://yunjiao-spring-boot.pages.dev/)
 
 ## 发布版本
 
