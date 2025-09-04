@@ -10,7 +10,7 @@ import java.awt.*;
  * @author yangyunjiao
  */
 @Getter
-public enum TransparencyType {
+public enum TransparencyTypeEnum {
     /**
      * {@link AlphaComposite#Clear}
      */
@@ -73,7 +73,7 @@ public enum TransparencyType {
 
     private final AlphaComposite mapping;
 
-    TransparencyType(AlphaComposite mapping) {
+    TransparencyTypeEnum(AlphaComposite mapping) {
         this.mapping = mapping;
     }
 }

@@ -10,7 +10,7 @@ import java.awt.*;
  * @author yangyunjiao
  */
 @Getter
-public enum FontStyle {
+public enum FontStyleEnum {
     /**
      * 正常体
      */
@@ -28,7 +28,7 @@ public enum FontStyle {
 
     private final int mapping;
 
-    FontStyle(int mapping) {
+    FontStyleEnum(int mapping) {
         this.mapping = mapping;
     }
 }

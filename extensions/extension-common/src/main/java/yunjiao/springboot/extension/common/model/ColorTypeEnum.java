@@ -10,7 +10,7 @@ import java.awt.*;
  * @author yangyunjiao
  */
 @Getter
-public enum ColorType {
+public enum ColorTypeEnum {
     /**
      * 白色
      */
@@ -79,7 +79,7 @@ public enum ColorType {
 
     private final Color mapping;
 
-    ColorType(Color mapping) {
+    ColorTypeEnum(Color mapping) {
         this.mapping = mapping;
     }
 }
