@@ -50,6 +50,9 @@ public class HutoolCaptchaProperties {
             ColorTypeEnum.white, null, null, true, FontNameEnum.Default, FontStyleEnum.plain, 36,
             CodeGeneratorType.numAndChar, 5, 10, 0, 0, 255);
 
+    /**
+     * gif绘图配置
+     */
     @Data
     @EqualsAndHashCode(callSuper = true)
     public static class GifDrawingOptions extends DrawingOptions {
@@ -74,6 +77,28 @@ public class HutoolCaptchaProperties {
         private Integer maxColor;
 
 
+        /**
+         * 创建gif绘图配置实例
+         *
+         * @param options 必须值
+         * @param width 必须值
+         * @param height 必须值
+         * @param interfereCount 必须值
+         * @param backgroundColor 必须值
+         * @param transparency 必须值
+         * @param fuzziness 必须值
+         * @param validIgnoreCase 校验忽略大小写
+         * @param fontName 可以空
+         * @param fontStyleEnum 必须值
+         * @param fontSize 必须值
+         * @param generator 必须值
+         * @param length 必须值
+         * @param quality 量化器取样间隔
+         * @param repeat 帧循环次数
+         * @param minColor 设置随机颜色时，最小的取色范围
+         * @param maxColor 设置随机颜色时，最大的取色范围
+         * @return 实例
+         */
         public static GifDrawingOptions of(GifDrawingOptions options, int width, int height, int interfereCount,
                                            ColorTypeEnum backgroundColor, Float transparency, Integer fuzziness, Boolean validIgnoreCase,
                                            FontNameEnum fontName, FontStyleEnum fontStyleEnum, Integer fontSize,
@@ -90,7 +115,7 @@ public class HutoolCaptchaProperties {
     }
 
     /**
-     * 绘图选项
+     * 绘图配置
      */
     @Data
     public static class DrawingOptions {
@@ -151,6 +176,7 @@ public class HutoolCaptchaProperties {
          * @param backgroundColor 必须值
          * @param transparency 必须值
          * @param fuzziness 必须值
+         * @param validIgnoreCase 校验忽略大小写
          * @param fontName 可以空
          * @param fontStyleEnum 必须值
          * @param fontSize 必须值

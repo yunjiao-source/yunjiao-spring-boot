@@ -2,7 +2,7 @@ package yunjiao.springboot.example.apijson.fastjson2;
 
 import apijson.fastjson2.APIJSONFunctionParser;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonSqlProperties;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2Creator;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Creator;
 
 import javax.sql.DataSource;
 import java.io.Serializable;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class CustomFastjson2Creator extends Fastjson2Creator {
     public CustomFastjson2Creator(DataSource dataSource, ApijsonSqlProperties sqlProperties) {
-        super(dataSource, sqlProperties);
+        super(dataSource, sqlProperties.getConfig().getVersion());
     }
 
     @Override

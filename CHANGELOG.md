@@ -9,7 +9,7 @@
 - starter-data-tenant
 - starter-jasperreports
 
-## [未发布]
+## [0.4.0]
 ### 新增
 - 集成uid-generator框架，生成ID
 - 自动配置cn.hutool.extra.spring.SpringUtil工具

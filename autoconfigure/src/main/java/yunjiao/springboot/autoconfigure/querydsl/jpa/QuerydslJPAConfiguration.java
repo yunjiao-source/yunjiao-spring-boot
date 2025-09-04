@@ -31,11 +31,16 @@ public class QuerydslJPAConfiguration {
         log.info("QueryDSL JPA Configuration");
     }
 
+    /**
+     * {@link JPAQueryFactory} 创建实例
+     * @param jpaQueryFactoryConfigurers 自定义配置
+     * @return 实例
+     */
     @Bean
-    public JPAQueryFactory jpaQueryFactory(ObjectProvider<JPAQueryFactoryConfigurer> jpaQueryFactoryConfigurer) {
+    public JPAQueryFactory jpaQueryFactory(ObjectProvider<JPAQueryFactoryConfigurer> jpaQueryFactoryConfigurers) {
         JPAQueryFactory bean = new JPAQueryFactory(entityManager);
         // 执行自定义配置
-        jpaQueryFactoryConfigurer.orderedStream().forEach(configurer -> configurer.configure(bean));
+        jpaQueryFactoryConfigurers.orderedStream().forEach(configurer -> configurer.configure(bean));
 
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [JPA Query Factory -> {}]", bean);

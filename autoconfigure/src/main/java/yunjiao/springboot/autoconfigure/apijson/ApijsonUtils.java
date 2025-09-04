@@ -9,6 +9,9 @@ import apijson.orm.Entry;
 import apijson.orm.script.ScriptExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 import java.util.*;
 import java.util.function.BiConsumer;

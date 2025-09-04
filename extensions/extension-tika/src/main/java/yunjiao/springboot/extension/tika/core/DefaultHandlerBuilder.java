@@ -15,13 +15,21 @@ import java.io.Writer;
 import java.util.Optional;
 
 /**
- * TODO
+ * {@link DefaultHandler} 子类建造器
  *
  * @author yangyunjiao
  */
-public interface DefaultHandlerBuilder<T extends ContentHandler> {
+public interface DefaultHandlerBuilder<T extends DefaultHandler> {
+    /**
+     * 构建实例
+     *
+     * @return 实例
+     */
     T build();
 
+    /**
+     *  {@link BodyContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class BodyBuilder implements DefaultHandlerBuilder<BodyContentHandler> {
@@ -49,6 +57,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link LinkContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class LinkBuilder implements DefaultHandlerBuilder<LinkContentHandler> {
@@ -64,6 +75,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link TeeContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class TeeBuilder implements DefaultHandlerBuilder<TeeContentHandler> {
@@ -77,6 +91,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link DIFContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class DIFBuilder implements DefaultHandlerBuilder<DIFContentHandler> {
@@ -93,6 +110,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link EmbeddedContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class EmbeddedBuilder implements DefaultHandlerBuilder<EmbeddedContentHandler> {
@@ -106,6 +126,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link EndDocumentShieldingContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class EndDocumentShieldingBuilder implements DefaultHandlerBuilder<EndDocumentShieldingContentHandler> {
@@ -119,6 +142,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link ExpandedTitleContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class ExpandedTitleBuilder implements DefaultHandlerBuilder<ExpandedTitleContentHandler> {
@@ -134,6 +160,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link OfflineContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class OfflineBuilder implements DefaultHandlerBuilder<OfflineContentHandler> {
@@ -147,6 +176,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link PhoneExtractingContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class PhoneExtractingBuilder implements DefaultHandlerBuilder<PhoneExtractingContentHandler> {
@@ -167,6 +199,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link RecursiveParserWrapperHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class RecursiveParserWrapperBuilder implements DefaultHandlerBuilder<RecursiveParserWrapperHandler> {
@@ -192,6 +227,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link RichTextContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class RichTextBuilder implements DefaultHandlerBuilder<RichTextContentHandler> {
@@ -205,6 +243,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link SafeContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class SafeBuilder implements DefaultHandlerBuilder<SafeContentHandler> {
@@ -218,6 +259,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link SecureContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class SecureBuilder implements DefaultHandlerBuilder<SecureContentHandler> {
@@ -247,6 +291,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link StandardsExtractingContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class StandardsExtractingBuilder implements DefaultHandlerBuilder<StandardsExtractingContentHandler> {
@@ -274,6 +321,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link TaggedContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class TaggedBuilder implements DefaultHandlerBuilder<TaggedContentHandler> {
@@ -287,6 +337,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link TextContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class TextBuilder implements DefaultHandlerBuilder<TextContentHandler> {
@@ -303,6 +356,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link ToHTMLContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class ToHTMLBuilder implements DefaultHandlerBuilder<ToHTMLContentHandler> {
@@ -321,6 +377,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link ToTextContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class ToTextBuilder implements DefaultHandlerBuilder<ToTextContentHandler> {
@@ -345,6 +404,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link ToXMLContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class ToXMLBuilder implements DefaultHandlerBuilder<ToXMLContentHandler> {
@@ -363,6 +425,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link WriteOutContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class WriteOutBuilder implements DefaultHandlerBuilder<WriteOutContentHandler> {
@@ -390,6 +455,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link XHTMLContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class XHTMLBuilder implements DefaultHandlerBuilder<XHTMLContentHandler> {
@@ -406,6 +474,9 @@ public interface DefaultHandlerBuilder<T extends ContentHandler> {
         }
     }
 
+    /**
+     * {@link XMPContentHandler} 建造器
+     */
     @Setter
     @Accessors(chain = true, fluent = true)
     class XMPBuilder implements DefaultHandlerBuilder<XMPContentHandler> {

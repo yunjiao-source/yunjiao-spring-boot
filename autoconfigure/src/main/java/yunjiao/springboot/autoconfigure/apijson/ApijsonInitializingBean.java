@@ -4,6 +4,9 @@ import apijson.framework.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.ObjectProvider;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 import java.util.stream.Collectors;
 

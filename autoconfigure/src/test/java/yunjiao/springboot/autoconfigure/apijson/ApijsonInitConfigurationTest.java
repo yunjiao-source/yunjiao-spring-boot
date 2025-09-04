@@ -7,6 +7,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

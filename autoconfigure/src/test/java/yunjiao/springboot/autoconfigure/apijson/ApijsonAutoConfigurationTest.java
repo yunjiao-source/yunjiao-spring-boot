@@ -1,7 +1,7 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.extension.apjson.orm.IdKeyApijsonStrategy;
-import yunjiao.springboot.extension.apjson.orm.IdKeyStrategy;
+import yunjiao.springboot.extension.apijson.orm.IdKeyApijsonStrategy;
+import yunjiao.springboot.extension.apijson.orm.IdKeyStrategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;

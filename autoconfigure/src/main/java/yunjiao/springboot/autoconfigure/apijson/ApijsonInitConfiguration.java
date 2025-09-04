@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 /**
  * APIJSON初始化自动配置

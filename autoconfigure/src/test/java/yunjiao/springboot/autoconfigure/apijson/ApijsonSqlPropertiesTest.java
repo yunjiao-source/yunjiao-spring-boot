@@ -1,6 +1,6 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.extension.apjson.util.ApijsonConsts;
+import yunjiao.springboot.extension.apijson.util.ApijsonConsts;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;

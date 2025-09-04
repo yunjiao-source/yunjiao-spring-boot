@@ -1,14 +1,14 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2EXtRestController;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2RestController;
-import yunjiao.springboot.autoconfigure.apijson.gson.GsonEXtRestController;
-import yunjiao.springboot.autoconfigure.apijson.gson.GsonRestController;
-import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2EXtRestController;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2RestController;
+import yunjiao.springboot.extension.apijson.gson.GsonEXtRestController;
+import yunjiao.springboot.extension.apijson.gson.GsonRestController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

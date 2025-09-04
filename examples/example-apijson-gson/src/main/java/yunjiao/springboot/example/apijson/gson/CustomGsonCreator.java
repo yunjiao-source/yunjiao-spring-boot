@@ -2,7 +2,7 @@ package yunjiao.springboot.example.apijson.gson;
 
 import apijson.gson.APIJSONFunctionParser;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonSqlProperties;
-import yunjiao.springboot.autoconfigure.apijson.gson.GsonCreator;
+import yunjiao.springboot.extension.apijson.gson.GsonCreator;
 
 import javax.sql.DataSource;
 import java.io.Serializable;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class CustomGsonCreator extends GsonCreator {
     public CustomGsonCreator(DataSource dataSource, ApijsonSqlProperties sqlProperties) {
-        super(dataSource, sqlProperties);
+        super(dataSource, sqlProperties.getConfig().getVersion());
     }
 
     @Override

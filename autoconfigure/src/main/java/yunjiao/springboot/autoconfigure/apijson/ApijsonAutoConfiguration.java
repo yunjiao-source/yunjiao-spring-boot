@@ -2,10 +2,10 @@ package yunjiao.springboot.autoconfigure.apijson;
 
 
 import apijson.framework.APIJSONApplication;
-import yunjiao.springboot.extension.apjson._APIJSON;
-import yunjiao.springboot.extension.apjson.annotation.ApijsonRest;
-import yunjiao.springboot.extension.apjson.orm.IdKeyApijsonStrategy;
-import yunjiao.springboot.extension.apjson.orm.IdKeyStrategy;
+import yunjiao.springboot.extension.apijson._APIJSON;
+import yunjiao.springboot.extension.apijson.annotation.ApijsonRest;
+import yunjiao.springboot.extension.apijson.orm.IdKeyApijsonStrategy;
+import yunjiao.springboot.extension.apijson.orm.IdKeyStrategy;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

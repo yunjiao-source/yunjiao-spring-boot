@@ -4,6 +4,7 @@ import apijson.framework.APIJSONSQLConfig;
 import apijson.framework.ColumnUtil;
 import apijson.orm.AbstractSQLConfig;
 import org.junit.jupiter.api.Test;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
 
 import java.util.List;
 import java.util.Map;

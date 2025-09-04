@@ -11,9 +11,9 @@ import apijson.orm.Visitor;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonUtils;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2FunctionParser;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2Parser;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2Verifier;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2FunctionParser;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Parser;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Verifier;
 
 import java.io.Serializable;
 import java.util.ArrayList;

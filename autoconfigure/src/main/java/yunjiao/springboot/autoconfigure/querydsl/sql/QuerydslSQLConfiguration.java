@@ -5,7 +5,6 @@ import com.querydsl.sql.SQLQueryFactory;
 import com.querydsl.sql.SQLTemplates;
 import com.querydsl.sql.spring.SpringConnectionProvider;
 import com.querydsl.sql.spring.SpringExceptionTranslator;
-import yunjiao.springboot.extension.querydsl.sql.SQLQueryCurdExecutor;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +13,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.querydsl.sql.SQLQueryCurdExecutor;
 
 import javax.sql.DataSource;
 
@@ -29,11 +29,20 @@ import javax.sql.DataSource;
 public class QuerydslSQLConfiguration {
     private final DataSource dataSource;
 
+    /**
+     * {@link PostConstruct} 注解方法
+     */
     @PostConstruct
     public void postConstruct() {
         log.info("QueryDSL SQL Configuration");
     }
 
+    /**
+     * {@link SQLQueryFactory} 创建实例
+     * @param sqlTemplates 必须值
+     * @param sqlQueryFactoryConfigurers 自定义配置
+     * @return 实例
+     */
     @Bean
     SQLQueryFactory sqlQueryFactory(SQLTemplates sqlTemplates,
                                     ObjectProvider<SQLQueryFactoryConfigurer> sqlQueryFactoryConfigurers) {

@@ -29,7 +29,7 @@ public class CircleCaptchaServiceTest {
         builder.setFuzziness(2);
         builder.setValidIgnoreCase(true);
         builder.setFont(font);
-        builder.setGenerator(CodeGeneratorType.numAndChar.apply(6));
+        builder.setGenerator(CodeGeneratorType.lowerChar.apply(6));
         circleCaptchaService = new CircleCaptchaService(builder);
     }
 

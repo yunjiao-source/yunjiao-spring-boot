@@ -16,6 +16,6 @@ public class DefaultHandlerTypeTest {
     @Test
     void whenCreate_thenOK() {
         assertThat(DefaultHandlerType.body.create()).isInstanceOf(BodyContentHandler.class);
-        assertThat(DefaultHandlerType.line.create()).isInstanceOf(LinkContentHandler.class);
+        assertThat(DefaultHandlerType.link.create()).isInstanceOf(LinkContentHandler.class);
     }
 }

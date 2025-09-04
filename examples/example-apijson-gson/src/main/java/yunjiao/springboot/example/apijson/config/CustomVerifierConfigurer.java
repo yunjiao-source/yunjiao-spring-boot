@@ -3,8 +3,8 @@ package yunjiao.springboot.example.apijson.config;
 import apijson.RequestMethod;
 import apijson.StringUtil;
 import apijson.orm.Entry;
-import yunjiao.springboot.autoconfigure.apijson.ApijsonVerifierConfigurer;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 import java.util.List;
 import java.util.Map;

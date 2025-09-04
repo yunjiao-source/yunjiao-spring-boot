@@ -2,10 +2,14 @@ package yunjiao.springboot.autoconfigure.apijson.fastjson2;
 
 import apijson.Log;
 import apijson.fastjson2.*;
-import yunjiao.springboot.autoconfigure.apijson.ApijsonProperties;
-import yunjiao.springboot.autoconfigure.apijson.ApijsonUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
+import yunjiao.springboot.autoconfigure.apijson.ApijsonProperties;
+import yunjiao.springboot.autoconfigure.apijson.ApijsonUtils;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Creator;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2SimpleCallback;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2SqlConfig;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Verifier;
 
 /**
  * Fastjson2 应用初始化Bean

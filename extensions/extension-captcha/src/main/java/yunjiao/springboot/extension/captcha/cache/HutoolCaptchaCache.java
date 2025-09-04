@@ -13,9 +13,15 @@ import java.util.Optional;
 public class HutoolCaptchaCache implements CaptchaCache {
     private final TimedCache<String, String> cache;
 
-    public HutoolCaptchaCache(Duration expireMillis, Duration delay) {
-        this.cache = new TimedCache<>(expireMillis.toMillis());
-        this.cache.schedulePrune(delay.toMillis());
+    /**
+     * 构造器
+     *
+     * @param expired 过期时间
+     * @param scheduleInterval 定时间隔，清理过期缓存
+     */
+    public HutoolCaptchaCache(Duration expired, Duration scheduleInterval) {
+        this.cache = new TimedCache<>(expired.toMillis());
+        this.cache.schedulePrune(scheduleInterval.toMillis());
     }
 
     @Override

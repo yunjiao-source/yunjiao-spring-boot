@@ -15,7 +15,7 @@ import java.util.Map;
  * @author yangyunjiao
  */
 @Slf4j
-public class FontCache {
+public final class FontCache {
     private static FontCache instance;
 
     // 字体缓存，存储字体名称和对应的Font对象
@@ -48,8 +48,9 @@ public class FontCache {
      * 注册单个字体流并缓存
      * @param is 字体流文件
      * @throws FontFormatException 当字体格式不正确时抛出
+     * @throws IOException 读取字体异常
      */
-    public void registerFont(InputStream is) throws FontFormatException, IOException {
+    public void registerFont(InputStream is) throws IOException, FontFormatException {
         Font font = Font.createFont(Font.TRUETYPE_FONT, is);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
