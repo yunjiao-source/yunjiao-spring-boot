@@ -64,11 +64,11 @@ public class AnjiCaptchaConfiguration {
         config.put(Const.ORIGINAL_PATH_PIC_CLICK, properties.getClickWord().getPicClick());
         config.put(Const.CAPTCHA_SLIP_OFFSET, properties.getBlockPuzzle().getSlipOffset());
         config.put(Const.CAPTCHA_AES_STATUS, "false");
-        config.put(Const.CAPTCHA_WATER_FONT, properties.getWaterFont());
+        config.put(Const.CAPTCHA_WATER_FONT, properties.getWaterFont().getName());
 
 
         config.put(Const.CAPTCHA_FONT_SIZE, properties.getClickWord().getFontSize());
-        config.put(Const.CAPTCHA_FONT_STYLE, properties.getClickWord().getFontStyle().getMapping());
+        config.put(Const.CAPTCHA_FONT_STYLE, properties.getClickWord().getFontStyleEnum().getMapping());
         config.put(Const.CAPTCHA_WORD_COUNT, properties.getClickWord().getClickWordCount());
 
         fixBugCache(config);

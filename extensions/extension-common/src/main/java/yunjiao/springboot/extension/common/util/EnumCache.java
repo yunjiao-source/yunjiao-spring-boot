@@ -2,6 +2,7 @@ package yunjiao.springboot.extension.common.util;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 /**
  * 枚举缓存
@@ -40,6 +41,7 @@ public class EnumCache {
     public static <E extends Enum<?>> void registerByName(Class<E> clazz, E[] values) {
         Map<Object, Enum<?>> map = new ConcurrentHashMap<>();
         for (E v : values) {
+
             map.put(v.name(), v);
         }
         CACHE_BY_NAME.put(clazz, map);
@@ -53,13 +55,13 @@ public class EnumCache {
      * @param enumMapping 必须值
      * @param <E> 枚举类型
      */
-    public static <E extends Enum<?>> void registerByValue(Class<E> clazz, E[] values, EnumMapping<E> enumMapping) {
+    public static <E extends Enum<?>> void registerByValue(Class<E> clazz, E[] values, Function<E, Object> enumMapping) {
         if (CACHE_BY_VALUE.containsKey(clazz)) {
             throw new RuntimeException(String.format("枚举%s已经构建过value缓存,不允许重复构建", clazz.getSimpleName()));
         }
         Map<Object, Enum<?>> map = new ConcurrentHashMap<>();
         for (E v : values) {
-            Object value = enumMapping.value(v);
+            Object value = enumMapping.apply(v);
             if (map.containsKey(value)) {
                 throw new RuntimeException(String.format("枚举%s存在相同的值%s映射同一个枚举%s.%s", clazz.getSimpleName(), value, clazz.getSimpleName(), v));
             }
@@ -183,20 +185,6 @@ public class EnumCache {
                 }
             }
         }
-    }
-
-    /**
-     * 枚举缓存映射器函数式接口
-     */
-    @FunctionalInterface
-    public interface EnumMapping<E extends Enum<?>> {
-        /**
-         * 自定义映射器
-         *
-         * @param e 枚举
-         * @return 映射关系，最终体现到缓存中
-         */
-        Object value(E e);
     }
 
 }

@@ -2,7 +2,6 @@ spring:
   tika:
     config-xml-file: classpath:tika/config.xml
 
-
 logging:
   level:
     root: info

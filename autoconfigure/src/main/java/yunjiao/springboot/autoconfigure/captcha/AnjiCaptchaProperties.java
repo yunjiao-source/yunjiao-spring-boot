@@ -4,7 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
-import yunjiao.springboot.extension.common.model.FontStyle;
+import yunjiao.springboot.extension.common.model.FontNameEnum;
+import yunjiao.springboot.extension.common.model.FontStyleEnum;
 
 /**
  * anji验证码属性
@@ -20,9 +21,9 @@ public class AnjiCaptchaProperties {
     private String waterMark = "我的水印";
 
     /**
-     * 右下角水印字体(文泉驿正黑).
+     * 右下角水印字体，默认宋体.
      */
-    private String waterFont = "WenQuanZhengHei.ttf";
+    private FontNameEnum waterFont = FontNameEnum.SimSun;
 
     /**
      * 滑动验证码配置
@@ -75,7 +76,7 @@ public class AnjiCaptchaProperties {
         /**
          * 点选字体样式
          */
-        private FontStyle fontStyle = FontStyle.bold;
+        private FontStyleEnum fontStyleEnum = FontStyleEnum.bold;
 
         /**
          * 点选字体大小

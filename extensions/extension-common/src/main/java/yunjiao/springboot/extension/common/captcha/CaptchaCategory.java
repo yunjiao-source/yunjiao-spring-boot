@@ -37,5 +37,6 @@ public enum CaptchaCategory {
 
     static {
         EnumCache.registerByName(CaptchaCategory.class, CaptchaCategory.values());
+        EnumCache.registerByValue(CaptchaCategory.class, CaptchaCategory.values(), CaptchaCategory::getDescription);
     }
 }

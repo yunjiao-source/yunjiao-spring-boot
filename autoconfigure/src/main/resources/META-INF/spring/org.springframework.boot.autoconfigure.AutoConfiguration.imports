@@ -1,4 +1,4 @@
-yunjiao.springboot.autoconfigure.CommonAutoConfig
+yunjiao.springboot.autoconfigure.common.CommonAutoConfig
 yunjiao.springboot.autoconfigure.querydsl.QueryDSLAutoConfig
 yunjiao.springboot.autoconfigure.id.IdAutoConfiguration
 yunjiao.springboot.autoconfigure.captcha.CaptchaAutoConfiguration

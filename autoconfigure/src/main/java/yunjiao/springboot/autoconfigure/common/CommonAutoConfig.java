@@ -1,6 +1,7 @@
-package yunjiao.springboot.autoconfigure;
+package yunjiao.springboot.autoconfigure.common;
 
 import cn.hutool.extra.spring.SpringUtil;
+import io.undertow.websockets.jsr.WebSocketDeploymentInfo;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -30,6 +31,22 @@ public class CommonAutoConfig {
         SpringUtil bean = new SpringUtil();
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [Spring Util -> {}]", bean);
+        }
+        return bean;
+    }
+
+    /**
+     * 解决：
+     *
+     * @return 实例
+     */
+    @Bean
+    @ConditionalOnClass({WebSocketDeploymentInfo.class})
+    CustomizerUndertowServletWebServerFactory customizerUndertowServletWebServerFactory() {
+        CustomizerUndertowServletWebServerFactory bean = new CustomizerUndertowServletWebServerFactory();
+
+        if (log.isDebugEnabled()) {
+            log.debug("Configure Bean [Customizer Undertow Servlet Web Server Factory  -> {}]", bean);
         }
         return bean;
     }

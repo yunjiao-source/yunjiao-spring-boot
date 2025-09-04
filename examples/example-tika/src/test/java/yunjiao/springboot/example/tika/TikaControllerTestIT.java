@@ -36,7 +36,21 @@ public class TikaControllerTestIT {
 
     @Test
     void testExtractTextWithPdf() {
-        String fileName = "doc.pdf";
+        String fileName = "pdf.pdf";
+        String data = extractText(fileName);
+        System.out.println(fileName + "=" + data);
+    }
+
+    @Test
+    void testExtractTextWithDoc() {
+        String fileName = "docx.docx";
+        String data = extractText(fileName);
+        System.out.println(fileName + "=" + data);
+    }
+
+    @Test
+    void testExtractTextWithXlsx() {
+        String fileName = "xlsx.xlsx";
         String data = extractText(fileName);
         System.out.println(fileName + "=" + data);
     }
@@ -50,10 +64,11 @@ public class TikaControllerTestIT {
 
     @Test
     void detectMimeTypePdf() {
-        String fileName = "doc.pdf";
+        String fileName = "pdf.pdf";
         String data = detectMimeType(fileName);
         System.out.println(fileName + "=" + data);
     }
+
 
     @Test
     void detectMimeTypeImage() {
