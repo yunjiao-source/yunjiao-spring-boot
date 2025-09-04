@@ -1,8 +1,9 @@
 package yunjiao.springboot.autoconfigure.captcha;
 
 import yunjiao.springboot.extension.captcha.hutool.CodeGeneratorType;
-import yunjiao.springboot.extension.common.model.ColorType;
-import yunjiao.springboot.extension.common.model.FontStyle;
+import yunjiao.springboot.extension.common.model.ColorTypeEnum;
+import yunjiao.springboot.extension.common.model.FontNameEnum;
+import yunjiao.springboot.extension.common.model.FontStyleEnum;
 import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,23 +23,23 @@ public class HutoolCaptchaProperties {
      */
     @NestedConfigurationProperty
     private DrawingOptions line = DrawingOptions.of(new DrawingOptions(), 250, 50, 60,
-            ColorType.white, null, 2, true, null, FontStyle.plain, 36,
+            ColorTypeEnum.white, null, null, true, FontNameEnum.Default, FontStyleEnum.plain, 36,
             CodeGeneratorType.numAndChar, 5);
 
     /**
      * 圆圈干扰验证码
      */
     @NestedConfigurationProperty
-    private DrawingOptions circle = DrawingOptions.of(new DrawingOptions(), 250, 50, 30,
-            ColorType.white, null, 2, true, null, FontStyle.plain, 36,
+    private DrawingOptions circle = DrawingOptions.of(new DrawingOptions(), 250, 50, 15,
+            ColorTypeEnum.white, null, null, true, FontNameEnum.Default, FontStyleEnum.plain, 36,
             CodeGeneratorType.numAndChar, 5);
 
     /**
      * 扭曲干扰验证码
      */
     @NestedConfigurationProperty
-    private DrawingOptions shear = DrawingOptions.of(new DrawingOptions(), 250, 50, 4,
-            ColorType.white, null, 2, true, null, FontStyle.plain, 36,
+    private DrawingOptions shear = DrawingOptions.of(new DrawingOptions(), 250, 50, 8,
+            ColorTypeEnum.white, null, null, true, FontNameEnum.Default, FontStyleEnum.plain, 36,
             CodeGeneratorType.numAndChar, 5);
 
     /**
@@ -46,9 +47,12 @@ public class HutoolCaptchaProperties {
      */
     @NestedConfigurationProperty
     private GifDrawingOptions gif = GifDrawingOptions.of(new GifDrawingOptions(), 250, 50, 10,
-            ColorType.white, null, 2, true, null, FontStyle.plain, 36,
+            ColorTypeEnum.white, null, null, true, FontNameEnum.Default, FontStyleEnum.plain, 36,
             CodeGeneratorType.numAndChar, 5, 10, 0, 0, 255);
 
+    /**
+     * gif绘图配置
+     */
     @Data
     @EqualsAndHashCode(callSuper = true)
     public static class GifDrawingOptions extends DrawingOptions {
@@ -73,13 +77,35 @@ public class HutoolCaptchaProperties {
         private Integer maxColor;
 
 
+        /**
+         * 创建gif绘图配置实例
+         *
+         * @param options 必须值
+         * @param width 必须值
+         * @param height 必须值
+         * @param interfereCount 必须值
+         * @param backgroundColor 必须值
+         * @param transparency 必须值
+         * @param fuzziness 必须值
+         * @param validIgnoreCase 校验忽略大小写
+         * @param fontName 可以空
+         * @param fontStyleEnum 必须值
+         * @param fontSize 必须值
+         * @param generator 必须值
+         * @param length 必须值
+         * @param quality 量化器取样间隔
+         * @param repeat 帧循环次数
+         * @param minColor 设置随机颜色时，最小的取色范围
+         * @param maxColor 设置随机颜色时，最大的取色范围
+         * @return 实例
+         */
         public static GifDrawingOptions of(GifDrawingOptions options, int width, int height, int interfereCount,
-                                        ColorType backgroundColor, Float transparency, Integer fuzziness, Boolean validIgnoreCase,
-                                        String fontName, FontStyle fontStyle, Integer fontSize,
-                                        CodeGeneratorType generator, int length,
+                                           ColorTypeEnum backgroundColor, Float transparency, Integer fuzziness, Boolean validIgnoreCase,
+                                           FontNameEnum fontName, FontStyleEnum fontStyleEnum, Integer fontSize,
+                                           CodeGeneratorType generator, int length,
                                            Integer quality, Integer repeat, Integer minColor, Integer maxColor) {
             DrawingOptions.of(options, width, height, interfereCount, backgroundColor, transparency, fuzziness, validIgnoreCase, fontName,
-                    fontStyle, fontSize, generator, length);
+                    fontStyleEnum, fontSize, generator, length);
             options.setQuality(quality);
             options.setRepeat(repeat);
             options.setMinColor(minColor);
@@ -89,7 +115,7 @@ public class HutoolCaptchaProperties {
     }
 
     /**
-     * 绘图选项
+     * 绘图配置
      */
     @Data
     public static class DrawingOptions {
@@ -111,7 +137,7 @@ public class HutoolCaptchaProperties {
         /**
          * 背景色
          */
-        private ColorType backgroundColor;
+        private ColorTypeEnum backgroundColor;
 
         /**
          * 文字透明度，取值0~1，1表示不透明
@@ -150,18 +176,19 @@ public class HutoolCaptchaProperties {
          * @param backgroundColor 必须值
          * @param transparency 必须值
          * @param fuzziness 必须值
+         * @param validIgnoreCase 校验忽略大小写
          * @param fontName 可以空
-         * @param fontStyle 必须值
+         * @param fontStyleEnum 必须值
          * @param fontSize 必须值
          * @param generator 必须值
          * @param length 必须值
          * @return 实例
          */
         public static DrawingOptions of(DrawingOptions options, int width, int height, int interfereCount,
-                                        ColorType backgroundColor, Float transparency, Integer fuzziness, Boolean validIgnoreCase,
-                                        String fontName, FontStyle fontStyle, Integer fontSize,
+                                        ColorTypeEnum backgroundColor, Float transparency, Integer fuzziness, Boolean validIgnoreCase,
+                                        FontNameEnum fontName, FontStyleEnum fontStyleEnum, Integer fontSize,
                                         CodeGeneratorType generator, int length) {
-            FontOptions font = FontOptions.of(new FontOptions(), fontName, fontStyle, fontSize);
+            FontOptions font = FontOptions.of(new FontOptions(), fontName, fontStyleEnum, fontSize);
             CodeOptions code = CodeOptions.of(new CodeOptions(), generator, length);
 
             options.setWidth(width);
@@ -184,14 +211,14 @@ public class HutoolCaptchaProperties {
     @Data
     public static class FontOptions {
         /**
-         * 字体名称, 为空表示使用系统默认字体
+         * 字体名称, 系统默认字体
          */
-        private String name;
+        private FontNameEnum name = FontNameEnum.Default;
 
         /**
          * 字体风格
          */
-        private FontStyle style;
+        private FontStyleEnum style;
 
         /**
          * 字体大小
@@ -207,7 +234,7 @@ public class HutoolCaptchaProperties {
          * @param size 必须值
          * @return 实例
          */
-        public static FontOptions of(FontOptions options, String name, FontStyle style, Integer size) {
+        public static FontOptions of(FontOptions options, FontNameEnum name, FontStyleEnum style, Integer size) {
             options.setName(name);
             options.setStyle(style);
             options.setSize(size);

@@ -6,8 +6,8 @@ import apijson.StringUtil;
 import apijson.orm.AbstractVerifier;
 import apijson.orm.Visitor;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonUtils;
-import yunjiao.springboot.autoconfigure.apijson.gson.GsonFunctionParser;
-import yunjiao.springboot.autoconfigure.apijson.gson.GsonVerifier;
+import yunjiao.springboot.extension.apijson.gson.GsonFunctionParser;
+import yunjiao.springboot.extension.apijson.gson.GsonVerifier;
 
 import java.io.Serializable;
 import java.util.ArrayList;

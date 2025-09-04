@@ -52,12 +52,12 @@
             <artifactId>extension-id</artifactId>
             <optional>true</optional>
         </dependency>
-
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+            <artifactId>extension-tika</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -99,6 +99,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- querydsl -->
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-sql-spring</artifactId>
@@ -117,12 +118,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-core</artifactId>
-            <optional>true</optional>
-        </dependency>
-
+        <!-- APIJSON -->
         <dependency>
             <groupId>com.github.APIJSON</groupId>
             <artifactId>apijson-framework</artifactId>
@@ -139,11 +135,26 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- tika -->
 
+        <!-- undertow -->
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-websockets-jsr</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 </project>

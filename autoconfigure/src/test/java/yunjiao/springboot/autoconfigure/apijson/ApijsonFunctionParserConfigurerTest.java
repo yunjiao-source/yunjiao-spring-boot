@@ -4,6 +4,7 @@ import apijson.framework.APIJSONFunctionParser;
 import apijson.orm.AbstractFunctionParser;
 import apijson.orm.script.ScriptExecutor;
 import org.junit.jupiter.api.Test;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
 
 import java.util.List;
 import java.util.Map;

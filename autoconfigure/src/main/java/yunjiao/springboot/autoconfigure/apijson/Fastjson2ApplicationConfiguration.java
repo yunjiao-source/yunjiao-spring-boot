@@ -1,10 +1,5 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.extension.apjson.orm.IdKeyStrategy;
-import yunjiao.springboot.extension.apjson.orm.NewIdStrategy;
-import yunjiao.springboot.autoconfigure.apijson.condition.ApllicationCondition;
-import yunjiao.springboot.autoconfigure.apijson.fastjson2.*;
-import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +10,15 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.autoconfigure.apijson.condition.ApllicationCondition;
+import yunjiao.springboot.autoconfigure.apijson.fastjson2.Fastjson2InitializingBean;
+import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2Creator;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2EXtRestController;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2RestController;
+import yunjiao.springboot.extension.apijson.fastjson2.Fastjson2SimpleCallback;
+import yunjiao.springboot.extension.apijson.orm.IdKeyStrategy;
+import yunjiao.springboot.extension.apijson.orm.NewIdStrategy;
 
 import javax.sql.DataSource;
 
@@ -48,7 +52,7 @@ public class Fastjson2ApplicationConfiguration {
     @ConditionalOnMissingBean
     Fastjson2Creator fastjson2Creator(DataSource dataSource,
                                       ApijsonSqlProperties sqlProperties) {
-        Fastjson2Creator bean = new Fastjson2Creator(dataSource, sqlProperties);
+        Fastjson2Creator bean = new Fastjson2Creator(dataSource, sqlProperties.getConfig().getVersion());
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [Fastjson2 Creator -> {}]", bean);
         }
@@ -109,7 +113,8 @@ public class Fastjson2ApplicationConfiguration {
          */
         @Bean
         Fastjson2RestController fastjson2RestController() {
-            Fastjson2RestController bean = new Fastjson2RestController(properties);
+            Fastjson2RestController bean = new Fastjson2RestController(properties.isNeedVerifyLogin(),
+                    properties.isNeedVerifyRole(), properties.isNeedVerifyContent());
             if (log.isDebugEnabled()) {
                 log.debug("Configure Bean [Fastjson2 Rest Controller -> {}]", bean);
             }

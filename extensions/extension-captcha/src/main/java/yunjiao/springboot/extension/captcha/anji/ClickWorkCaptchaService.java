@@ -4,6 +4,8 @@ import com.anji.captcha.model.common.CaptchaTypeEnum;
 import com.anji.captcha.model.vo.CaptchaVO;
 import com.anji.captcha.service.CaptchaCacheService;
 import com.anji.captcha.service.CaptchaService;
+import com.google.gson.JsonSyntaxException;
+import lombok.extern.slf4j.Slf4j;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
 import yunjiao.springboot.extension.common.captcha.Point;
@@ -17,6 +19,7 @@ import java.util.List;
  *
  * @author yangyunjiao
  */
+@Slf4j
 public class ClickWorkCaptchaService extends BaseCaptchaService {
     /**
      * 拼图坐标允许误差偏移量
@@ -38,22 +41,30 @@ public class ClickWorkCaptchaService extends BaseCaptchaService {
 
     @Override
     public boolean verify(String originalCode, String userCode) {
-        List<Point> originalList = GsonUtils.toList(originalCode, Point.class);
-        List<Point> userList = GsonUtils.toList(userCode, Point.class);
-        if (originalList.size() != userList.size()) {
-            return false;
-        }
+        try {
+            List<Point> originalList = GsonUtils.toList(originalCode, Point.class);
+            List<Point> userList = GsonUtils.toList(userCode, Point.class);
 
-        for (int i = 0; i < originalList.size(); i++) {
-            Point original = originalList.get(i);
-            Point user = userList.get(i);
-            boolean passed = between(user.x(), original.x() - slipOffset, original.x() + slipOffset)
-                    && between(user.y(), original.y() - slipOffset, original.y() + slipOffset);
-            if (!passed) {
+            if (originalList.size() != userList.size()) {
                 return false;
             }
+
+            boolean passed = true;
+            for (int i = 0; i < originalList.size(); i++) {
+                Point original = originalList.get(i);
+                Point user = userList.get(i);
+                passed = between(user.x(), original.x() - slipOffset, original.x() + slipOffset)
+                        && between(user.y(), original.y() - slipOffset, original.y() + slipOffset);
+                if (!passed) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (JsonSyntaxException e) {
+            log.error("验证码格式异常", e);
         }
-        return true;
+
+        return false;
     }
 
     @Override

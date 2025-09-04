@@ -24,6 +24,7 @@
         <module>example-apijson-gson</module>
         <module>example-apijson-multipledatasource</module>
         <module>example-captcha</module>
+        <module>example-tika</module>
     </modules>
 
     <properties>
@@ -124,11 +125,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
 

@@ -2,7 +2,7 @@ package yunjiao.springboot.extension.captcha.hutool;
 
 import cn.hutool.captcha.AbstractCaptcha;
 import cn.hutool.captcha.generator.CodeGenerator;
-import yunjiao.springboot.extension.common.model.ColorType;
+import yunjiao.springboot.extension.common.model.ColorTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,7 +34,7 @@ public abstract class AbstractCaptchaBuilder<C extends AbstractCaptcha> {
     /**
      * 背景色
      */
-    private ColorType backgroundColor;
+    private ColorTypeEnum backgroundColor;
 
     /**
      * 文字透明度，取值0~1，1表示不透明

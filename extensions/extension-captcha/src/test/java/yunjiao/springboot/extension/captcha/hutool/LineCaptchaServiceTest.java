@@ -3,7 +3,8 @@ package yunjiao.springboot.extension.captcha.hutool;
 import org.junit.jupiter.api.Test;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
-import yunjiao.springboot.extension.common.model.ColorType;
+import yunjiao.springboot.extension.common.model.ColorTypeEnum;
+import yunjiao.springboot.extension.common.model.FontNameEnum;
 
 import java.awt.*;
 
@@ -19,12 +20,12 @@ public class LineCaptchaServiceTest {
     private static final LineCaptchaBuilder builder;
 
     static {
-        Font font = new Font(null, Font.PLAIN, 36);
+        Font font = FontNameEnum.Default.getFont(Font.PLAIN, 36);
         builder = new LineCaptchaBuilder();
         builder.setWidth(250);
         builder.setHeight(50);
         builder.setInterfereCount(60);
-        builder.setBackgroundColor(ColorType.white);
+        builder.setBackgroundColor(ColorTypeEnum.white);
         builder.setFuzziness(2);
         builder.setValidIgnoreCase(true);
         builder.setFont(font);

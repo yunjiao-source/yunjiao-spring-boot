@@ -1,7 +1,7 @@
 package yunjiao.springboot.example.apijson;
 
 import yunjiao.springboot.example.apijson.gson.CustomGsonCreator;
-import yunjiao.springboot.extension.apjson.util.ApijsonConsts;
+import yunjiao.springboot.extension.apijson.util.ApijsonConsts;
 import yunjiao.springboot.autoconfigure.apijson.ApijsonSqlProperties;
 import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;

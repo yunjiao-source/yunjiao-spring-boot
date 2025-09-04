@@ -1,8 +1,8 @@
 package yunjiao.springboot.example.apijson.config;
 
 import apijson.StringUtil;
-import yunjiao.springboot.autoconfigure.apijson.ApijsonSqlConfigConfigurer;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.apijson.ApijsonSqlConfigConfigurer;
 
 import java.util.Arrays;
 import java.util.HashMap;

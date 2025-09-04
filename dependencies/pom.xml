@@ -28,6 +28,7 @@
         <apijson-fastjson2.version>1.0.2</apijson-fastjson2.version>
         <ajcaptcha.version>1.4.0</ajcaptcha.version>
         <uid-generator.version>2.2</uid-generator.version>
+        <tika.version>3.2.2</tika.version>
 
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -79,6 +80,12 @@
             </dependency>
             <dependency>
                 <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+                <artifactId>extension-tika</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
                 <artifactId>starter-querydsl-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -107,6 +114,11 @@
                 <artifactId>starter-captcha</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>io.gitee.yunjiao-source.spring-boot</groupId>
+                <artifactId>starter-tika</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- pom 依赖 -->
             <dependency>
@@ -120,6 +132,13 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
                 <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-bom</artifactId>
+                <version>${tika.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -182,6 +201,7 @@
                 <artifactId>apijson-gson</artifactId>
                 <version>${apijson-gson.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 

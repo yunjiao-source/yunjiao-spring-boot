@@ -9,10 +9,10 @@ public final class CommonConsts {
     /**
      * 系统环境变量名称：雪花算法workId
      */
-    public static final String ENV_SNOWFLAKE_WORKER_ID = "SNOWFLAKE_WORKER_ID";
+    public static final String ENV_SNOWFLAKE_WORKER_ID = "yunjiao.springboot.extension.id.snowflakeWorkId";
 
     /**
      * 系统环境变量名称：雪花算法datacenterId
      */
-    public static final String ENV_SNOWFLAKE_DATACENTER_ID = "SNOWFLAKE_DATACENTER_ID";
+    public static final String ENV_SNOWFLAKE_DATACENTER_ID = "yunjiao.springboot.extension.id.snowflakeDatacenterId";
 }

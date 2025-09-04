@@ -4,6 +4,8 @@ import com.anji.captcha.model.common.CaptchaTypeEnum;
 import com.anji.captcha.model.vo.CaptchaVO;
 import com.anji.captcha.service.CaptchaCacheService;
 import com.anji.captcha.service.CaptchaService;
+import com.google.gson.JsonSyntaxException;
+import lombok.extern.slf4j.Slf4j;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
 import yunjiao.springboot.extension.common.captcha.Point;
@@ -16,6 +18,7 @@ import java.util.Base64;
  *
  * @author yangyunjiao
  */
+@Slf4j
 public class BlockPuzzleCaptchaService extends BaseCaptchaService {
     /**
      * 拼图坐标允许误差偏移量
@@ -37,11 +40,17 @@ public class BlockPuzzleCaptchaService extends BaseCaptchaService {
 
     @Override
     public boolean verify(String originalCode, String userCode) {
-        Point original = GsonUtils.fromJson(originalCode, Point.class);
-        Point user = GsonUtils.fromJson(userCode, Point.class);
+        try {
+            Point original = GsonUtils.fromJson(originalCode, Point.class);
+            Point user = GsonUtils.fromJson(userCode, Point.class);
 
-        return between(user.x(), original.x() - slipOffset, original.x() + slipOffset)
-                && between(user.y(), original.y() - slipOffset, original.y() + slipOffset);
+            return between(user.x(), original.x() - slipOffset, original.x() + slipOffset)
+                    && between(user.y(), original.y() - slipOffset, original.y() + slipOffset);
+        } catch (JsonSyntaxException e) {
+            log.error("验证码格式异常", e);
+        }
+
+        return false;
     }
 
     @Override

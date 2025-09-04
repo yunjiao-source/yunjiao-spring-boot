@@ -20,12 +20,21 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class GuavaCaptchaCache implements CaptchaCache {
+    /**
+     * 缓存
+     */
     private final LoadingCache<String, Optional<String>> cache;
 
-    public GuavaCaptchaCache(Duration expireMillis, long size) {
+    /**
+     * 构造器
+     *
+     * @param expired 缓存过期时间
+     * @param size 缓存大小
+     */
+    public GuavaCaptchaCache(Duration expired, long size) {
         CacheBuilder<Object, Object> builder =
                 CacheBuilder.newBuilder()
-                        .expireAfterWrite(expireMillis.toMillis(), TimeUnit.MILLISECONDS);
+                        .expireAfterWrite(expired.toMillis(), TimeUnit.MILLISECONDS);
 
         if (size > 0) {
             builder.maximumSize(size);

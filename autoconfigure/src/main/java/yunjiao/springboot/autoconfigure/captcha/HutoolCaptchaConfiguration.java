@@ -12,6 +12,7 @@ import yunjiao.springboot.extension.captcha.hutool.*;
 import yunjiao.springboot.extension.common.captcha.CaptchaService;
 
 import java.awt.*;
+import java.util.Optional;
 
 /**
  * Hutool验证码配置
@@ -106,12 +107,10 @@ public class HutoolCaptchaConfiguration {
         Assert.isTrue(drawing.getHeight() > 0, "验证码配置属性‘height‘值必须大于0");
         Assert.isTrue(drawing.getInterfereCount() > 0, "验证码配置属性‘interfereCount‘值必须大于0");
 
-        Float transparency = drawing.getTransparency();
-        if (transparency != null) {
-            Assert.isTrue(drawing.getTransparency() >= 0 && drawing.getTransparency() <= 1, "验证码配置属性‘transparency‘值必须在[0, 1]之间");
-        }
-        Assert.isTrue(drawing.getFuzziness() >= 0 && drawing.getFuzziness() <= 30, "验证码配置属性‘fuzziness‘值必须在[0, 30]之间");
-
+        Optional.ofNullable(drawing.getTransparency()).ifPresent(transparency ->
+                Assert.isTrue(drawing.getTransparency() >= 0 && drawing.getTransparency() <= 1, "验证码配置属性‘transparency‘值必须在[0, 1]之间"));
+        Optional.ofNullable(drawing.getFuzziness()).ifPresent(fuzziness ->
+                Assert.isTrue(drawing.getFuzziness() >= 0 && drawing.getFuzziness() <= 30, "验证码配置属性‘fuzziness‘值必须在[0, 30]之间"));
 
         HutoolCaptchaProperties.CodeOptions code = drawing.getCode();
         Assert.isTrue(code.getLength() > 0, "验证码配置属性‘code.length‘值必须大于0");
@@ -137,6 +136,6 @@ public class HutoolCaptchaConfiguration {
 
     @SuppressWarnings({"all"})
     private Font createFont(HutoolCaptchaProperties.FontOptions options) {
-        return new Font(options.getName(), options.getStyle().getMapping(), options.getSize());
+        return options.getName().getFont(options.getStyle().getMapping(), options.getSize());
     }
 }

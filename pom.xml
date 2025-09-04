@@ -114,7 +114,7 @@
                                 </goals>
                                 <configuration>
                                     <backend>html</backend>
-                                    <sourceDirectory>docs</sourceDirectory>
+                                    <sourceDirectory>docs/adoc</sourceDirectory>
                                     <outputDirectory>docs/build/html</outputDirectory>
                                 </configuration>
                             </execution>
@@ -126,7 +126,7 @@
                                 </goals>
                                 <configuration>
                                     <backend>pdf</backend>
-                                    <sourceDirectory>docs</sourceDirectory>
+                                    <sourceDirectory>docs/adoc</sourceDirectory>
                                     <outputDirectory>docs/build/pdf</outputDirectory>
                                 </configuration>
                             </execution>

@@ -16,6 +16,11 @@ public class PropertyNameConsts {
      */
     public static final String PROPERTY_PREFIX_SPRING = "spring";
 
+    /**
+     * tika 属性
+     */
+    public static final String PROPERTY_PREFIX_TIKA = PROPERTY_PREFIX_SPRING + ".tika";
+
     // id
 
     /**

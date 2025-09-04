@@ -29,7 +29,7 @@ public class HutoolIdConfiguration {
     }
 
     /**
-     * 雪花算法, 获取系统变量 SNOWFLAKE_WORKER_ID 和 SNOWFLAKE_DATACENTER_ID 值创建,
+     * 雪花算法, 获取系统变量 'yunjiao.springboot.extension.id.snowflakeWorkId' 和 'yunjiao.springboot.extension.id.snowflakeDatacenterId' 值创建,
      * 如果不存在，值默认是1
      *
      * @param env 必须值
@@ -47,7 +47,7 @@ public class HutoolIdConfiguration {
         }
 
         if (workerId == 1L &&  datacenterId == 1L) {
-            log.warn("Hutool 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：{} 与 {}", CommonConsts.ENV_SNOWFLAKE_WORKER_ID, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID);
+            log.warn("Hutool 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：'{}' 与 '{}'", CommonConsts.ENV_SNOWFLAKE_WORKER_ID, CommonConsts.ENV_SNOWFLAKE_DATACENTER_ID);
         }
         return snowflake;
     }

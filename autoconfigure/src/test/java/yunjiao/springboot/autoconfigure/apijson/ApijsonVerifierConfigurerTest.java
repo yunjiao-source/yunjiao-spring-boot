@@ -5,6 +5,7 @@ import apijson.framework.APIJSONVerifier;
 import apijson.orm.AbstractVerifier;
 import apijson.orm.Entry;
 import org.junit.jupiter.api.Test;
+import yunjiao.springboot.extension.apijson.ApijsonVerifierConfigurer;
 
 import java.util.List;
 import java.util.Map;

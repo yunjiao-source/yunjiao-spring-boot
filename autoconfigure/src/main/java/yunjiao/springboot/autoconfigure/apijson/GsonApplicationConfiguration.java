@@ -1,10 +1,5 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.extension.apjson.orm.IdKeyStrategy;
-import yunjiao.springboot.extension.apjson.orm.NewIdStrategy;
-import yunjiao.springboot.autoconfigure.apijson.condition.ApllicationCondition;
-import yunjiao.springboot.autoconfigure.apijson.gson.*;
-import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +10,15 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.autoconfigure.apijson.condition.ApllicationCondition;
+import yunjiao.springboot.autoconfigure.apijson.gson.GsonInitializingBean;
+import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
+import yunjiao.springboot.extension.apijson.gson.GsonCreator;
+import yunjiao.springboot.extension.apijson.gson.GsonEXtRestController;
+import yunjiao.springboot.extension.apijson.gson.GsonRestController;
+import yunjiao.springboot.extension.apijson.gson.GsonSimpleCallback;
+import yunjiao.springboot.extension.apijson.orm.IdKeyStrategy;
+import yunjiao.springboot.extension.apijson.orm.NewIdStrategy;
 
 import javax.sql.DataSource;
 
@@ -48,7 +52,7 @@ public class GsonApplicationConfiguration {
     @ConditionalOnMissingBean
     GsonCreator gsonCreator(DataSource dataSource,
                             ApijsonSqlProperties sqlProperties) {
-        GsonCreator bean = new GsonCreator(dataSource, sqlProperties);
+        GsonCreator bean = new GsonCreator(dataSource, sqlProperties.getConfig().getVersion());
         if (log.isDebugEnabled()) {
             log.debug("Configure Bean [Gson Creator -> {}]", bean);
         }
@@ -104,7 +108,8 @@ public class GsonApplicationConfiguration {
 
         @Bean
         GsonRestController gsonRestController() {
-            GsonRestController bean = new GsonRestController(properties);
+            GsonRestController bean = new GsonRestController(properties.isNeedVerifyLogin(),
+                    properties.isNeedVerifyRole(), properties.isNeedVerifyContent());
             if (log.isDebugEnabled()) {
                 log.debug("Configure Bean [Gson Rest Controller -> {}]", bean);
             }

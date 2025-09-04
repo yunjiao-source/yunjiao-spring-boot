@@ -1,6 +1,6 @@
 package yunjiao.springboot.autoconfigure.apijson;
 
-import yunjiao.springboot.extension.apjson.util.ApijsonConsts;
+import yunjiao.springboot.extension.apijson.util.ApijsonConsts;
 import yunjiao.springboot.autoconfigure.util.PropertyNameConsts;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -2,8 +2,8 @@ package yunjiao.springboot.example.apijson.config;
 
 import apijson.orm.script.JavaScriptExecutor;
 import apijson.orm.script.ScriptExecutor;
-import yunjiao.springboot.autoconfigure.apijson.ApijsonFunctionParserConfigurer;
 import org.springframework.context.annotation.Configuration;
+import yunjiao.springboot.extension.apijson.ApijsonFunctionParserConfigurer;
 
 import java.util.List;
 import java.util.Map;

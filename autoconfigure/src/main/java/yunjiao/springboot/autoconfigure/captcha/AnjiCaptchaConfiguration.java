@@ -64,11 +64,11 @@ public class AnjiCaptchaConfiguration {
         config.put(Const.ORIGINAL_PATH_PIC_CLICK, properties.getClickWord().getPicClick());
         config.put(Const.CAPTCHA_SLIP_OFFSET, properties.getBlockPuzzle().getSlipOffset());
         config.put(Const.CAPTCHA_AES_STATUS, "false");
-        config.put(Const.CAPTCHA_WATER_FONT, properties.getWaterFont());
+        config.put(Const.CAPTCHA_WATER_FONT, properties.getWaterFont().getName());
 
 
         config.put(Const.CAPTCHA_FONT_SIZE, properties.getClickWord().getFontSize());
-        config.put(Const.CAPTCHA_FONT_STYLE, properties.getClickWord().getFontStyle().getMapping());
+        config.put(Const.CAPTCHA_FONT_STYLE, properties.getClickWord().getFontStyleEnum().getMapping());
         config.put(Const.CAPTCHA_WORD_COUNT, properties.getClickWord().getClickWordCount());
 
         fixBugCache(config);
@@ -144,6 +144,10 @@ public class AnjiCaptchaConfiguration {
         return service;
     }
 
+    /**
+     * 初始化滑块资源
+     * @param jigsaw 滑块资源路径
+     */
     private void initJigsawResource(String jigsaw) {
         if (StringUtils.hasText(jigsaw) && jigsaw.startsWith("classpath")) {
             ImageUtils.cacheBootImage(getResourcesImagesFile(jigsaw + "/original/*.png"),
@@ -152,6 +156,10 @@ public class AnjiCaptchaConfiguration {
         }
     }
 
+    /**
+     * 初始化文字点击资源
+     * @param picClick 文字点击资源路径
+     */
     private void initPicClickResource(String picClick) {
         if (StringUtils.hasText(picClick) && picClick.startsWith("classpath")) {
             ImageUtils.cacheBootImage(Collections.emptyMap(), Collections.emptyMap(),
@@ -159,7 +167,13 @@ public class AnjiCaptchaConfiguration {
         }
     }
 
-    public Map<String, String> getResourcesImagesFile(String path) {
+    /**
+     * 读取图片资源
+     *
+     * @param path 路径
+     * @return 资源
+     */
+    private Map<String, String> getResourcesImagesFile(String path) {
         Map<String, String> imgMap = new HashMap<>();
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {

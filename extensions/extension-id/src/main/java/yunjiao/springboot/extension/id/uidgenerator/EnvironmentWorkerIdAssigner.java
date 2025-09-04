@@ -18,7 +18,7 @@ public record EnvironmentWorkerIdAssigner(Environment env) implements WorkerIdAs
         long workerId = Utils.convertEnv(env, CommonConsts.ENV_SNOWFLAKE_WORKER_ID, Long.class, 1L);
 
         if (workerId == 1L) {
-            log.warn("Uid-Generator 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：{}", CommonConsts.ENV_SNOWFLAKE_WORKER_ID);
+            log.warn("Uid-Generator 框架雪花算法配置使用默认参数。如需支持分布式，请设置系统环境变量：'{}'", CommonConsts.ENV_SNOWFLAKE_WORKER_ID);
         }
         return workerId;
     }

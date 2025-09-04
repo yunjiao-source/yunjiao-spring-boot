@@ -3,7 +3,8 @@ package yunjiao.springboot.extension.captcha.hutool;
 import org.junit.jupiter.api.Test;
 import yunjiao.springboot.extension.common.captcha.CaptchaCategory;
 import yunjiao.springboot.extension.common.captcha.CaptchaData;
-import yunjiao.springboot.extension.common.model.ColorType;
+import yunjiao.springboot.extension.common.model.ColorTypeEnum;
+import yunjiao.springboot.extension.common.model.FontNameEnum;
 
 import java.awt.*;
 
@@ -19,16 +20,16 @@ public class ShearCaptchaServiceTest {
     private static final ShearCaptchaBuilder builder;
 
     static {
-        Font font = new Font(null, Font.PLAIN, 36);
+        Font font = FontNameEnum.SimSun.getFont(Font.PLAIN, 36);
         builder = new ShearCaptchaBuilder();
         builder.setWidth(250);
         builder.setHeight(50);
         builder.setInterfereCount(4);
-        builder.setBackgroundColor(ColorType.white);
+        builder.setBackgroundColor(ColorTypeEnum.white);
         builder.setFuzziness(2);
         builder.setValidIgnoreCase(true);
         builder.setFont(font);
-        builder.setGenerator(CodeGeneratorType.numAndChar.apply(6));
+        builder.setGenerator(CodeGeneratorType.lowerChar.apply(6));
         shearCaptchaService = new ShearCaptchaService(builder);
     }
 

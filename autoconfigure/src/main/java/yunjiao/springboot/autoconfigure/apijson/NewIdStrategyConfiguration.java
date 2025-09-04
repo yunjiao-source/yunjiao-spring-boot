@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import yunjiao.springboot.extension.apjson.orm.*;
+import yunjiao.springboot.extension.apijson.orm.*;
 
 /**
  * {@link NewIdStrategy}实现类自动配置
