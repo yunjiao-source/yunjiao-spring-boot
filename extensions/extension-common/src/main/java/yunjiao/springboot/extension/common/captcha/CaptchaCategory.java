@@ -1,6 +1,5 @@
 package yunjiao.springboot.extension.common.captcha;
 
-import yunjiao.springboot.extension.common.util.EnumCache;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -33,10 +32,5 @@ public enum CaptchaCategory {
     CaptchaCategory(String ext, String description) {
         this.ext = ext;
         this.description = description;
-    }
-
-    static {
-        EnumCache.registerByName(CaptchaCategory.class, CaptchaCategory.values());
-        EnumCache.registerByValue(CaptchaCategory.class, CaptchaCategory.values(), CaptchaCategory::getDescription);
     }
 }

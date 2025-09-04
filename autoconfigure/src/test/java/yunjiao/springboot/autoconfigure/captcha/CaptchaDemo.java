@@ -123,7 +123,8 @@ public class CaptchaDemo {
 
         private void refreshCaptcha() {
             String selectedType = (String) typeComboBox.getSelectedItem();
-            CaptchaCategory category = EnumCache.findByValue(CaptchaCategory.class, selectedType);
+            CaptchaCategory category = EnumCache.getInstance()
+                    .lookupByValue(CaptchaCategory.class, selectedType, CaptchaCategory::getDescription);
             currentCaptcha = captchaServiceFactory.findService(category).draw();
 
             try {
@@ -152,7 +153,8 @@ public class CaptchaDemo {
             }
 
             String selectedType = (String) typeComboBox.getSelectedItem();
-            CaptchaCategory category = EnumCache.findByValue(CaptchaCategory.class, selectedType);
+            CaptchaCategory category = EnumCache.getInstance()
+                    .lookupByValue(CaptchaCategory.class, selectedType, CaptchaCategory::getDescription);
 
             boolean isValid = captchaServiceFactory.findService(category).verify(currentCaptcha.code(), userInput);
             if (isValid) {
@@ -166,8 +168,6 @@ public class CaptchaDemo {
         }
 
     }
-
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new CaptchaFrame().setVisible(true));

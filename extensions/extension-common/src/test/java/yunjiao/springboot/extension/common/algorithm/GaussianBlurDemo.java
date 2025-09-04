@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author yangyunjiao
  */
-public class GaussianBlurJFrameDemo extends JFrame {
+public class GaussianBlurDemo extends JFrame {
     private BufferedImage originalImage;
     private BufferedImage blurredImage;
     private final JLabel imageLabel;
@@ -42,7 +42,7 @@ public class GaussianBlurJFrameDemo extends JFrame {
 
     }
 
-    public GaussianBlurJFrameDemo() {
+    public GaussianBlurDemo() {
         setTitle("Java高斯模糊算法 - 支持强度设置");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 700);
@@ -191,9 +191,7 @@ public class GaussianBlurJFrameDemo extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            GaussianBlurJFrameDemo app = new GaussianBlurJFrameDemo();
-            app.setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> new GaussianBlurDemo().setVisible(true));
     }
+
 }

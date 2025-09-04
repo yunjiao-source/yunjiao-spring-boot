@@ -1,6 +1,5 @@
 package yunjiao.springboot.extension.common.util;
 
-import org.junit.jupiter.api.Test;
 import yunjiao.springboot.extension.common.model.FontNameEnum;
 
 import javax.swing.*;
@@ -12,9 +11,8 @@ import java.util.Arrays;
  *
  * @author yangyunjiao
  */
-public class FontCacheTestIT {
-    @Test
-    void listSystemFont() {
+public class FontCacheDemo {
+    static void listSystemFont() {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
         System.out.println("可用的字体系列:");
@@ -34,6 +32,8 @@ public class FontCacheTestIT {
         private JLabel previewLabel;
 
         public FontSelector() {
+            listSystemFont();
+
             setTitle("字体选择器");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setSize(600, 500);
@@ -153,7 +153,7 @@ public class FontCacheTestIT {
     }
 
     public static void main(String[] args) {
-        // 使用SwingUtilities.invokeLater确保线程安全
-        SwingUtilities.invokeLater(FontSelector::new);
+        SwingUtilities.invokeLater(() -> new FontSelector().setVisible(true));
     }
+
 }

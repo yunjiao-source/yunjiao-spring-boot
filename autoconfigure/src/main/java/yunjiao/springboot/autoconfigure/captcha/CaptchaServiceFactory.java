@@ -21,7 +21,7 @@ public record CaptchaServiceFactory(Map<CaptchaCategory, CaptchaService> service
      * @return 实例
      */
     public CaptchaService findService(String categoryName) {
-        CaptchaCategory category = EnumCache.findByName(CaptchaCategory.class, categoryName);
+        CaptchaCategory category = EnumCache.getInstance().lookupByName(CaptchaCategory.class, categoryName);
         if (category == null) {
             throw new CaptchaException("验证码分类代码不存在，名称是：" + categoryName);
         }
