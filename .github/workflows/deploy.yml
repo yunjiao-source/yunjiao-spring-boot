@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages # 工作流的名称
+
+on: # 触发工作流的事件
+  push:
+    branches: [ main ] # 当推送到 main 分支时触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # 在最新的 Ubuntu 系统上运行
+
+    steps:
+      # 步骤 1: 检出代码 (获取你的仓库源码)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 步骤 2: 设置 Node.js 环境 (根据你的项目需求)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # 指定 Node.js 版本
+          cache: 'npm'
+
+      # 步骤 3: 安装依赖
+      - name: Install dependencies
+        run: npm ci # 或 npm install, yarn install, pnpm install
+
+      # 步骤 4: 构建项目
+      - name: Build
+        run: npm run build # 你的构建命令
+
+      # 步骤 5: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # 一个流行的部署 Action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 自动生成的令牌
+          publish_dir: ./dist # 要部署的文件夹路径，即构建输出的目录
+          # branch: gh-pages # (可选) 部署到的分支，默认为 gh-pages
